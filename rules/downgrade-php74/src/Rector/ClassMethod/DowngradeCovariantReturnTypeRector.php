@@ -122,12 +122,12 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldRefactor(ClassMethod $classMethod): bool
+    private function shouldRefactor(\PhpParser\Node $classMethod): bool
     {
         return $this->getDifferentReturnTypeNameFromAncestorClass($classMethod) !== null;
     }
 
-    private function getDifferentReturnTypeNameFromAncestorClass(ClassMethod $classMethod): ?string
+    private function getDifferentReturnTypeNameFromAncestorClass(\PhpParser\Node $classMethod): ?string
     {
         $scope = $classMethod->getAttribute(AttributeKey::SCOPE);
         if (! $scope instanceof Scope) {
@@ -200,7 +200,7 @@ CODE_SAMPLE
         return $reflectionType->getName() === $nodeReturnTypeName;
     }
 
-    private function addDocBlockReturn(ClassMethod $classMethod): void
+    private function addDocBlockReturn(\PhpParser\Node $classMethod): void
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
 

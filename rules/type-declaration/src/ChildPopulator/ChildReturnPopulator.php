@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\TypeDeclaration\ChildPopulator;
 
-use PhpParser\Node\Stmt\ClassLike;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\Type;
 use Rector\Core\Exception\ShouldNotHappenException;
@@ -59,7 +59,7 @@ final class ChildReturnPopulator extends AbstractChildPopulator
     }
 
     private function addReturnTypeToChildMethod(
-        ClassLike $classLike,
+        Stmt $classLike,
         ClassMethod $classMethod,
         Type $returnType
     ): void {

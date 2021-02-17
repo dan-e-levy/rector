@@ -162,7 +162,7 @@ CODE_SAMPLE
         return $expr;
     }
 
-    private function refactorAssignArray(Expr $expr, FuncCall $funcCall): ?Expr
+    private function refactorAssignArray(Expr $expr, Node $funcCall): ?Expr
     {
         $previousAssign = $this->betterNodeFinder->findPreviousAssignToExpr($expr);
         if (! $previousAssign instanceof Assign) {

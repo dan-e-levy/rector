@@ -7,6 +7,7 @@ namespace Rector\Naming\Guard;
 use DateTimeInterface;
 use Nette\Utils\Strings;
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
@@ -89,7 +90,7 @@ final class BreakingVariableRenameGuard
     public function shouldSkipVariable(
         string $currentName,
         string $expectedName,
-        FunctionLike $functionLike,
+        Node $functionLike,
         Variable $variable
     ): bool {
         // is the suffix? → also accepted
@@ -171,7 +172,7 @@ final class BreakingVariableRenameGuard
         });
     }
 
-    private function isVariableAlreadyDefined(Variable $variable, string $currentVariableName): bool
+    private function isVariableAlreadyDefined(Expr $variable, string $currentVariableName): bool
     {
         $scope = $variable->getAttribute(AttributeKey::SCOPE);
         if (! $scope instanceof Scope) {

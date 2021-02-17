@@ -136,7 +136,7 @@ CODE_SAMPLE
         return new Ternary($conditionNode, $node, new LNumber(0));
     }
 
-    private function shouldSkip(FuncCall $funcCall): bool
+    private function shouldSkip(Node $funcCall): bool
     {
         if (! $this->isName($funcCall, 'count')) {
             return true;
@@ -163,7 +163,7 @@ CODE_SAMPLE
         return $classLike instanceof Trait_;
     }
 
-    private function castToArray(Expr $countedExpr, FuncCall $funcCall): FuncCall
+    private function castToArray(Expr $countedExpr, Node $funcCall): FuncCall
     {
         $castArray = new Array_($countedExpr);
         $funcCall->args = [new Arg($castArray)];

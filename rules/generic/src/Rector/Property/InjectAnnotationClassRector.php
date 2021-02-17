@@ -10,10 +10,10 @@ use Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Property;
-use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagValueNode;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
+use Rector\BetterPhpDocParser\Contract\PhpDocNode\ShortNameAwareTagInterface;
 use Rector\BetterPhpDocParser\PhpDocManipulator\PhpDocTypeChanger;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\JMS\JMSInjectTagValueNode;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\PHPDI\PHPDIInjectTagValueNode;
@@ -185,7 +185,7 @@ CODE_SAMPLE
         throw new NotImplementedYetException($errorMessage);
     }
 
-    private function isParameterInject(PhpDocTagValueNode $phpDocTagValueNode): bool
+    private function isParameterInject(ShortNameAwareTagInterface $phpDocTagValueNode): bool
     {
         if (! $phpDocTagValueNode instanceof JMSInjectTagValueNode) {
             return false;
@@ -200,7 +200,7 @@ CODE_SAMPLE
         return (bool) Strings::match($serviceName, self::BETWEEN_PERCENT_CHARS_REGEX);
     }
 
-    private function resolveType(Property $property, PhpDocTagValueNode $phpDocTagValueNode): Type
+    private function resolveType(Node $property, ShortNameAwareTagInterface $phpDocTagValueNode): Type
     {
         if ($phpDocTagValueNode instanceof JMSInjectTagValueNode) {
             return $this->resolveJMSDIInjectType($property, $phpDocTagValueNode);
@@ -214,7 +214,7 @@ CODE_SAMPLE
         throw new ShouldNotHappenException();
     }
 
-    private function refactorPropertyWithAnnotation(Property $property, Type $type, string $tagClass): ?Property
+    private function refactorPropertyWithAnnotation(Node $property, Type $type, string $tagClass): ?Property
     {
         if ($type instanceof MixedType) {
             return null;

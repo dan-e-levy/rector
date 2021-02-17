@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Rector\PHPUnit\NodeManipulator;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Stmt;
-use PhpParser\Node\Stmt\Class_;
 use Rector\Core\ValueObject\MethodName;
 use Rector\PHPUnit\NodeFactory\SetUpClassMethodFactory;
 
@@ -32,7 +32,7 @@ final class SetUpClassMethodNodeManipulator
     /**
      * @param Stmt[]|Expr[] $stmts
      */
-    public function decorateOrCreate(Class_ $class, array $stmts): void
+    public function decorateOrCreate(Node $class, array $stmts): void
     {
         $stmts = $this->stmtManipulator->normalizeStmts($stmts);
 

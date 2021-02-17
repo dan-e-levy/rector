@@ -135,7 +135,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorEventNames(ClassMethod $classMethod): void
+    private function refactorEventNames(Node $classMethod): void
     {
         $this->traverseNodesWithCallable((array) $classMethod->stmts, function (Node $node) {
             if (! $node instanceof Return_) {

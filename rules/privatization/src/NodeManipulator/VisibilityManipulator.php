@@ -39,7 +39,7 @@ final class VisibilityManipulator
     /**
      * @param ClassMethod|Property $node
      */
-    public function makeNonStatic(Node $node): void
+    public function makeNonStatic(ClassMethod $node): void
     {
         if (! $node->isStatic()) {
             return;
@@ -136,7 +136,7 @@ final class VisibilityManipulator
         $this->replaceVisibilityFlag($node, Visibility::PRIVATE);
     }
 
-    public function removeFinal(Class_ $class): void
+    public function removeFinal(Node $class): void
     {
         $class->flags -= Class_::MODIFIER_FINAL;
     }

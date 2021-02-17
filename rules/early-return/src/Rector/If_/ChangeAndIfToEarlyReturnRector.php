@@ -143,7 +143,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkip(If_ $if): bool
+    private function shouldSkip(Node $if): bool
     {
         if (! $this->ifManipulator->isIfWithOnlyOneStmt($if)) {
             return true;
@@ -180,7 +180,7 @@ CODE_SAMPLE
         return ! $this->isLastIfOrBeforeLastReturn($if);
     }
 
-    private function getIfReturn(If_ $if): ?Stmt
+    private function getIfReturn(Node $if): ?Stmt
     {
         return end($if->stmts) ?: null;
     }
@@ -208,7 +208,7 @@ CODE_SAMPLE
      * @param Expr[] $conditions
      * @return If_[]
      */
-    private function createInvertedIfNodesFromConditions(If_ $node, array $conditions): array
+    private function createInvertedIfNodesFromConditions(Node $node, array $conditions): array
     {
         $isIfInLoop = $this->isIfInLoop($node);
 
@@ -226,7 +226,7 @@ CODE_SAMPLE
         return $ifs;
     }
 
-    private function getIfNextReturn(If_ $if): ?Return_
+    private function getIfNextReturn(Node $if): ?Return_
     {
         $nextNode = $if->getAttribute(AttributeKey::NEXT_NODE);
         if (! $nextNode instanceof Return_) {
@@ -236,7 +236,7 @@ CODE_SAMPLE
         return $nextNode;
     }
 
-    private function isIfInLoop(If_ $if): bool
+    private function isIfInLoop(Node $if): bool
     {
         $parentLoop = $this->betterNodeFinder->findParentTypes($if, self::LOOP_TYPES);
 

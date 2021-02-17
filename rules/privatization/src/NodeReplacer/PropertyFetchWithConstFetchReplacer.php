@@ -9,7 +9,6 @@ use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Stmt\Class_;
-use PhpParser\Node\Stmt\Property;
 use Rector\Core\NodeAnalyzer\PropertyFetchAnalyzer;
 use Rector\Core\PhpParser\Node\NodeFactory;
 use Rector\NodeNameResolver\NodeNameResolver;
@@ -57,7 +56,7 @@ final class PropertyFetchWithConstFetchReplacer
         $this->nodeFactory = $nodeFactory;
     }
 
-    public function replace(Class_ $class, Property $property): void
+    public function replace(Class_ $class, Node $property): void
     {
         $propertyProperty = $property->props[0];
 

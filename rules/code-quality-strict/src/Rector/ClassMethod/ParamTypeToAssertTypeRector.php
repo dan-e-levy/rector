@@ -172,7 +172,7 @@ CODE_SAMPLE
     /**
      * @param array<string, ObjectType|UnionType> $toBeProcessedTypes
      */
-    private function processAddTypeAssert(ClassMethod $classMethod, array $toBeProcessedTypes): ClassMethod
+    private function processAddTypeAssert(Node $classMethod, array $toBeProcessedTypes): ClassMethod
     {
         $assertStatements = [];
         foreach ($toBeProcessedTypes as $variableName => $requiredType) {

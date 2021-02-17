@@ -6,6 +6,7 @@ namespace Rector\DowngradePhp80\Rector\ClassMethod;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\ClosureUse;
 use PhpParser\Node\Expr\FuncCall;
@@ -13,6 +14,7 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Param;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use Rector\Core\Rector\AbstractRector;
@@ -107,7 +109,7 @@ CODE_SAMPLE
     /**
      * @param FuncCall|MethodCall|StaticCall|New_ $node
      */
-    private function processArgs(Node $node): ?Node
+    private function processArgs(Expr $node): ?Node
     {
         if ($node->args === []) {
             return null;
@@ -130,7 +132,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_|Closure $node
      */
-    private function processParams(Node $node): ?Node
+    private function processParams(Stmt $node): ?Node
     {
         if ($node->params === []) {
             return null;

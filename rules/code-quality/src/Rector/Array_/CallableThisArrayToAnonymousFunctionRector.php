@@ -141,7 +141,7 @@ CODE_SAMPLE
         return $this->anonymousFunctionFactory->create($classMethod, $objectVariable);
     }
 
-    private function shouldSkipArray(Array_ $array): bool
+    private function shouldSkipArray(Node $array): bool
     {
         // callback is exactly "[$two, 'items']"
         if (count($array->items) !== 2) {

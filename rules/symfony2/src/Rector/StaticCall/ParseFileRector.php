@@ -79,7 +79,7 @@ final class ParseFileRector extends AbstractRector
         return $node;
     }
 
-    private function isArgumentYamlFile(StaticCall $staticCall): bool
+    private function isArgumentYamlFile(Node $staticCall): bool
     {
         $possibleFileNode = $staticCall->args[0]->value;
 

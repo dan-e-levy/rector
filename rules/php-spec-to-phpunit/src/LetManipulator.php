@@ -6,7 +6,6 @@ namespace Rector\PhpSpecToPHPUnit;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Stmt\Class_;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\NodeNameResolver\NodeNameResolver;
 
@@ -28,7 +27,7 @@ final class LetManipulator
         $this->nodeNameResolver = $nodeNameResolver;
     }
 
-    public function isLetNeededInClass(Class_ $class): bool
+    public function isLetNeededInClass(Node $class): bool
     {
         foreach ($class->getMethods() as $classMethod) {
             // new test

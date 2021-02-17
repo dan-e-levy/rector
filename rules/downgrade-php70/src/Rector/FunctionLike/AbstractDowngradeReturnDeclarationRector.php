@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\DowngradePhp70\Rector\FunctionLike;
 
 use PhpParser\Node;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use PHPStan\Type\IntersectionType;
@@ -58,7 +57,7 @@ abstract class AbstractDowngradeReturnDeclarationRector extends AbstractRector i
     /**
      * @param ClassMethod|Function_ $functionLike
      */
-    private function decorateFunctionLikeWithReturnTagValueNode(FunctionLike $functionLike): void
+    private function decorateFunctionLikeWithReturnTagValueNode(Node $functionLike): void
     {
         if ($functionLike->returnType === null) {
             return;

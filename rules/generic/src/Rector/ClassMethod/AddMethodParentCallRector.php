@@ -115,7 +115,7 @@ CODE_SAMPLE
         $this->methodsByParentTypes = $configuration[self::METHODS_BY_PARENT_TYPES] ?? [];
     }
 
-    private function shouldSkipMethod(ClassMethod $classMethod, string $method): bool
+    private function shouldSkipMethod(Node $classMethod, string $method): bool
     {
         if (! $this->isName($classMethod, $method)) {
             return true;

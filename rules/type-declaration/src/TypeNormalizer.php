@@ -67,7 +67,7 @@ final class TypeNormalizer
      * ↓
      * int[]|string[][]|bool[][]
      */
-    public function normalizeArrayOfUnionToUnionArray(Type $type, int $arrayNesting = 1): Type
+    public function normalizeArrayOfUnionToUnionArray(\PHPStan\Type\ArrayType $type, int $arrayNesting = 1): Type
     {
         if (! $type instanceof ArrayType) {
             return $type;

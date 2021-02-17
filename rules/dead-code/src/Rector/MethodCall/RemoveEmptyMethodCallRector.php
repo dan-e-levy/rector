@@ -117,7 +117,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClassMethod(?Class_ $class, MethodCall $methodCall): bool
+    private function shouldSkipClassMethod(?Class_ $class, Node $methodCall): bool
     {
         if (! $class instanceof Class_) {
             return true;
@@ -140,7 +140,7 @@ CODE_SAMPLE
         return count((array) $classMethod->stmts) !== 0;
     }
 
-    private function processArrowFunction(ArrowFunction $arrowFunction, MethodCall $methodCall): Node
+    private function processArrowFunction(ArrowFunction $arrowFunction, Node $methodCall): Node
     {
         $parentOfParent = $arrowFunction->getAttribute(AttributeKey::PARENT_NODE);
         if ($parentOfParent instanceof Expression) {

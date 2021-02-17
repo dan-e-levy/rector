@@ -117,7 +117,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createStaticCall($classReference, $methodName, $node->args);
     }
 
-    private function resolveClassSelf(MethodCall $methodCall): string
+    private function resolveClassSelf(Node $methodCall): string
     {
         $classLike = $methodCall->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {

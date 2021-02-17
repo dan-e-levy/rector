@@ -84,7 +84,7 @@ final class TokenManipulator
     /**
      * @param Node[] $nodes
      */
-    public function refactorArrayToken(array $nodes, Expr $singleTokenExpr): void
+    public function refactorArrayToken(array $nodes, Variable $singleTokenExpr): void
     {
         $this->replaceTokenDimFetchZeroWithGetTokenName($nodes, $singleTokenExpr);
 
@@ -110,7 +110,7 @@ final class TokenManipulator
     /**
      * @param Node[] $nodes
      */
-    public function refactorNonArrayToken(array $nodes, Expr $singleTokenExpr): void
+    public function refactorNonArrayToken(array $nodes, Variable $singleTokenExpr): void
     {
         // replace "$content = $token;" → "$content = $token->text;"
         $this->simpleCallableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node) use (
@@ -166,7 +166,7 @@ final class TokenManipulator
     /**
      * @param Node[] $nodes
      */
-    public function refactorTokenIsKind(array $nodes, Expr $singleTokenExpr): void
+    public function refactorTokenIsKind(array $nodes, Variable $singleTokenExpr): void
     {
         $this->simpleCallableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node) use (
             $singleTokenExpr

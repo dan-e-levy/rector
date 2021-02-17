@@ -158,7 +158,7 @@ CODE_SAMPLE
         $this->addConstructorDependencyToClass($class, $objectType, $propertyName);
     }
 
-    private function createServiceMethodCall(ObjectType $objectType, string $methodName, MethodCall $node): MethodCall
+    private function createServiceMethodCall(ObjectType $objectType, string $methodName, Node $node): MethodCall
     {
         $propertyName = $this->propertyNaming->fqnToVariableName($objectType);
         $propertyFetch = new PropertyFetch(new Variable('this'), $propertyName);

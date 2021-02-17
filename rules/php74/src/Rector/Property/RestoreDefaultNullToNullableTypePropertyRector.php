@@ -70,7 +70,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(Property $property): bool
+    private function shouldSkip(Node $property): bool
     {
         if (! $this->isAtLeastPhpVersion(PhpVersionFeature::TYPED_PROPERTIES)) {
             return true;

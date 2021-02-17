@@ -98,7 +98,7 @@ CODE_SAMPLE
         return $identifier;
     }
 
-    private function processName(Name $name): Name
+    private function processName(Node $name): Name
     {
         // we look for "extends <Name>"
         $parentNode = $name->getAttribute(AttributeKey::PARENT_NODE);

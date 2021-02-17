@@ -119,7 +119,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(FuncCall $funcCall): bool
+    private function shouldSkip(Node $funcCall): bool
     {
         if (! $this->isNames($funcCall, ['reset', 'end'])) {
             return true;

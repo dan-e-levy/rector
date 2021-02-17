@@ -187,7 +187,7 @@ final class NonVariableToVariableOnFunctionCallRector extends AbstractRector
         return new VariableAssignPair($variable, new Assign($variable, $expr));
     }
 
-    private function isVariableLikeNode(Node $node): bool
+    private function isVariableLikeNode(Expr $node): bool
     {
         return $node instanceof Variable
             || $node instanceof ArrayDimFetch

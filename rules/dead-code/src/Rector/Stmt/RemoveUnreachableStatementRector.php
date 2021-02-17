@@ -105,7 +105,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkipNode(Stmt $stmt): bool
+    private function shouldSkipNode(Node $stmt): bool
     {
         if ($stmt instanceof Nop) {
             return true;
@@ -118,7 +118,7 @@ CODE_SAMPLE
         return $stmt instanceof FunctionLike;
     }
 
-    private function isUnreachable(Stmt $stmt): bool
+    private function isUnreachable(Node $stmt): bool
     {
         $isUnreachable = $stmt->getAttribute(AttributeKey::IS_UNREACHABLE);
         if ($isUnreachable === true) {
@@ -143,7 +143,7 @@ CODE_SAMPLE
     /**
      * Keep content after markTestSkipped(), intentional temporary
      */
-    private function isAfterMarkTestSkippedMethodCall(Stmt $stmt): bool
+    private function isAfterMarkTestSkippedMethodCall(Node $stmt): bool
     {
         return (bool) $this->betterNodeFinder->findFirstPrevious($stmt, function (Node $node): bool {
             if (! $node instanceof MethodCall) {

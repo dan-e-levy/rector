@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\TypeDeclaration\Rector\FunctionLike;
 
 use PhpParser\Node;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Name;
 use PhpParser\Node\NullableType;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -201,7 +200,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_ $functionLike
      */
-    private function shouldSkipInferredReturnNode(FunctionLike $functionLike, Node $inferredReturnNode): bool
+    private function shouldSkipInferredReturnNode(Node $functionLike, Node $inferredReturnNode): bool
     {
         // already overridden by previous populateChild() method run
         if ($functionLike->returnType === null) {
@@ -213,7 +212,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_ $functionLike
      */
-    private function shouldSkipExistingReturnType(FunctionLike $functionLike, Type $inferedType): bool
+    private function shouldSkipExistingReturnType(Node $functionLike, Type $inferedType): bool
     {
         if ($functionLike->returnType === null) {
             return false;
@@ -238,7 +237,7 @@ CODE_SAMPLE
      * @param ClassMethod|Function_ $functionLike
      * @param Name|NullableType|PhpParserUnionType $inferredReturnNode
      */
-    private function addReturnType(FunctionLike $functionLike, Node $inferredReturnNode): void
+    private function addReturnType(Node $functionLike, Node $inferredReturnNode): void
     {
         if ($functionLike->returnType === null) {
             $functionLike->returnType = $inferredReturnNode;

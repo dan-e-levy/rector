@@ -100,7 +100,7 @@ final class PhpSpecMocksToPHPUnitMocksRector extends AbstractPhpSpecToPHPUnitRec
         $classMethod->stmts = array_merge($assigns, (array) $classMethod->stmts);
     }
 
-    private function processMethodCall(MethodCall $methodCall): ?MethodCall
+    private function processMethodCall(Node $methodCall): ?MethodCall
     {
         if ($this->isName($methodCall->name, 'shouldBeCalled')) {
             if (! $methodCall->var instanceof MethodCall) {

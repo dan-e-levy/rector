@@ -73,7 +73,7 @@ CODE_SAMPLE
         return $this->traverseBinaryOpAndRemoveDuplicatedInstanceOfs($node);
     }
 
-    private function resolveDuplicatedInstancesOf(BinaryOp $binaryOp): void
+    private function resolveDuplicatedInstancesOf(Node $binaryOp): void
     {
         $this->duplicatedInstanceOfs = [];
 
@@ -99,7 +99,7 @@ CODE_SAMPLE
         $this->duplicatedInstanceOfs = array_keys($instanceOfsByClass);
     }
 
-    private function traverseBinaryOpAndRemoveDuplicatedInstanceOfs(BinaryOp $binaryOp): Node
+    private function traverseBinaryOpAndRemoveDuplicatedInstanceOfs(Node $binaryOp): Node
     {
         $this->traverseNodesWithCallable([&$binaryOp], function (Node $node): ?Node {
             if (! $node instanceof BinaryOp) {

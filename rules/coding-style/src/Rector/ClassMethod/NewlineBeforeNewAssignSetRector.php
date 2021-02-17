@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\CodingStyle\Rector\ClassMethod;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\MethodCall;
@@ -140,7 +141,7 @@ CODE_SAMPLE
     /**
      * @param Assign|MethodCall $node
      */
-    private function shouldSkipLeftVariable(Node $node): bool
+    private function shouldSkipLeftVariable(Expr $node): bool
     {
         // local method call
         return $this->isVariableName($node->var, 'this');

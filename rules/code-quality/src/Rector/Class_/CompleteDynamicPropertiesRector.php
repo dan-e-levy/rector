@@ -121,7 +121,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClass(Class_ $class): bool
+    private function shouldSkipClass(Node $class): bool
     {
         if ($this->classNodeAnalyzer->isAnonymousClass($class)) {
             return true;
@@ -144,7 +144,7 @@ CODE_SAMPLE
      * @param array<string, Type> $fetchedLocalPropertyNameToTypes
      * @return string[]
      */
-    private function resolvePropertiesToComplete(Class_ $class, array $fetchedLocalPropertyNameToTypes): array
+    private function resolvePropertiesToComplete(Node $class, array $fetchedLocalPropertyNameToTypes): array
     {
         $propertyNames = $this->classLikeAnalyzer->resolvePropertyNames($class);
 

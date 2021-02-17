@@ -112,7 +112,7 @@ CODE_SAMPLE
     /**
      * @param If_[] $nestedIfsWithOnlyReturn
      */
-    private function processNestedIfsWithNonBreaking(Foreach_ $foreach, array $nestedIfsWithOnlyReturn): Foreach_
+    private function processNestedIfsWithNonBreaking(Node $foreach, array $nestedIfsWithOnlyReturn): Foreach_
     {
         // add nested if openly after this
         $nestedIfsWithOnlyReturnCount = count($nestedIfsWithOnlyReturn);

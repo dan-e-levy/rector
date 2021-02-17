@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Privatization\NodeFactory;
 
+use PhpParser\Node;
 use PhpParser\Node\Const_;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
-use PhpParser\Node\Stmt\Property;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\Privatization\Naming\ConstantNaming;
@@ -31,7 +31,7 @@ final class ClassConstantFactory
         $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
-    public function createFromProperty(Property $property): ClassConst
+    public function createFromProperty(Node $property): ClassConst
     {
         $propertyProperty = $property->props[0];
 

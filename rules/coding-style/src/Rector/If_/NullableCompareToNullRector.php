@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\CodingStyle\Rector\If_;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Identical;
 use PhpParser\Node\Expr\BinaryOp\NotIdentical;
 use PhpParser\Node\Expr\BooleanNot;
@@ -82,7 +83,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isNullableNonScalarType(Node $node): bool
+    private function isNullableNonScalarType(Expr $node): bool
     {
         $staticType = $this->getStaticType($node);
         if ($staticType instanceof MixedType) {

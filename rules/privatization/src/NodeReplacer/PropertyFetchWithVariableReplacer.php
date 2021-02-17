@@ -7,7 +7,6 @@ namespace Rector\Privatization\NodeReplacer;
 use PhpParser\Node;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Symplify\Astral\NodeTraverser\SimpleCallableNodeTraverser;
@@ -35,7 +34,7 @@ final class PropertyFetchWithVariableReplacer
     /**
      * @param array<string, string[]> $methodsByPropertyName
      */
-    public function replacePropertyFetchesByVariable(Class_ $class, array $methodsByPropertyName): void
+    public function replacePropertyFetchesByVariable(Node $class, array $methodsByPropertyName): void
     {
         foreach ($methodsByPropertyName as $propertyName => $methodNames) {
             $methodName = $methodNames[0];

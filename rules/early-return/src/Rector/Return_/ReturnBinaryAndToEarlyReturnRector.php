@@ -104,7 +104,7 @@ CODE_SAMPLE
      * @param If_[] $ifNegations
      * @return If_[]
      */
-    private function createMultipleIfsNegation(Expr $expr, Return_ $return, array $ifNegations): array
+    private function createMultipleIfsNegation(Expr $expr, Node $return, array $ifNegations): array
     {
         while ($expr instanceof BooleanAnd) {
             $ifNegations = array_merge($ifNegations, $this->collectLeftBooleanAndToIfs($expr, $return, $ifNegations));

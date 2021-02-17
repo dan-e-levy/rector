@@ -123,12 +123,12 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isAlreadyGetterNamedClassMethod(ClassMethod $classMethod): bool
+    private function isAlreadyGetterNamedClassMethod(Node $classMethod): bool
     {
         return $this->isName($classMethod, self::GETTER_NAME_PATTERN);
     }
 
-    private function matchGetterClassMethodReturnedExpr(ClassMethod $classMethod): ?Expr
+    private function matchGetterClassMethodReturnedExpr(Node $classMethod): ?Expr
     {
         $stmts = (array) $classMethod->stmts;
         if (count($stmts) !== 1) {

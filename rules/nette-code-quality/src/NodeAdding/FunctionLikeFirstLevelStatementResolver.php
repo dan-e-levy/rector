@@ -5,6 +5,7 @@ namespace Rector\NetteCodeQuality\NodeAdding;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -24,7 +25,7 @@ final class FunctionLikeFirstLevelStatementResolver
         $this->parentScopeFinder = $parentScopeFinder;
     }
 
-    public function resolveFirstLevelStatement(Node $node): Node
+    public function resolveFirstLevelStatement(ArrayDimFetch $node): Node
     {
         $multiplierClosure = $this->matchMultiplierClosure($node);
         /** @var ClassMethod|Closure|null $functionLike */

@@ -90,7 +90,7 @@ final class JsonArrayFactory
     /**
      * @param Expr[] $placeholderNodes
      */
-    private function matchPlaceholderNode(Node $node, array $placeholderNodes): ?Expr
+    private function matchPlaceholderNode(Expr $node, array $placeholderNodes): ?Expr
     {
         if (! $node instanceof String_) {
             return null;

@@ -6,7 +6,6 @@ namespace Rector\Order\Rector\Class_;
 
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
-use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Trait_;
 use Rector\Core\ValueObject\MethodName;
@@ -101,7 +100,7 @@ CODE_SAMPLE
     /**
      * @return string[]
      */
-    private function getMethodsInDesiredOrder(ClassLike $classLike): array
+    private function getMethodsInDesiredOrder(Node $classLike): array
     {
         $classMethodNames = $this->stmtVisibilitySorter->sortMethods($classLike);
         return $this->applyPreferredPosition($classMethodNames);

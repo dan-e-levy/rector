@@ -169,7 +169,7 @@ CODE_SAMPLE
         return true;
     }
 
-    private function isPartOfIsAFuncCall(String_ $string): bool
+    private function isPartOfIsAFuncCall(Node $string): bool
     {
         $parent = $string->getAttribute(AttributeKey::PARENT_NODE);
         if (! $parent instanceof Arg) {

@@ -128,7 +128,7 @@ CODE_SAMPLE
      */
     private function processGroupNamesBySuffix(
         SmartFileInfo $smartFileInfo,
-        FileNode $fileNode,
+        Node $fileNode,
         array $groupNamesBySuffix
     ): void {
         foreach ($groupNamesBySuffix as $groupName) {

@@ -160,8 +160,11 @@ final class GetSubscribedEventsClassMethodFactory
         return $classMethod;
     }
 
-    private function createArrayItemFromMethodAndPriority(?int $priority, string $methodName, Expr $expr): ArrayItem
-    {
+    private function createArrayItemFromMethodAndPriority(
+        ?int $priority,
+        string $methodName,
+        ClassConstFetch $expr
+    ): ArrayItem {
         if ($priority !== null && $priority !== 0) {
             $methodNameWithPriorityArray = new Array_();
             $methodNameWithPriorityArray->items[] = new ArrayItem(new String_($methodName));

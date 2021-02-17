@@ -151,7 +151,7 @@ CODE_SAMPLE
         return $this->isArrayDimFetchStringOnControlVariable($expr);
     }
 
-    private function resolveControlType(Assign $assign): Type
+    private function resolveControlType(Node $assign): Type
     {
         if ($assign->expr instanceof MethodCall) {
             /** @var MethodCall $methodCall */

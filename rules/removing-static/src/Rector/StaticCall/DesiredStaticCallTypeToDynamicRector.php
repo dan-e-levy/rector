@@ -106,7 +106,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function createFromSelf(StaticCall $staticCall): MethodCall
+    private function createFromSelf(Node $staticCall): MethodCall
     {
         return new MethodCall(new Variable('this'), $staticCall->name, $staticCall->args);
     }

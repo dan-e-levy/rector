@@ -7,7 +7,6 @@ namespace Rector\Php80\Rector\FunctionLike;
 use PhpParser\Node;
 use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Closure;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\UnionType as PhpParserUnionType;
@@ -99,7 +98,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_|Closure|ArrowFunction $functionLike
      */
-    private function refactorParamTypes(FunctionLike $functionLike, PhpDocInfo $phpDocInfo): void
+    private function refactorParamTypes(Node $functionLike, PhpDocInfo $phpDocInfo): void
     {
         foreach ($functionLike->getParams() as $param) {
             if ($param->type !== null) {
@@ -125,7 +124,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_|Closure|ArrowFunction $functionLike
      */
-    private function refactorReturnType(FunctionLike $functionLike, PhpDocInfo $phpDocInfo): void
+    private function refactorReturnType(Node $functionLike, PhpDocInfo $phpDocInfo): void
     {
         // do not override existing return type
         if ($functionLike->getReturnType() !== null) {

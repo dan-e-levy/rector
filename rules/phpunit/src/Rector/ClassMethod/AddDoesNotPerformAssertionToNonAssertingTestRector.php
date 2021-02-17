@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\PHPUnit\Rector\ClassMethod;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -135,7 +136,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClassMethod(ClassMethod $classMethod): bool
+    private function shouldSkipClassMethod(Node $classMethod): bool
     {
         if (! $this->testsNodeAnalyzer->isInTestClass($classMethod)) {
             return true;
@@ -155,7 +156,7 @@ CODE_SAMPLE
         return $this->containsAssertCall($classMethod);
     }
 
-    private function addDoesNotPerformAssertions(ClassMethod $classMethod): void
+    private function addDoesNotPerformAssertions(Node $classMethod): void
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
         $phpDocInfo->addPhpDocTagNode(new PHPUnitDoesNotPerformAssertionTagNode());
@@ -236,7 +237,7 @@ CODE_SAMPLE
     /**
      * @param MethodCall|StaticCall $node
      */
-    private function findClassMethod(Node $node): ?ClassMethod
+    private function findClassMethod(Expr $node): ?ClassMethod
     {
         if ($node instanceof MethodCall) {
             $classMethod = $this->nodeRepository->findClassMethodByMethodCall($node);

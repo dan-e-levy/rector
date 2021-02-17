@@ -172,7 +172,7 @@ CODE_SAMPLE
         return $this->processForToForeach($node, $iteratedVariable);
     }
 
-    private function processForToForeach(For_ $for, string $iteratedVariable): ?Foreach_
+    private function processForToForeach(Node $for, string $iteratedVariable): ?Foreach_
     {
         $originalVariableSingle = $this->inflector->singularize($iteratedVariable);
         $iteratedVariableSingle = $originalVariableSingle;

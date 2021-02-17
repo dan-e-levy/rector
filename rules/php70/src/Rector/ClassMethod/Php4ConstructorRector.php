@@ -105,7 +105,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(ClassMethod $classMethod): bool
+    private function shouldSkip(Node $classMethod): bool
     {
         $namespace = $classMethod->getAttribute(AttributeKey::NAMESPACE_NAME);
         // catch only classes without namespace
@@ -126,7 +126,7 @@ CODE_SAMPLE
         return $classLike->name === null;
     }
 
-    private function processClassMethodStatementsForParentConstructorCalls(ClassMethod $classMethod): void
+    private function processClassMethodStatementsForParentConstructorCalls(Node $classMethod): void
     {
         if (! is_iterable($classMethod->stmts)) {
             return;

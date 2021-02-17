@@ -137,7 +137,7 @@ CODE_SAMPLE
         return $this->classConstantFactory->createFromProperty($node);
     }
 
-    private function shouldSkip(Property $property): bool
+    private function shouldSkip(Node $property): bool
     {
         if (count($property->props) !== 1) {
             return true;

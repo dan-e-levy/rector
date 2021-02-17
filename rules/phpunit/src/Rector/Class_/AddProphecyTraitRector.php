@@ -111,7 +111,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClass(Class_ $class): bool
+    private function shouldSkipClass(Node $class): bool
     {
         if (! $this->testsNodeAnalyzer->isInTestClass($class)) {
             return true;

@@ -112,7 +112,7 @@ CODE_SAMPLE
         $this->methodReturnTypes = $methodReturnTypes;
     }
 
-    private function processClassMethodNodeWithTypehints(ClassMethod $classMethod, Type $newType): void
+    private function processClassMethodNodeWithTypehints(Node $classMethod, Type $newType): void
     {
         // remove it
         if ($newType instanceof MixedType) {

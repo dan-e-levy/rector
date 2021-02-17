@@ -79,7 +79,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(ClassMethod $classMethod): bool
+    private function shouldSkip(Node $classMethod): bool
     {
         /** @var Class_|Interface_|Trait_|null $classLike */
         $classLike = $classMethod->getAttribute(AttributeKey::CLASS_NODE);

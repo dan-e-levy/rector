@@ -106,7 +106,7 @@ CODE_SAMPLE
         $this->propertiesToMethodCalls = $propertiesToMethodCalls;
     }
 
-    private function processSetter(Assign $assign): ?Node
+    private function processSetter(Node $assign): ?Node
     {
         /** @var PropertyFetch $propertyFetchNode */
         $propertyFetchNode = $assign->var;
@@ -128,7 +128,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createMethodCall($variable, $propertyToMethodCall->getNewSetMethod(), $args);
     }
 
-    private function processGetter(Assign $assign): ?Node
+    private function processGetter(Node $assign): ?Node
     {
         /** @var PropertyFetch $propertyFetchNode */
         $propertyFetchNode = $assign->expr;

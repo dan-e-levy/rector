@@ -124,7 +124,7 @@ CODE_SAMPLE
     /**
      * @return Property[]
      */
-    private function getInjectProperties(Class_ $class): array
+    private function getInjectProperties(Node $class): array
     {
         return array_filter($class->getProperties(), function (Property $property): bool {
             return $this->isInjectProperty($property);

@@ -124,12 +124,12 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isAlreadyIsserNamedClassMethod(ClassMethod $classMethod): bool
+    private function isAlreadyIsserNamedClassMethod(Node $classMethod): bool
     {
         return $this->isName($classMethod, self::ISSER_NAME_REGEX);
     }
 
-    private function matchIsserClassMethodReturnedExpr(ClassMethod $classMethod): ?Expr
+    private function matchIsserClassMethodReturnedExpr(Node $classMethod): ?Expr
     {
         $stmts = (array) $classMethod->stmts;
         if (count($stmts) !== 1) {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode\UnusedNodeResolver;
 
+use PhpParser\Node;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\NullableType;
@@ -53,7 +54,7 @@ final class UnusedClassResolver
         return ! $this->nodeNameResolver->isName($class, '*Test');
     }
 
-    public function isClassUsed(Class_ $class): bool
+    public function isClassUsed(Node $class): bool
     {
         return $this->nodeNameResolver->isNames($class, $this->getUsedClassNames());
     }

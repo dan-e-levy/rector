@@ -95,7 +95,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         if (! $this->isObjectType($methodCall->var, 'Symfony\Contracts\EventDispatcher\EventDispatcherInterface')) {
             return true;
@@ -108,7 +108,7 @@ CODE_SAMPLE
         return ! isset($methodCall->args[1]);
     }
 
-    private function refactorStringArgument(MethodCall $methodCall): MethodCall
+    private function refactorStringArgument(Node $methodCall): MethodCall
     {
         // swap arguments
         [$methodCall->args[0], $methodCall->args[1]] = [$methodCall->args[1], $methodCall->args[0]];
@@ -120,7 +120,7 @@ CODE_SAMPLE
         return $methodCall;
     }
 
-    private function refactorGetCallFuncCall(MethodCall $methodCall, FuncCall $funcCall, Expr $expr): ?MethodCall
+    private function refactorGetCallFuncCall(Node $methodCall, FuncCall $funcCall, Expr $expr): ?MethodCall
     {
         if ($this->isName($funcCall, 'get_class')) {
             $getClassArgumentValue = $funcCall->args[0]->value;

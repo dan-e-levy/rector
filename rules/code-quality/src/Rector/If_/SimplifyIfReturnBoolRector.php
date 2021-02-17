@@ -104,7 +104,7 @@ CODE_SAMPLE
         return $newReturnNode;
     }
 
-    private function shouldSkip(If_ $if): bool
+    private function shouldSkip(\PhpParser\Node $if): bool
     {
         if ($if->elseifs !== []) {
             return true;
@@ -144,7 +144,7 @@ CODE_SAMPLE
         return ! $this->valueResolver->isTrueOrFalse($nextNode->expr);
     }
 
-    private function processReturnTrue(If_ $if, Return_ $nextReturnNode): Return_
+    private function processReturnTrue(\PhpParser\Node $if, Return_ $nextReturnNode): Return_
     {
         if ($if->cond instanceof BooleanNot && $nextReturnNode->expr !== null && $this->valueResolver->isTrue(
             $nextReturnNode->expr
@@ -155,7 +155,7 @@ CODE_SAMPLE
         return new Return_($this->exprBoolCaster->boolCastOrNullCompareIfNeeded($if->cond));
     }
 
-    private function processReturnFalse(If_ $if, Return_ $nextReturnNode): ?Return_
+    private function processReturnFalse(\PhpParser\Node $if, Return_ $nextReturnNode): ?Return_
     {
         if ($if->cond instanceof Identical) {
             $notIdentical = new NotIdentical($if->cond->left, $if->cond->right);

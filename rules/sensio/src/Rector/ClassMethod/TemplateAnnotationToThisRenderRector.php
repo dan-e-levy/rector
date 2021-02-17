@@ -131,7 +131,7 @@ CODE_SAMPLE
         return $class;
     }
 
-    private function replaceTemplateAnnotation(ClassMethod $classMethod): ?Node
+    private function replaceTemplateAnnotation(Node $classMethod): ?Node
     {
         if (! $classMethod->isPublic()) {
             return null;

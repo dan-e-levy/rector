@@ -143,7 +143,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function resolveStaticCallClassName(StaticCall $staticCall): ?string
+    private function resolveStaticCallClassName(Node $staticCall): ?string
     {
         if ($staticCall->class instanceof PropertyFetch) {
             $objectType = $this->getObjectType($staticCall->class);
@@ -155,7 +155,7 @@ CODE_SAMPLE
         return $this->getName($staticCall->class);
     }
 
-    private function shouldSkip(string $methodName, string $className, StaticCall $staticCall): bool
+    private function shouldSkip(string $methodName, string $className, Node $staticCall): bool
     {
         $isStaticMethod = $this->staticAnalyzer->isStaticMethod($methodName, $className);
         if ($isStaticMethod) {

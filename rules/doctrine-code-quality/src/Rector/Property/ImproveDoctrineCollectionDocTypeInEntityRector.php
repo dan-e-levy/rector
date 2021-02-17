@@ -170,7 +170,7 @@ CODE_SAMPLE
         return $property;
     }
 
-    private function refactorClassMethod(ClassMethod $classMethod): ?ClassMethod
+    private function refactorClassMethod(Node $classMethod): ?ClassMethod
     {
         if (! $this->doctrineDocBlockResolver->isInDoctrineEntityClass($classMethod)) {
             return null;

@@ -191,7 +191,7 @@ CODE_SAMPLE
         return $staticCall;
     }
 
-    private function refactorNew(New_ $new): New_
+    private function refactorNew(Node $new): New_
     {
         $parameterNames = $this->methodReflectionProvider->provideParameterNamesByNew($new);
 

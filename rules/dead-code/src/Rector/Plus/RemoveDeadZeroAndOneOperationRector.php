@@ -81,7 +81,7 @@ CODE_SAMPLE
     /**
      * @param Plus|Minus|Mul|Div|AssignPlus|AssignMinus|AssignMul|AssignDiv $node
      */
-    public function refactor(Node $node): ?Node
+    public function refactor(Expr $node): ?Node
     {
         $changedNode = null;
         $previousNode = $node;
@@ -112,7 +112,7 @@ CODE_SAMPLE
         return $changedNode;
     }
 
-    private function processAssignOp(Node $node): ?Expr
+    private function processAssignOp(AssignOp $node): ?Expr
     {
         // +=, -=
         if ($node instanceof AssignPlus || $node instanceof AssignMinus) {
@@ -138,7 +138,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processBinaryOp(Node $node): ?Expr
+    private function processBinaryOp(BinaryOp $node): ?Expr
     {
         if (StaticInstanceOf::isOneOf($node, [Plus::class, Minus::class])) {
             /** @var Plus|Minus $node */

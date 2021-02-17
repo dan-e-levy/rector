@@ -6,7 +6,7 @@ namespace Rector\DeadCode\NodeManipulator;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\NodeTraverser;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Symplify\Astral\NodeTraverser\SimpleCallableNodeTraverser;
@@ -36,7 +36,7 @@ final class VariadicFunctionLikeDetector
         $this->simpleCallableNodeTraverser = $simpleCallableNodeTraverser;
     }
 
-    public function isVariadic(FunctionLike $functionLike): bool
+    public function isVariadic(ClassMethod $functionLike): bool
     {
         $isVariadic = false;
 

@@ -29,7 +29,7 @@ final class ConcatExpressionJoinData
         $this->values[] = $value;
     }
 
-    public function addNodeToRemove(Node $node): void
+    public function addNodeToRemove(Expr $node): void
     {
         $this->nodesToRemove[] = $node;
     }

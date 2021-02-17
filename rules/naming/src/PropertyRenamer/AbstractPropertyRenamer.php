@@ -16,7 +16,6 @@ use Rector\Naming\Guard\HasMagicGetSetGuard;
 use Rector\Naming\Guard\NotPrivatePropertyGuard;
 use Rector\Naming\Guard\RamseyUuidInterfaceGuard;
 use Rector\Naming\RenameGuard\PropertyRenameGuard;
-use Rector\Naming\ValueObject\PropertyRename;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Symplify\Astral\NodeTraverser\SimpleCallableNodeTraverser;
 
@@ -79,10 +78,9 @@ abstract class AbstractPropertyRenamer implements RenamerInterface
     }
 
     /**
-     * @param PropertyRename $renameValueObject
      * @return Property|null
      */
-    public function rename(RenameValueObjectInterface $renameValueObject): ?Node
+    public function rename(\Rector\Naming\ValueObject\PropertyRename $renameValueObject): ?Node
     {
         if (! $this->areNamesDifferent($renameValueObject)) {
             return null;
@@ -105,7 +103,7 @@ abstract class AbstractPropertyRenamer implements RenamerInterface
         return $renameValueObject->getProperty();
     }
 
-    protected function renamePropertyFetchesInClass(PropertyRename $propertyRename): void
+    protected function renamePropertyFetchesInClass(RenameValueObjectInterface $propertyRename): void
     {
         $this->propertyFetchRenamer->renamePropertyFetchesInClass(
             $propertyRename->getClassLike(),
@@ -114,7 +112,7 @@ abstract class AbstractPropertyRenamer implements RenamerInterface
         );
     }
 
-    private function areNamesDifferent(PropertyRename $propertyRename): bool
+    private function areNamesDifferent(RenameValueObjectInterface $propertyRename): bool
     {
         return $propertyRename->getCurrentName() !== $propertyRename->getExpectedName();
     }

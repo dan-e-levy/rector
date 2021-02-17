@@ -100,7 +100,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function resolveCommandNameAndRemove(Class_ $class): ?Node
+    private function resolveCommandNameAndRemove(Node $class): ?Node
     {
         $commandName = $this->resolveCommandNameFromConstructor($class);
         if (! $commandName instanceof Node) {

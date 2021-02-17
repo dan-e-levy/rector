@@ -112,7 +112,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipProperty(Property $property): bool
+    private function shouldSkipProperty(Node $property): bool
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         if (! $phpDocInfo->hasByType(NetteInjectTagNode::class)) {

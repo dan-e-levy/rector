@@ -7,6 +7,7 @@ namespace Rector\TypeDeclaration\TypeInferer\ReturnTypeInferer;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -44,7 +45,7 @@ final class ReturnedNodesReturnTypeInferer extends AbstractTypeInferer implement
     /**
      * @param ClassMethod|Closure|Function_ $functionLike
      */
-    public function inferFunctionLike(FunctionLike $functionLike): Type
+    public function inferFunctionLike(ClassMethod $functionLike): Type
     {
         /** @var Class_|Trait_|Interface_|null $classLike */
         $classLike = $functionLike->getAttribute(AttributeKey::CLASS_NODE);
@@ -118,7 +119,7 @@ final class ReturnedNodesReturnTypeInferer extends AbstractTypeInferer implement
         return $returns;
     }
 
-    private function resolveNoLocalReturnNodes(ClassLike $classLike, FunctionLike $functionLike): Type
+    private function resolveNoLocalReturnNodes(Stmt $classLike, FunctionLike $functionLike): Type
     {
         // void type
         if (! $this->isAbstractMethod($classLike, $functionLike)) {

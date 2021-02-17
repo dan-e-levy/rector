@@ -102,7 +102,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function refactorArray(FuncCall $funcCall): ?Array_
+    private function refactorArray(Node $funcCall): ?Array_
     {
         $array = new Array_();
 

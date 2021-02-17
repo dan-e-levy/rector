@@ -61,7 +61,7 @@ final class VarTagRemover
         $this->deadVarTagValueNodeAnalyzer = $deadVarTagValueNodeAnalyzer;
     }
 
-    public function removeVarTagIfUseless(PhpDocInfo $phpDocInfo, Property $property): void
+    public function removeVarTagIfUseless(PhpDocInfo $phpDocInfo, Node $property): void
     {
         $varTagValueNode = $phpDocInfo->getVarTagValueNode();
         if (! $varTagValueNode instanceof VarTagValueNode) {

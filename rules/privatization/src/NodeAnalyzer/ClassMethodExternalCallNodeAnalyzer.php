@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Privatization\NodeAnalyzer;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Stmt\Class_;
@@ -50,7 +51,7 @@ final class ClassMethodExternalCallNodeAnalyzer
         $this->nodeRepository = $nodeRepository;
     }
 
-    public function hasExternalCall(ClassMethod $classMethod): bool
+    public function hasExternalCall(Node $classMethod): bool
     {
         $methodCalls = $this->nodeRepository->findCallsByClassMethod($classMethod);
 

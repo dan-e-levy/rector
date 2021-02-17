@@ -105,7 +105,7 @@ final class EregToPregMatchRector extends AbstractRector
         return $node;
     }
 
-    private function processStringPattern(FuncCall $funcCall, String_ $string, string $functionName): void
+    private function processStringPattern(Node $funcCall, String_ $string, string $functionName): void
     {
         $pattern = $string->value;
         $pattern = $this->eregToPcreTransformer->transform($pattern, $this->isCaseInsensitiveFunction($functionName));
@@ -113,7 +113,7 @@ final class EregToPregMatchRector extends AbstractRector
         $funcCall->args[0]->value = new String_($pattern);
     }
 
-    private function processVariablePattern(FuncCall $funcCall, Variable $variable, string $functionName): void
+    private function processVariablePattern(Node $funcCall, Variable $variable, string $functionName): void
     {
         $pregQuotePatternNode = $this->nodeFactory->createFuncCall('preg_quote', [
             new Arg($variable),
@@ -134,7 +134,7 @@ final class EregToPregMatchRector extends AbstractRector
      * ↓
      * preg_split('# #', 'hey Tom', 1);
      */
-    private function processSplitLimitArgument(FuncCall $funcCall, string $functionName): void
+    private function processSplitLimitArgument(Node $funcCall, string $functionName): void
     {
         if (! Strings::startsWith($functionName, 'split')) {
             return;

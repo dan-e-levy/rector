@@ -119,7 +119,7 @@ CODE_SAMPLE
     /**
      * @return Variable[]
      */
-    private function resolveAssignedVariables(FunctionLike $functionLike): array
+    private function resolveAssignedVariables(Node $functionLike): array
     {
         return $this->betterNodeFinder->find($functionLike, function (Node $node): bool {
             $parentNode = $node->getAttribute(AttributeKey::PARENT_NODE);

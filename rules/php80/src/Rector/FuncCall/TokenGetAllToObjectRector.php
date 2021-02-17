@@ -102,7 +102,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createStaticCall('PhpToken', 'getAll', $node->args);
     }
 
-    private function refactorTokensVariable(FuncCall $funcCall): void
+    private function refactorTokensVariable(Node $funcCall): void
     {
         $assign = $funcCall->getAttribute(AttributeKey::PARENT_NODE);
         if (! $assign instanceof Assign) {

@@ -127,7 +127,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isClassAndMethodMatch(ClassMethod $classMethod): bool
+    private function isClassAndMethodMatch(Node $classMethod): bool
     {
         $classLike = $classMethod->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {

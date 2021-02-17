@@ -142,7 +142,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function areAllArgArrayTypes(MethodCall $methodCall): bool
+    private function areAllArgArrayTypes(Node $methodCall): bool
     {
         foreach ($methodCall->args as $arg) {
             $argumentStaticType = $this->getStaticType($arg->value);
@@ -156,7 +156,7 @@ CODE_SAMPLE
         return true;
     }
 
-    private function inferMockedClassName(MethodCall $methodCall): ?string
+    private function inferMockedClassName(Node $methodCall): ?string
     {
         $variable = $this->findRootVariableOfChainCall($methodCall);
         if (! $variable instanceof Variable) {
@@ -184,7 +184,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function inferMockedMethodName(MethodCall $methodCall): string
+    private function inferMockedMethodName(Node $methodCall): string
     {
         $previousMethodCalls = $this->methodCallManipulator->findMethodCallsIncludingChain($methodCall);
         foreach ($previousMethodCalls as $previousMethodCall) {

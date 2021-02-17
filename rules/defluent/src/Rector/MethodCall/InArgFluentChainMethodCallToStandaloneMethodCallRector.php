@@ -135,7 +135,7 @@ CODE_SAMPLE
         return $assignAndRootExprAndNodesToAdd->getRootCallerExpr();
     }
 
-    private function refactorNew(MethodCall $methodCall, New_ $new): void
+    private function refactorNew(Node $methodCall, New_ $new): void
     {
         if (! $this->newFluentChainMethodCallNodeAnalyzer->isNewMethodCallReturningSelf($methodCall)) {
             return;

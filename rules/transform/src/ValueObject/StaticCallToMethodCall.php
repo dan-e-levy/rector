@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Transform\ValueObject;
 
-use PhpParser\Node\Expr\StaticCall;
+use PhpParser\Node;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 
@@ -48,7 +48,7 @@ final class StaticCallToMethodCall
         return $this->methodName;
     }
 
-    public function isStaticCallMatch(StaticCall $staticCall): bool
+    public function isStaticCallMatch(Node $staticCall): bool
     {
         if (! $staticCall->class instanceof Name) {
             return false;

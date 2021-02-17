@@ -139,7 +139,7 @@ final class RenameNamespaceRector extends AbstractRector implements Configurable
         return array_key_exists($newClassName, $this->oldToNewNamespaces);
     }
 
-    private function isPartialNamespace(Name $name): bool
+    private function isPartialNamespace(Node $name): bool
     {
         $resolvedName = $name->getAttribute(AttributeKey::RESOLVED_NAME);
         if (! $resolvedName instanceof Name) {
@@ -153,7 +153,7 @@ final class RenameNamespaceRector extends AbstractRector implements Configurable
         return false;
     }
 
-    private function resolvePartialNewName(Name $name, RenamedNamespace $renamedNamespace): string
+    private function resolvePartialNewName(Node $name, RenamedNamespace $renamedNamespace): string
     {
         $nameInNewNamespace = $renamedNamespace->getNameInNewNamespace();
 

@@ -118,7 +118,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isTestingConsoleOutput(Class_ $class): bool
+    private function isTestingConsoleOutput(Node $class): bool
     {
         return (bool) $this->betterNodeFinder->findFirst($class->stmts, function (Node $node): bool {
 //            if ($node instanceof StaticCall) {
@@ -134,7 +134,7 @@ CODE_SAMPLE
         });
     }
 
-    private function hasMockConsoleOutputFalse(Class_ $class): bool
+    private function hasMockConsoleOutputFalse(Node $class): bool
     {
         return (bool) $this->betterNodeFinder->findFirst($class, function (Node $node): bool {
             if ($node instanceof Assign) {

@@ -122,7 +122,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isGedmoBlameableClass(Class_ $class): bool
+    private function isGedmoBlameableClass(Node $class): bool
     {
         foreach ($class->getProperties() as $property) {
             $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
@@ -134,7 +134,7 @@ CODE_SAMPLE
         return false;
     }
 
-    private function removeBlameablePropertiesAndMethods(Class_ $class): void
+    private function removeBlameablePropertiesAndMethods(Node $class): void
     {
         $removedPropertyNames = [];
 

@@ -197,7 +197,7 @@ CODE_SAMPLE
         }
     }
 
-    private function collectContentAndPlaceholderNodesFromNextExpressions(Assign $assign): ConcatExpressionJoinData
+    private function collectContentAndPlaceholderNodesFromNextExpressions(Node $assign): ConcatExpressionJoinData
     {
         $concatExpressionJoinData = new ConcatExpressionJoinData();
 
@@ -247,7 +247,7 @@ CODE_SAMPLE
         array $nodesToRemove,
         string $stringValue,
         array $placeholderNodes,
-        Assign $assign
+        Node $assign
     ): ?Assign {
         $stringValue = Strings::replace($stringValue, self::UNQUOTED_OBJECT_HASH_REGEX, '$1"$2"');
         if (! $this->isJsonString($stringValue)) {

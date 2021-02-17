@@ -94,7 +94,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipProperty(Property $property): bool
+    private function shouldSkipProperty(Node $property): bool
     {
         if (count($property->props) !== 1) {
             return true;

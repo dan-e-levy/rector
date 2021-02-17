@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Nette\NodeAnalyzer;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Stmt\ClassMethod;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\NodeNameResolver\NodeNameResolver;
 
@@ -30,7 +30,7 @@ final class RenderMethodAnalyzer
     /**
      * @return MethodCall[]
      */
-    public function machRenderMethodCalls(ClassMethod $classMethod): array
+    public function machRenderMethodCalls(Node $classMethod): array
     {
         /** @var MethodCall[] $methodsCalls */
         $methodsCalls = $this->betterNodeFinder->findInstanceOf((array) $classMethod->stmts, MethodCall::class);

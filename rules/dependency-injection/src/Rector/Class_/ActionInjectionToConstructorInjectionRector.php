@@ -101,7 +101,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function processClassMethod(Class_ $class, ClassMethod $classMethod): void
+    private function processClassMethod(Node $class, ClassMethod $classMethod): void
     {
         foreach ($classMethod->params as $key => $paramNode) {
             if (! $this->isActionInjectedParamNode($paramNode)) {

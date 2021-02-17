@@ -81,7 +81,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isFetchOfControlFromPresenterDimFetch(Assign $assign): bool
+    private function isFetchOfControlFromPresenterDimFetch(Node $assign): bool
     {
         if (! $assign->expr instanceof ArrayDimFetch) {
             return false;

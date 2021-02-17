@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\TypeDeclaration\TypeInferer;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\Yield_;
 use PhpParser\Node\FunctionLike;
@@ -34,7 +35,7 @@ final class SilentVoidResolver
     /**
      * @param ClassMethod|Closure|Function_ $functionLike
      */
-    public function hasExlusiveVoid(FunctionLike $functionLike): bool
+    public function hasExlusiveVoid(Node $functionLike): bool
     {
         $classLike = $functionLike->getAttribute(AttributeKey::CLASS_NODE);
         if ($classLike instanceof Interface_) {

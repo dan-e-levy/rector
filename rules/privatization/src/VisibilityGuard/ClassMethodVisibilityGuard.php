@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Privatization\VisibilityGuard;
 
+use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
-use PhpParser\Node\Stmt\ClassMethod;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 
@@ -21,7 +21,7 @@ final class ClassMethodVisibilityGuard
         $this->nodeNameResolver = $nodeNameResolver;
     }
 
-    public function isClassMethodVisibilityGuardedByParent(ClassMethod $classMethod): bool
+    public function isClassMethodVisibilityGuardedByParent(Node $classMethod): bool
     {
         $classLike = $classMethod->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {
@@ -37,7 +37,7 @@ final class ClassMethodVisibilityGuard
         return $this->methodExistsInClasses($classClassLikes, $methodName);
     }
 
-    public function isClassMethodVisibilityGuardedByTrait(ClassMethod $classMethod): bool
+    public function isClassMethodVisibilityGuardedByTrait(Node $classMethod): bool
     {
         $classLike = $classMethod->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {

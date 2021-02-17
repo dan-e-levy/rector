@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Rector\PhpSpecToPHPUnit;
 
 use PhpParser\Node;
-use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Param;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\NodeNameResolver\NodeNameResolver;
@@ -52,7 +50,7 @@ final class PhpSpecMockCollector
     /**
      * @return mixed[]
      */
-    public function resolveClassMocksFromParam(Class_ $class): array
+    public function resolveClassMocksFromParam(Node $class): array
     {
         $className = $this->nodeNameResolver->getName($class);
 
@@ -82,7 +80,7 @@ final class PhpSpecMockCollector
         return $this->mocks[$className];
     }
 
-    public function isVariableMockInProperty(Variable $variable): bool
+    public function isVariableMockInProperty(Node $variable): bool
     {
         $variableName = $this->nodeNameResolver->getName($variable);
         $className = $variable->getAttribute(AttributeKey::CLASS_NAME);
@@ -90,7 +88,7 @@ final class PhpSpecMockCollector
         return in_array($variableName, $this->propertyMocksByClass[$className] ?? [], true);
     }
 
-    public function getTypeForClassAndVariable(Class_ $class, string $variable): string
+    public function getTypeForClassAndVariable(Node $class, string $variable): string
     {
         $className = $this->nodeNameResolver->getName($class);
 

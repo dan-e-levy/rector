@@ -96,7 +96,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function hasArraySpread(FuncCall $funcCall): bool
+    private function hasArraySpread(Node $funcCall): bool
     {
         foreach ($funcCall->args as $arg) {
             /** @var Arg $arg */

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\TypeDeclaration\Matcher;
 
-use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Assign;
@@ -50,7 +49,7 @@ final class PropertyAssignMatcher
         return null;
     }
 
-    private function isPropertyFetch(Node $node): bool
+    private function isPropertyFetch(Expr $node): bool
     {
         if ($node instanceof PropertyFetch) {
             return true;

@@ -118,7 +118,7 @@ CODE_SAMPLE
     /**
      * @return array<Identifier|Name|NullableType|UnionType>
      */
-    private function resolveReturnPropertyTypeNodes(ClassMethod $classMethod): array
+    private function resolveReturnPropertyTypeNodes(Node $classMethod): array
     {
         /** @var Return_[] $returns */
         $returns = $this->betterNodeFinder->findInstanceOf($classMethod, Return_::class);

@@ -132,7 +132,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function resolveUuidPropertyFromClass(Class_ $class): ?Property
+    private function resolveUuidPropertyFromClass(Node $class): ?Property
     {
         foreach ($class->getProperties() as $property) {
             $propertyPhpDoc = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
@@ -152,7 +152,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function hasUuidInitAlreadyAdded(Class_ $class, string $uuidPropertyName): bool
+    private function hasUuidInitAlreadyAdded(Node $class, string $uuidPropertyName): bool
     {
         $constructClassMethod = $class->getMethod(MethodName::CONSTRUCT);
         if (! $constructClassMethod instanceof ClassMethod) {

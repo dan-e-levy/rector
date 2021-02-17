@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\TypeDeclaration\TypeInferer;
 
-use PhpParser\Node\FunctionLike;
+use PhpParser\Node;
+use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\Type;
 use Rector\TypeDeclaration\Contract\TypeInferer\ReturnTypeInfererInterface;
@@ -32,7 +33,7 @@ final class ReturnTypeInferer extends AbstractPriorityAwareTypeInferer
         $this->typeNormalizer = $typeNormalizer;
     }
 
-    public function inferFunctionLike(FunctionLike $functionLike): Type
+    public function inferFunctionLike(ClassMethod $functionLike): Type
     {
         return $this->inferFunctionLikeWithExcludedInferers($functionLike, []);
     }
@@ -40,7 +41,7 @@ final class ReturnTypeInferer extends AbstractPriorityAwareTypeInferer
     /**
      * @param string[] $excludedInferers
      */
-    public function inferFunctionLikeWithExcludedInferers(FunctionLike $functionLike, array $excludedInferers): Type
+    public function inferFunctionLikeWithExcludedInferers(Node $functionLike, array $excludedInferers): Type
     {
         foreach ($this->returnTypeInferers as $returnTypeInferer) {
             if ($this->shouldSkipExcludedTypeInferer($returnTypeInferer, $excludedInferers)) {

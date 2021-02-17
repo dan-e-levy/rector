@@ -122,7 +122,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isDoctrineEntityFileNode(FileNode $fileNode): bool
+    private function isDoctrineEntityFileNode(Node $fileNode): bool
     {
         $class = $this->betterNodeFinder->findFirstInstanceOf($fileNode->stmts, Class_::class);
         if (! $class instanceof Class_) {

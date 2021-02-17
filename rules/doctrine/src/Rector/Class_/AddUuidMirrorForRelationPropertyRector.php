@@ -172,7 +172,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipProperty(Class_ $class, Property $property): bool
+    private function shouldSkipProperty(Node $class, Property $property): bool
     {
         // this relation already is or has uuid property
         if ($this->isName($property, '*Uuid')) {

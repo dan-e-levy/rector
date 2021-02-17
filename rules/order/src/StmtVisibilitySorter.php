@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Order;
 
+use PhpParser\Node;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
@@ -34,7 +35,7 @@ final class StmtVisibilitySorter
      * @param Class_|Trait_ $classLike
      * @return string[]
      */
-    public function sortProperties(ClassLike $classLike): array
+    public function sortProperties(Node $classLike): array
     {
         $propertyRankeables = [];
 
@@ -87,7 +88,7 @@ final class StmtVisibilitySorter
      * @param Class_|Interface_ $classLike
      * @return string[]
      */
-    public function sortConstants(ClassLike $classLike): array
+    public function sortConstants(Node $classLike): array
     {
         $classConstsRankeables = [];
         foreach ($classLike->stmts as $position => $constantStmt) {

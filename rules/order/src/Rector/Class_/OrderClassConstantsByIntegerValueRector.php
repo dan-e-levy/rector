@@ -87,7 +87,7 @@ CODE_SAMPLE
     /**
      * @return ClassConst[]
      */
-    private function resolveClassConstByPosition(Class_ $class): array
+    private function resolveClassConstByPosition(Node $class): array
     {
         $classConstConstsByValue = [];
         foreach ($class->stmts as $key => $classStmt) {

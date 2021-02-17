@@ -140,7 +140,7 @@ CODE_SAMPLE
     /**
      * @param Node|Node[] $node
      */
-    private function findVariableAssignName($node, string $variableName): ?Node
+    private function findVariableAssignName(array $node, string $variableName): ?Node
     {
         return $this->betterNodeFinder->findFirst((array) $node, function (Node $node) use ($variableName): bool {
             if (! $node instanceof Assign) {

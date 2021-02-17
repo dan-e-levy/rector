@@ -125,7 +125,7 @@ CODE_SAMPLE
         $this->detectedTraits = $configuration[self::DETECTED_TRAITS] ?? [];
     }
 
-    private function shouldSkip(Class_ $class): bool
+    private function shouldSkip(Node $class): bool
     {
         if ($this->classNodeAnalyzer->isAnonymousClass($class)) {
             return true;

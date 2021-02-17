@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DeadDocBlock\TagRemover;
 
-use PhpParser\Node\FunctionLike;
+use PhpParser\Node;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
 use Rector\BetterPhpDocParser\PhpDocManipulator\PhpDocTagRemover;
@@ -30,7 +30,7 @@ final class ParamTagRemover
         $this->phpDocTagRemover = $phpDocTagRemover;
     }
 
-    public function removeParamTagsIfUseless(PhpDocInfo $phpDocInfo, FunctionLike $functionLike): void
+    public function removeParamTagsIfUseless(PhpDocInfo $phpDocInfo, Node $functionLike): void
     {
         foreach ($phpDocInfo->getParamTagValueNodes() as $paramTagValueNode) {
             $paramName = $paramTagValueNode->parameterName;

@@ -7,7 +7,6 @@ namespace Rector\Doctrine\PhpDocParser\Ast\PhpDoc;
 use PhpParser\Node\Stmt\Property;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
 use PHPStan\PhpDocParser\Ast\Type\IdentifierTypeNode;
-use PHPStan\PhpDocParser\Ast\Type\TypeNode;
 use Rector\AttributeAwarePhpDoc\Ast\PhpDoc\AttributeAwareVarTagValueNode;
 use Rector\BetterPhpDocParser\Attributes\Ast\PhpDoc\SpacelessPhpDocTagNode;
 use Rector\BetterPhpDocParser\Printer\ArrayPartPhpDocTagPrinter;
@@ -127,7 +126,7 @@ final class PhpDocTagNodeFactory
         ]);
     }
 
-    private function createVarTagValueNodeWithType(TypeNode $typeNode): AttributeAwareVarTagValueNode
+    private function createVarTagValueNodeWithType(IdentifierTypeNode $typeNode): AttributeAwareVarTagValueNode
     {
         return new AttributeAwareVarTagValueNode($typeNode, '', '');
     }

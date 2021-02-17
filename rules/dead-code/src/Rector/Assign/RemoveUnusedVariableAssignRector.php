@@ -85,7 +85,7 @@ CODE_SAMPLE
     /**
      * @return Variable[]
      */
-    private function findVariableUsages(FunctionLike $functionLike, Assign $assign): array
+    private function findVariableUsages(FunctionLike $functionLike, Node $assign): array
     {
         return $this->betterNodeFinder->find((array) $functionLike->getStmts(), function (Node $node) use (
             $assign

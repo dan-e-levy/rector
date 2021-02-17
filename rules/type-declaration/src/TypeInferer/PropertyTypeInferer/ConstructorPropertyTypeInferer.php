@@ -13,7 +13,6 @@ use PhpParser\Node\NullableType;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
-use PhpParser\Node\Stmt\Property;
 use PhpParser\NodeTraverser;
 use PHPStan\Type\ArrayType;
 use PHPStan\Type\MixedType;
@@ -39,7 +38,7 @@ final class ConstructorPropertyTypeInferer extends AbstractTypeInferer implement
         $this->classMethodPropertyFetchManipulator = $classMethodPropertyFetchManipulator;
     }
 
-    public function inferProperty(Property $property): Type
+    public function inferProperty(Node $property): Type
     {
         $classLike = $property->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {

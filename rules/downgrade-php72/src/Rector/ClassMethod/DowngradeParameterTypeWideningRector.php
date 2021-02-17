@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\DowngradePhp72\Rector\ClassMethod;
 
 use PhpParser\Node;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassLike;
@@ -114,7 +113,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function refactorParamForAncestorsAndSiblings(Param $param, FunctionLike $functionLike, int $position): void
+    private function refactorParamForAncestorsAndSiblings(Param $param, Node $functionLike, int $position): void
     {
         // The param on the child class must have no type
         if ($param->type !== null) {

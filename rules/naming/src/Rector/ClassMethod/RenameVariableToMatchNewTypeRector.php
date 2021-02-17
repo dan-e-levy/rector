@@ -131,7 +131,7 @@ CODE_SAMPLE
     /**
      * @return Assign[]
      */
-    private function getAssignsOfNew(ClassMethod $classMethod): array
+    private function getAssignsOfNew(Node $classMethod): array
     {
         /** @var Assign[] $assigns */
         $assigns = $this->betterNodeFinder->findInstanceOf((array) $classMethod->stmts, Assign::class);

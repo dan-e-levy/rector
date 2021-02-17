@@ -93,7 +93,7 @@ CODE_SAMPLE
     /**
      * @return array<string, Catch_[]>
      */
-    private function collectCatchKeysByContent(TryCatch $tryCatch): array
+    private function collectCatchKeysByContent(Node $tryCatch): array
     {
         $catchKeysByContent = [];
         foreach ($tryCatch->catches as $catch) {
@@ -108,7 +108,7 @@ CODE_SAMPLE
      * @param Catch_[] $catches
      * @return Name[]
      */
-    private function collectTypesFromCatchedByIds(TryCatch $tryCatch, array $catches): array
+    private function collectTypesFromCatchedByIds(Node $tryCatch, array $catches): array
     {
         $collectedTypes = [];
 

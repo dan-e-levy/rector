@@ -112,7 +112,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function removeVersionedTagFromProperties(Class_ $class): void
+    private function removeVersionedTagFromProperties(Node $class): void
     {
         foreach ($class->getProperties() as $property) {
             $propertyPhpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);

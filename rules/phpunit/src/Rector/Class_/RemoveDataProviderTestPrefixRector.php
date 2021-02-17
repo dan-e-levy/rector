@@ -107,7 +107,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function renameDataProviderAnnotationsAndCollectRenamedMethods(Class_ $class): void
+    private function renameDataProviderAnnotationsAndCollectRenamedMethods(Node $class): void
     {
         foreach ($class->getMethods() as $classMethod) {
             $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
@@ -133,7 +133,7 @@ CODE_SAMPLE
         }
     }
 
-    private function renameProviderMethods(Class_ $class): void
+    private function renameProviderMethods(Node $class): void
     {
         foreach ($class->getMethods() as $classMethod) {
             foreach ($this->providerMethodNamesToNewNames as $oldName => $newName) {

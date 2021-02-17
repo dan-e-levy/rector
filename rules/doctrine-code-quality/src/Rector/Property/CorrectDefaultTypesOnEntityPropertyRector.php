@@ -102,7 +102,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function refactorToBoolType(PropertyProperty $propertyProperty, Property $property): ?Property
+    private function refactorToBoolType(PropertyProperty $propertyProperty, Node $property): ?Property
     {
         if ($propertyProperty->default === null) {
             return null;
@@ -123,7 +123,7 @@ CODE_SAMPLE
         throw new NotImplementedYetException();
     }
 
-    private function refactorToIntType(PropertyProperty $propertyProperty, Property $property): ?Property
+    private function refactorToIntType(PropertyProperty $propertyProperty, Node $property): ?Property
     {
         if ($propertyProperty->default === null) {
             return null;

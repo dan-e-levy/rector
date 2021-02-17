@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\NetteKdyby\DataProvider;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Stmt\Class_;
@@ -81,7 +82,7 @@ final class EventAndListenerTreeProvider
         $this->getSubscribedEventsClassMethodProvider = $getSubscribedEventsClassMethodProvider;
     }
 
-    public function matchMethodCall(MethodCall $methodCall): ?EventAndListenerTree
+    public function matchMethodCall(Node $methodCall): ?EventAndListenerTree
     {
         $this->initializeEventAndListenerTrees();
 

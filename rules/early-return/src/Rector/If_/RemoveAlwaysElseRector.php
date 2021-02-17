@@ -100,7 +100,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function doesLastStatementBreakFlow(If_ $if): bool
+    private function doesLastStatementBreakFlow(Node $if): bool
     {
         $lastStmt = end($if->stmts);
 

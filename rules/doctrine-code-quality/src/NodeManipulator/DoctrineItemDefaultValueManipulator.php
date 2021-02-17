@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DoctrineCodeQuality\NodeManipulator;
 
+use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagValueNode;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\AbstractDoctrineTagValueNode;
 
@@ -14,7 +15,7 @@ final class DoctrineItemDefaultValueManipulator
      */
     public function remove(
         PhpDocInfo $phpDocInfo,
-        AbstractDoctrineTagValueNode $doctrineTagValueNode,
+        PhpDocTagValueNode $doctrineTagValueNode,
         string $item,
         $defaultValue
     ): void {

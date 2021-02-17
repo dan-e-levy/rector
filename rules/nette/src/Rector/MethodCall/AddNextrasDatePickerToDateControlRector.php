@@ -103,7 +103,7 @@ CODE_SAMPLE
         return $this->createAssign($node);
     }
 
-    private function createAssign(MethodCall $methodCall): ?Node
+    private function createAssign(\PhpParser\Node\Expr\MethodCall $methodCall): ?Node
     {
         $key = $methodCall->args[0]->value;
         if (! $key instanceof String_) {

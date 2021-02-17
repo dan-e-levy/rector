@@ -139,7 +139,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipParam(Param $param, string $expectedName, ClassMethod $classMethod): bool
+    private function shouldSkipParam(Param $param, string $expectedName, Node $classMethod): bool
     {
         /** @var string $paramName */
         $paramName = $this->getName($param);

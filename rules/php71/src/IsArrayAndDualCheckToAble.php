@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Php71;
 
+use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
-use PhpParser\Node\Expr\BinaryOp\BooleanOr;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\Instanceof_;
 use PhpParser\Node\Expr\Variable;
@@ -33,7 +33,7 @@ final class IsArrayAndDualCheckToAble
         $this->binaryOpManipulator = $binaryOpManipulator;
     }
 
-    public function processBooleanOr(BooleanOr $booleanOr, string $type, string $newMethodName): ?FuncCall
+    public function processBooleanOr(Node $booleanOr, string $type, string $newMethodName): ?FuncCall
     {
         $twoNodeMatch = $this->binaryOpManipulator->matchFirstAndSecondConditionNode(
             $booleanOr,

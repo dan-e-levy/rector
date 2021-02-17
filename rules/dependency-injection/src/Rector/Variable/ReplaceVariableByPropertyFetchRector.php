@@ -113,7 +113,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isInControllerActionMethod(Variable $variable): bool
+    private function isInControllerActionMethod(Node $variable): bool
     {
         /** @var string|null $className */
         $className = $variable->getAttribute(AttributeKey::CLASS_NAME);

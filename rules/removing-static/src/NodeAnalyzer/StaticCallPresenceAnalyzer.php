@@ -6,7 +6,6 @@ namespace Rector\RemovingStatic\NodeAnalyzer;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\Core\ValueObject\MethodName;
@@ -44,7 +43,7 @@ final class StaticCallPresenceAnalyzer
         );
     }
 
-    public function hasClassAnyMethodWithStaticCallOnType(Class_ $class, string $type): bool
+    public function hasClassAnyMethodWithStaticCallOnType(Node $class, string $type): bool
     {
         foreach ($class->getMethods() as $classMethod) {
             // handled else where

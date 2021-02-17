@@ -95,7 +95,7 @@ CODE_SAMPLE
     /**
      * @return Param[]
      */
-    private function resolvePromotedParams(Class_ $class): array
+    private function resolvePromotedParams(Node $class): array
     {
         $constructorClassMethod = $class->getMethod(MethodName::CONSTRUCT);
         if (! $constructorClassMethod instanceof \PhpParser\Node\Stmt\ClassMethod) {
@@ -119,7 +119,7 @@ CODE_SAMPLE
      * @param Param[] $promotedParams
      * @return Property[]
      */
-    private function addPropertiesFromParams(array $promotedParams, Class_ $class): array
+    private function addPropertiesFromParams(array $promotedParams, Node $class): array
     {
         $properties = $this->createPropertiesFromParams($promotedParams);
         $this->classInsertManipulator->addPropertiesToClass($class, $properties);
@@ -130,7 +130,7 @@ CODE_SAMPLE
     /**
      * @param Property[] $properties
      */
-    private function addPropertyAssignsToConstructorClassMethod(array $properties, Class_ $class): void
+    private function addPropertyAssignsToConstructorClassMethod(array $properties, Node $class): void
     {
         $assigns = [];
 

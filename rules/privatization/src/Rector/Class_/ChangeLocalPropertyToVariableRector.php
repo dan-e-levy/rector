@@ -138,7 +138,7 @@ CODE_SAMPLE
      * @param string[] $privatePropertyNames
      * @return string[][]
      */
-    private function collectPropertyFetchByMethods(Class_ $class, array $privatePropertyNames): array
+    private function collectPropertyFetchByMethods(Node $class, array $privatePropertyNames): array
     {
         $propertyUsageByMethods = [];
 

@@ -88,7 +88,7 @@ CODE_SAMPLE
         return $this->processExplicitIf($node);
     }
 
-    private function processExplicitIf(Expression $expression): ?Node
+    private function processExplicitIf(Node $expression): ?Node
     {
         /** @var BooleanAnd|BooleanOr $booleanExpr */
         $booleanExpr = $expression->expr;

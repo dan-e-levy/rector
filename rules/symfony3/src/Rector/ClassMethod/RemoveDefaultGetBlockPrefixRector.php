@@ -98,7 +98,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isObjectMethodNameMatch(ClassMethod $classMethod): bool
+    private function isObjectMethodNameMatch(Node $classMethod): bool
     {
         $classLike = $classMethod->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {
@@ -115,7 +115,7 @@ CODE_SAMPLE
     /**
      * return <$thisValue>;
      */
-    private function resolveOnlyStmtReturnExpr(ClassMethod $classMethod): ?Expr
+    private function resolveOnlyStmtReturnExpr(Node $classMethod): ?Expr
     {
         if (count((array) $classMethod->stmts) !== 1) {
             return null;

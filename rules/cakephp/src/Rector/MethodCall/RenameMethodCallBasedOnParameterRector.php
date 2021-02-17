@@ -94,7 +94,7 @@ CODE_SAMPLE
         $this->callsWithParamRenames = $callsWithParamNames;
     }
 
-    private function matchTypeAndMethodName(MethodCall $methodCall): ?RenameMethodCallBasedOnParameter
+    private function matchTypeAndMethodName(Node $methodCall): ?RenameMethodCallBasedOnParameter
     {
         if (count($methodCall->args) < 1) {
             return null;

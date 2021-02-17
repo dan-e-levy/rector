@@ -205,7 +205,7 @@ CODE_SAMPLE
         return $name;
     }
 
-    private function processIdentifier(Identifier $identifier): ?Identifier
+    private function processIdentifier(Node $identifier): ?Identifier
     {
         $parentNode = $identifier->getAttribute(AttributeKey::PARENT_NODE);
         if (! $parentNode instanceof Class_) {

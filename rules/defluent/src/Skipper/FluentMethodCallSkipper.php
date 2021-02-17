@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Defluent\Skipper;
 
 use PhpParser\Node\Expr\MethodCall;
-use Rector\Defluent\Contract\ValueObject\FirstCallFactoryAwareInterface;
+use Rector\Defluent\Contract\ValueObject\RootExprAwareInterface;
 use Rector\Defluent\NodeAnalyzer\FluentCallStaticTypeResolver;
 use Rector\Defluent\NodeAnalyzer\FluentChainMethodCallNodeAnalyzer;
 use Rector\Defluent\NodeAnalyzer\GetterMethodCallAnalyzer;
@@ -119,7 +119,7 @@ final class FluentMethodCallSkipper
      * @param string[] $calleeUniqueTypes
      */
     private function resolveCalleeUniqueType(
-        FirstCallFactoryAwareInterface $firstCallFactoryAware,
+        RootExprAwareInterface $firstCallFactoryAware,
         array $calleeUniqueTypes
     ): string {
         if (! $firstCallFactoryAware->isFirstCallFactory()) {

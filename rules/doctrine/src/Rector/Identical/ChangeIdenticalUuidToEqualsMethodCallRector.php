@@ -91,7 +91,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createMethodCall($entityMethodCall, 'equals', [$staticCall]);
     }
 
-    private function matchEntityCallAndComparedVariable(Identical $identical): ?TwoNodeMatch
+    private function matchEntityCallAndComparedVariable(Node $identical): ?TwoNodeMatch
     {
         if ($this->doctrineEntityManipulator->isMethodCallOnDoctrineEntity($identical->left, 'getId')) {
             if ($this->isAlreadyUuidType($identical->right)) {

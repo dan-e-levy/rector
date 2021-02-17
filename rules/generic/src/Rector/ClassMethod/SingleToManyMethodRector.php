@@ -128,7 +128,7 @@ CODE_SAMPLE
         $this->singleToManyMethods = $singleToManyMethods;
     }
 
-    private function keepOldReturnTypeInDocBlock(ClassMethod $classMethod): void
+    private function keepOldReturnTypeInDocBlock(Node $classMethod): void
     {
         // keep old return type in the docblock
         $oldReturnType = $classMethod->returnType;
@@ -143,7 +143,7 @@ CODE_SAMPLE
         $this->phpDocTypeChanger->changeReturnType($phpDocInfo, $arrayType);
     }
 
-    private function wrapReturnValueToArray(ClassMethod $classMethod): void
+    private function wrapReturnValueToArray(Node $classMethod): void
     {
         $this->traverseNodesWithCallable((array) $classMethod->stmts, function (Node $node) {
             if (! $node instanceof Return_) {

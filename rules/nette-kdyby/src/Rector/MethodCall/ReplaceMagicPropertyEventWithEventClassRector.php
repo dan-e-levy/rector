@@ -141,7 +141,7 @@ CODE_SAMPLE
         return $assign;
     }
 
-    private function createEventInstanceAssign(string $eventClassName, MethodCall $methodCall): Assign
+    private function createEventInstanceAssign(string $eventClassName, Node $methodCall): Assign
     {
         $shortEventClassName = $this->classNaming->getVariableName($eventClassName);
 

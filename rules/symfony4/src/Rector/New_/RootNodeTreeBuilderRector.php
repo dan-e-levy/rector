@@ -83,7 +83,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function getRootMethodCallNode(New_ $new): ?Node
+    private function getRootMethodCallNode(Node $new): ?Node
     {
         $expression = $new->getAttribute(AttributeKey::CURRENT_STATEMENT);
         if ($expression === null) {

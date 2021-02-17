@@ -115,7 +115,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkip(Class_ $class): bool
+    private function shouldSkip(Node $class): bool
     {
         if (! $this->unusedClassResolver->isClassWithoutInterfaceAndNotController($class)) {
             return true;

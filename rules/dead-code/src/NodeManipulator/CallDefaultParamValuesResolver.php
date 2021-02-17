@@ -10,7 +10,7 @@ use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use Rector\NodeCollector\NodeCollector\NodeRepository;
@@ -40,7 +40,7 @@ final class CallDefaultParamValuesResolver
      * @param Function_|ClassMethod $functionLike
      * @return Node[]
      */
-    public function resolveFromFunctionLike(FunctionLike $functionLike): array
+    public function resolveFromFunctionLike(Stmt $functionLike): array
     {
         $defaultValues = [];
         foreach ($functionLike->getParams() as $key => $param) {

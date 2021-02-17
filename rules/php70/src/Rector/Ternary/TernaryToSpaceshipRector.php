@@ -75,7 +75,7 @@ CODE_SAMPLE
         return $this->processGreaterThanTernary($node, $nestedTernary);
     }
 
-    private function shouldSkip(Ternary $ternary): bool
+    private function shouldSkip(Node $ternary): bool
     {
         if (! $ternary->cond instanceof BinaryOp) {
             return true;
@@ -102,7 +102,7 @@ CODE_SAMPLE
     /**
      * Matches "$a < $b ? -1 : ($a > $b ? 1 : 0)"
      */
-    private function processSmallerThanTernary(Ternary $node, Ternary $nestedTernary): ?Spaceship
+    private function processSmallerThanTernary(Node $node, Ternary $nestedTernary): ?Spaceship
     {
         if ($node->cond instanceof Smaller && $nestedTernary->cond instanceof Greater && $this->areValues(
             [$node->if, $nestedTernary->if, $nestedTernary->else],
@@ -117,7 +117,7 @@ CODE_SAMPLE
     /**
      * Matches "$a > $b ? -1 : ($a < $b ? 1 : 0)"
      */
-    private function processGreaterThanTernary(Ternary $node, Ternary $nestedTernary): ?Spaceship
+    private function processGreaterThanTernary(Node $node, Ternary $nestedTernary): ?Spaceship
     {
         if ($node->cond instanceof Greater && $nestedTernary->cond instanceof Smaller && $this->areValues(
             [$node->if, $nestedTernary->if, $nestedTernary->else],

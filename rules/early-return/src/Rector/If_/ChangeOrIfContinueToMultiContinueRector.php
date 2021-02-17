@@ -98,7 +98,7 @@ CODE_SAMPLE
         return $this->processMultiIfContinue($node);
     }
 
-    private function processMultiIfContinue(If_ $if): If_
+    private function processMultiIfContinue(Node $if): If_
     {
         $node = clone $if;
         /** @var Continue_ $continue */

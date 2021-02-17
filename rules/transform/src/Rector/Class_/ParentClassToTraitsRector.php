@@ -117,7 +117,7 @@ CODE_SAMPLE
         $this->parentClassToTraits = $parentClassToTraits;
     }
 
-    private function removeParentClass(Class_ $class): void
+    private function removeParentClass(Node $class): void
     {
         $class->extends = null;
     }

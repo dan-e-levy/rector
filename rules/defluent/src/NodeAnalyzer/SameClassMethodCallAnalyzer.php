@@ -6,7 +6,7 @@ namespace Rector\Defluent\NodeAnalyzer;
 
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Stmt\ClassMethod;
-use Rector\Defluent\Contract\ValueObject\FirstCallFactoryAwareInterface;
+use Rector\Defluent\Contract\ValueObject\RootExprAwareInterface;
 use Rector\NodeCollector\NodeCollector\NodeRepository;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 
@@ -48,7 +48,7 @@ final class SameClassMethodCallAnalyzer
      */
     public function isCorrectTypeCount(
         array $calleeUniqueTypes,
-        FirstCallFactoryAwareInterface $firstCallFactoryAware
+        RootExprAwareInterface $firstCallFactoryAware
     ): bool {
         if ($calleeUniqueTypes === []) {
             return false;

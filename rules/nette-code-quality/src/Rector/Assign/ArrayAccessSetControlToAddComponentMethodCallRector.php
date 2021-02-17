@@ -87,7 +87,7 @@ CODE_SAMPLE
         return new MethodCall($arrayDimFetch->var, 'addComponent', $arg);
     }
 
-    private function isAssignOfControlToPresenterDimFetch(Assign $assign): bool
+    private function isAssignOfControlToPresenterDimFetch(Node $assign): bool
     {
         if (! $assign->var instanceof ArrayDimFetch) {
             return false;

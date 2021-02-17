@@ -133,7 +133,7 @@ CODE_SAMPLE
     /**
      * @param Variable|PropertyFetch|StaticPropertyFetch|Expr $expr
      */
-    private function processVariable(Assign $assign, Expr $expr): bool
+    private function processVariable(Node $assign, Expr $expr): bool
     {
         if ($this->shouldSkipVariable($expr)) {
             return true;

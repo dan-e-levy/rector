@@ -124,14 +124,14 @@ CODE_SAMPLE
         return ltrim($variableName, '$');
     }
 
-    private function findVariableByName(Stmt $stmt, string $docVariableName): ?Node
+    private function findVariableByName(Node $stmt, string $docVariableName): ?Node
     {
         return $this->betterNodeFinder->findFirst($stmt, function (Node $stmt) use ($docVariableName): bool {
             return $this->isVariableName($stmt, $docVariableName);
         });
     }
 
-    private function isVariableJustCreated(Stmt $stmt, string $docVariableName): bool
+    private function isVariableJustCreated(Node $stmt, string $docVariableName): bool
     {
         if (! $stmt instanceof Expression) {
             return false;
@@ -147,7 +147,7 @@ CODE_SAMPLE
         return $this->isVariableName($assign->var, $docVariableName);
     }
 
-    private function refactorFreshlyCreatedNode(Stmt $stmt, PhpDocInfo $phpDocInfo, Variable $variable): ?Node
+    private function refactorFreshlyCreatedNode(Node $stmt, PhpDocInfo $phpDocInfo, Variable $variable): ?Node
     {
         $stmt->setAttribute(AttributeKey::COMMENTS, null);
         $type = $phpDocInfo->getVarType();
@@ -164,7 +164,7 @@ CODE_SAMPLE
         return $stmt;
     }
 
-    private function refactorAlreadyCreatedNode(Stmt $stmt, PhpDocInfo $phpDocInfo, Variable $variable): ?Node
+    private function refactorAlreadyCreatedNode(Node $stmt, PhpDocInfo $phpDocInfo, Variable $variable): ?Node
     {
         $varTagValue = $phpDocInfo->getVarTagValueNode();
         if (! $varTagValue instanceof VarTagValueNode) {

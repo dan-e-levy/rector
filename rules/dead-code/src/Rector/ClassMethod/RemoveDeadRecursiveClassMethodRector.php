@@ -107,7 +107,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function containsClassMethodAnyCalls(ClassMethod $classMethod): bool
+    private function containsClassMethodAnyCalls(Node $classMethod): bool
     {
         return $this->betterNodeFinder->hasInstancesOf($classMethod, [MethodCall::class, StaticCall::class]);
     }
@@ -115,7 +115,7 @@ CODE_SAMPLE
     /**
      * @param StaticCall|MethodCall|ArrayCallable $methodCall
      */
-    private function shouldSkipCall(ClassMethod $classMethod, object $methodCall): bool
+    private function shouldSkipCall(Node $classMethod, object $methodCall): bool
     {
         if ($this->classMethodVendorLockResolver->isRemovalVendorLocked($classMethod)) {
             return true;

@@ -202,7 +202,7 @@ CODE_SAMPLE
         return ! ClassExistenceStaticHelper::doesClassLikeExist($typeName);
     }
 
-    private function removeDefaultValueForDoctrineCollection(Property $property, Type $propertyType): void
+    private function removeDefaultValueForDoctrineCollection(Node $property, Type $propertyType): void
     {
         if (! $this->doctrineTypeAnalyzer->isDoctrineCollectionWithIterableUnionType($propertyType)) {
             return;
@@ -212,7 +212,7 @@ CODE_SAMPLE
         $onlyProperty->default = null;
     }
 
-    private function addDefaultValueNullForNullableType(Property $property, Type $propertyType): void
+    private function addDefaultValueNullForNullableType(Node $property, Type $propertyType): void
     {
         if (! $propertyType instanceof UnionType) {
             return;

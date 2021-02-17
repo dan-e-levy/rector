@@ -310,7 +310,7 @@ CODE_SAMPLE
     /**
      * @param array<int, Node|null> $multiNodes
      */
-    private function getSameVarName(array $multiNodes, Node $node): ?Variable
+    private function getSameVarName(array $multiNodes, \PhpParser\Node\Expr\Variable $node): ?Variable
     {
         foreach ($multiNodes as $multiNode) {
             if ($multiNode === null) {

@@ -137,7 +137,7 @@ CODE_SAMPLE
         return $return;
     }
 
-    private function shouldSkipForeach(Foreach_ $foreach): bool
+    private function shouldSkipForeach(Node $foreach): bool
     {
         if ($foreach->keyVar !== null) {
             return true;
@@ -210,7 +210,7 @@ CODE_SAMPLE
     /**
      * @param Identical|Equal $binaryOp
      */
-    private function createInArrayFunction(Expr $expr, BinaryOp $binaryOp, Foreach_ $foreach): FuncCall
+    private function createInArrayFunction(Expr $expr, BinaryOp $binaryOp, Node $foreach): FuncCall
     {
         $arguments = $this->nodeFactory->createArgs([$expr, $foreach->expr]);
 

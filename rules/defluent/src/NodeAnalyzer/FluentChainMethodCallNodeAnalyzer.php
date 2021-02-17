@@ -13,6 +13,7 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeFinder;
 use PHPStan\Type\MixedType;
+use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 use PHPStan\Type\TypeWithClassName;
 use Rector\Core\Util\StaticInstanceOf;
@@ -108,7 +109,7 @@ final class FluentChainMethodCallNodeAnalyzer
         return ! $this->isMethodCallCreatingNewInstance($methodCall);
     }
 
-    public function isLastChainMethodCall(MethodCall $methodCall): bool
+    public function isLastChainMethodCall(Node $methodCall): bool
     {
         // is chain method call
         if (! $methodCall->var instanceof MethodCall && ! $methodCall->var instanceof New_) {
@@ -184,7 +185,7 @@ final class FluentChainMethodCallNodeAnalyzer
      *
      * @param string[] $methods
      */
-    public function isTypeAndChainCalls(Node $node, Type $type, array $methods): bool
+    public function isTypeAndChainCalls(Node $node, ObjectType $type, array $methods): bool
     {
         if (! $node instanceof MethodCall) {
             return false;
@@ -221,7 +222,7 @@ final class FluentChainMethodCallNodeAnalyzer
         return $callerNode;
     }
 
-    public function resolveRootMethodCall(MethodCall $methodCall): ?MethodCall
+    public function resolveRootMethodCall(Node $methodCall): ?MethodCall
     {
         $callerNode = $methodCall->var;
 

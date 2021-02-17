@@ -156,7 +156,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         if (! $this->isObjectType($methodCall->var, 'Kdyby\Events\EventManager')) {
             return true;

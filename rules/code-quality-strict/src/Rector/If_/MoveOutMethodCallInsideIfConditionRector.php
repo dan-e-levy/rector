@@ -123,7 +123,7 @@ CODE_SAMPLE
         return $this->isInsideMethodCallHasMethodCall($methodCall);
     }
 
-    private function moveOutMethodCall(MethodCall $methodCall, If_ $if): ?If_
+    private function moveOutMethodCall(MethodCall $methodCall, Node $if): ?If_
     {
         $hasParentAssign = (bool) $this->betterNodeFinder->findParentType($methodCall, Assign::class);
         if ($hasParentAssign) {

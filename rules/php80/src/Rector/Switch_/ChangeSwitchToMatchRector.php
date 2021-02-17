@@ -141,7 +141,7 @@ CODE_SAMPLE
         return $match;
     }
 
-    private function shouldSkipSwitch(Switch_ $switch): bool
+    private function shouldSkipSwitch(Node $switch): bool
     {
         if (! $this->switchAnalyzer->hasEachCaseBreak($switch)) {
             return true;

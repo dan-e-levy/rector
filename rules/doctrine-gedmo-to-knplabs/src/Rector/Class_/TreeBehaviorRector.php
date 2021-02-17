@@ -195,7 +195,7 @@ CODE_SAMPLE
     /**
      * @param string[] $removedPropertyNames
      */
-    private function removeClassMethodsForProperties(Class_ $class, array $removedPropertyNames): void
+    private function removeClassMethodsForProperties(Node $class, array $removedPropertyNames): void
     {
         foreach ($removedPropertyNames as $removedPropertyName) {
             foreach ($class->getMethods() as $classMethod) {

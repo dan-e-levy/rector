@@ -121,7 +121,7 @@ CODE_SAMPLE
     /**
      * @return string[]
      */
-    private function collectPropertyNamesWithMissingDefaultArray(Class_ $class): array
+    private function collectPropertyNamesWithMissingDefaultArray(Node $class): array
     {
         $propertyNames = [];
         $this->traverseNodesWithCallable($class, function (Node $node) use (&$propertyNames) {
@@ -149,7 +149,7 @@ CODE_SAMPLE
     /**
      * @param string[] $propertyNames
      */
-    private function completeDefaultArrayToPropertyNames(Class_ $class, array $propertyNames): void
+    private function completeDefaultArrayToPropertyNames(Node $class, array $propertyNames): void
     {
         $this->traverseNodesWithCallable($class, function (Node $class) use ($propertyNames): ?PropertyProperty {
             if (! $class instanceof PropertyProperty) {
@@ -169,7 +169,7 @@ CODE_SAMPLE
     /**
      * @param string[] $propertyNames
      */
-    private function clearNotNullBeforeCount(Class_ $class, array $propertyNames): void
+    private function clearNotNullBeforeCount(Node $class, array $propertyNames): void
     {
         $this->traverseNodesWithCallable($class, function (Node $node) use ($propertyNames): ?Expr {
             if (! $node instanceof BooleanAnd) {
@@ -214,7 +214,7 @@ CODE_SAMPLE
      * @param string[] $propertyNames
      */
     private function replaceNullComparisonOfArrayPropertiesWithArrayComparison(
-        Class_ $class,
+        Node $class,
         array $propertyNames
     ): void {
         // replace comparison to "null" with "[]"

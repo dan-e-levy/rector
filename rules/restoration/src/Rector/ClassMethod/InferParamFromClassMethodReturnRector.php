@@ -167,7 +167,7 @@ CODE_SAMPLE
     }
 
     private function matchReturnClassMethod(
-        ClassMethod $classMethod,
+        Node $classMethod,
         InferParamFromClassMethodReturn $inferParamFromClassMethodReturn
     ): ?ClassMethod {
         if (! $this->nodeNameResolver->isInClassNamed($classMethod, $inferParamFromClassMethodReturn->getClass())) {

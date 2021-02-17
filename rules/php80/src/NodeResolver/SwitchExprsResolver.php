@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Php80\NodeResolver;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\Return_;
-use PhpParser\Node\Stmt\Switch_;
 use Rector\Php80\ValueObject\CondAndExpr;
 
 final class SwitchExprsResolver
@@ -16,7 +16,7 @@ final class SwitchExprsResolver
     /**
      * @return CondAndExpr[]
      */
-    public function resolve(Switch_ $switch): array
+    public function resolve(Node $switch): array
     {
         $condAndExpr = [];
 

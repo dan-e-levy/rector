@@ -95,7 +95,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorArrayForeachValue(Array_ $array, Foreach_ $foreach): Array_
+    private function refactorArrayForeachValue(Array_ $array, Node $foreach): Array_
     {
         foreach ($array->items as $key => $arrayItem) {
             if (! $arrayItem instanceof ArrayItem) {
@@ -117,14 +117,14 @@ CODE_SAMPLE
         return $array;
     }
 
-    private function isVariableUsedInForeach(Variable $variable, Foreach_ $foreach): bool
+    private function isVariableUsedInForeach(Variable $variable, Node $foreach): bool
     {
         return (bool) $this->betterNodeFinder->findFirst($foreach->stmts, function (Node $node) use ($variable): bool {
             return $this->areNodesEqual($node, $variable);
         });
     }
 
-    private function removeForeachValueAndUseArrayKeys(Foreach_ $foreach): void
+    private function removeForeachValueAndUseArrayKeys(Node $foreach): void
     {
         // remove key value
         $foreach->valueVar = $foreach->keyVar;

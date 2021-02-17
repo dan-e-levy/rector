@@ -68,7 +68,7 @@ final class PhpSpecMethodToPHPUnitMethodRector extends AbstractPhpSpecToPHPUnitR
         return $node;
     }
 
-    private function processTestMethod(ClassMethod $classMethod): void
+    private function processTestMethod(Node $classMethod): void
     {
         // special case, @see https://johannespichler.com/writing-custom-phpspec-matchers/
         if ($this->isName($classMethod, 'getMatchers')) {

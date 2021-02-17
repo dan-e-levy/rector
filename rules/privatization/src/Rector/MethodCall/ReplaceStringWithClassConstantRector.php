@@ -127,7 +127,7 @@ CODE_SAMPLE
     }
 
     private function matchArg(
-        MethodCall $methodCall,
+        Node $methodCall,
         ReplaceStringWithClassConstant $replaceStringWithClassConstant
     ): ?Arg {
         if (! $this->isOnClassMethodCall(

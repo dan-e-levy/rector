@@ -181,7 +181,7 @@ CODE_SAMPLE
     }
 
     private function removeManagerRegistryDependency(
-        Class_ $class,
+        Node $class,
         ClassMethod $classMethod,
         Param $registryParam
     ): void {
@@ -213,7 +213,7 @@ CODE_SAMPLE
      * After:
      * $this->entityManager->
      */
-    private function replaceEntityRegistryVariableWithEntityManagerProperty(Class_ $class): void
+    private function replaceEntityRegistryVariableWithEntityManagerProperty(Node $class): void
     {
         $this->traverseNodesWithCallable($class->stmts, function (Node $class): ?PropertyFetch {
             if (! $class instanceof Variable) {
@@ -228,7 +228,7 @@ CODE_SAMPLE
         });
     }
 
-    private function removeAssignGetRepositoryCalls(Class_ $class): void
+    private function removeAssignGetRepositoryCalls(Node $class): void
     {
         $this->traverseNodesWithCallable($class->stmts, function (Node $node) {
             if (! $node instanceof Assign) {
@@ -244,7 +244,7 @@ CODE_SAMPLE
     }
 
     private function addConstructorDependencyWithProperty(
-        Class_ $class,
+        Node $class,
         ClassMethod $classMethod,
         string $name,
         FullyQualifiedObjectType $fullyQualifiedObjectType

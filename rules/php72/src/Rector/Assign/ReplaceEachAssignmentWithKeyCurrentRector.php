@@ -83,7 +83,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkip(Assign $assign): bool
+    private function shouldSkip(Node $assign): bool
     {
         if (! $this->isFuncCallName($assign->expr, 'each')) {
             return true;

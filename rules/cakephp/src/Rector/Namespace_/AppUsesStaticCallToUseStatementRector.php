@@ -117,7 +117,7 @@ CODE_SAMPLE
     /**
      * @param Use_[] $uses
      */
-    private function refactorFile(FileWithoutNamespace $fileWithoutNamespace, array $uses): ?FileWithoutNamespace
+    private function refactorFile(Node $fileWithoutNamespace, array $uses): ?FileWithoutNamespace
     {
         $hasNamespace = $this->betterNodeFinder->findFirstInstanceOf($fileWithoutNamespace, Namespace_::class);
         // already handled above

@@ -86,7 +86,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorReturnTypeDeclaration(ClassMethod $classMethod): void
+    private function refactorReturnTypeDeclaration(Node $classMethod): void
     {
         // already set
         if ($classMethod->returnType !== null && $this->isName($classMethod->returnType, 'int')) {
@@ -96,7 +96,7 @@ CODE_SAMPLE
         $classMethod->returnType = new Identifier('int');
     }
 
-    private function addReturn0ToMethod(ClassMethod $classMethod): void
+    private function addReturn0ToMethod(Node $classMethod): void
     {
         $hasReturn = false;
 

@@ -199,7 +199,7 @@ CODE_SAMPLE
     /**
      * @return ObjectType[]
      */
-    private function resolveConstructorParamClassTypes(Class_ $class): array
+    private function resolveConstructorParamClassTypes(Node $class): array
     {
         $constructorClassMethod = $class->getMethod(MethodName::CONSTRUCT);
         if (! $constructorClassMethod instanceof ClassMethod) {
@@ -261,7 +261,7 @@ CODE_SAMPLE
         $this->classMethodNodeRemover->removeClassMethodIfUseless($classMethod);
     }
 
-    private function addInjectOrRequiredClassMethod(Class_ $class): void
+    private function addInjectOrRequiredClassMethod(Node $class): void
     {
         /** @var string $className */
         $className = $class->getAttribute(AttributeKey::CLASS_NAME);

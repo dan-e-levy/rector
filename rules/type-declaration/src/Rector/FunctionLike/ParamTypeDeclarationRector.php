@@ -147,7 +147,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_ $functionLike
      */
-    private function refactorParam(Param $param, FunctionLike $functionLike, int $position): void
+    private function refactorParam(Param $param, Node $functionLike, int $position): void
     {
         if ($this->shouldSkipParam($param, $functionLike, $position)) {
             return;

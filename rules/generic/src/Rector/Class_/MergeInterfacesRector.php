@@ -94,7 +94,7 @@ CODE_SAMPLE
         $this->oldToNewInterfaces = $configuration[self::OLD_TO_NEW_INTERFACES] ?? [];
     }
 
-    private function makeImplementsUnique(Class_ $class): void
+    private function makeImplementsUnique(Node $class): void
     {
         $alreadyAddedNames = [];
         foreach ($class->implements as $key => $name) {

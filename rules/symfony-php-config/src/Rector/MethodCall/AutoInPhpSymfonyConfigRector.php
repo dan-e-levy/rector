@@ -108,7 +108,7 @@ CODE_SAMPLE
         return $methodCall;
     }
 
-    private function shouldSkipMethodCall(MethodCall $methodCall): bool
+    private function shouldSkipMethodCall(Node $methodCall): bool
     {
         $isFreshNode = $methodCall->getAttribute(AttributeKey::IS_FRESH_NODE);
         if ($isFreshNode) {
@@ -139,7 +139,7 @@ CODE_SAMPLE
     /**
      * @return string[]
      */
-    private function resolveMissingMethodNames(MethodCall $methodCall): array
+    private function resolveMissingMethodNames(Node $methodCall): array
     {
         $methodCallNames = $this->fluentChainMethodCallNodeAnalyzer->collectMethodCallNamesInChain($methodCall);
 

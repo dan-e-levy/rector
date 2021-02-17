@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Rector\TypeDeclaration\ChildPopulator;
 
 use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
-use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use PHPStan\Type\Type;
@@ -77,7 +77,7 @@ final class ChildParamPopulator extends AbstractChildPopulator
     }
 
     private function addParamTypeToMethod(
-        ClassLike $classLike,
+        Stmt $classLike,
         int $position,
         ClassMethod $classMethod,
         Type $paramType

@@ -6,7 +6,6 @@ namespace Rector\MockistaToMockery;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\Stmt\Class_;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\NodeNameResolver\NodeNameResolver;
 
@@ -28,7 +27,7 @@ final class MockistaDetector
         $this->nodeNameResolver = $nodeNameResolver;
     }
 
-    public function isInClass(Class_ $class): bool
+    public function isInClass(Node $class): bool
     {
         return (bool) $this->betterNodeFinder->findFirst($class->stmts, function (Node $node): bool {
             if (! $node instanceof FuncCall) {

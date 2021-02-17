@@ -131,7 +131,7 @@ CODE_SAMPLE
         return $scope->getType($expr) instanceof ArrayType;
     }
 
-    private function processIdentical(Node $node, FuncCall $funcCall, Expr $expr): ?Expr
+    private function processIdentical(Node $node, Node $funcCall, Expr $expr): ?Expr
     {
         if ($node instanceof Identical && $node->right instanceof LNumber && $node->right->value === 0) {
             $this->removeNode($funcCall);
@@ -150,7 +150,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processGreaterOrSmaller(Node $node, FuncCall $funcCall, Expr $expr): ?NotIdentical
+    private function processGreaterOrSmaller(Node $node, Node $funcCall, Expr $expr): ?NotIdentical
     {
         if ($node instanceof Greater && $node->right instanceof LNumber && $node->right->value === 0) {
             $this->removeNode($funcCall);
@@ -169,7 +169,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processMarkTruthy(Node $node, FuncCall $funcCall, Expr $expr): ?Expr
+    private function processMarkTruthy(Node $node, Node $funcCall, Expr $expr): ?Expr
     {
         if (! $node instanceof If_ && ! $node instanceof ElseIf_) {
             return null;

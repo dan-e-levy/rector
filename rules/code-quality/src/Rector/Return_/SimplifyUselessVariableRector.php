@@ -106,7 +106,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(Return_ $return): bool
+    private function shouldSkip(Node $return): bool
     {
         if (! $return->expr instanceof Variable) {
             return true;
@@ -144,7 +144,7 @@ CODE_SAMPLE
         return $expr->getDocComment() !== null;
     }
 
-    private function isReturnWithVarAnnotation(Return_ $return): bool
+    private function isReturnWithVarAnnotation(Node $return): bool
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($return);
         return ! $phpDocInfo->getVarType() instanceof MixedType;
@@ -153,7 +153,7 @@ CODE_SAMPLE
     /**
      * @param AssignOp|Assign $previousNode
      */
-    private function isPreviousExpressionVisuallySimilar(Expression $previousExpression, Node $previousNode): bool
+    private function isPreviousExpressionVisuallySimilar(Expression $previousExpression, Expr $previousNode): bool
     {
         $prePreviousExpression = $previousExpression->getAttribute(AttributeKey::PREVIOUS_STATEMENT);
         if (! $prePreviousExpression instanceof Expression) {

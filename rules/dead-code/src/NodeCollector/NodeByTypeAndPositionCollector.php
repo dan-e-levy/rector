@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode\NodeCollector;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\FunctionLike;
 use Rector\DeadCode\ValueObject\VariableNodeUse;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Rector\NodeNestingScope\FlowOfControlLocator;
@@ -38,7 +38,7 @@ final class NodeByTypeAndPositionCollector
     public function collectNodesByTypeAndPosition(
         array $assignedVariables,
         array $assignedVariablesUse,
-        FunctionLike $functionLike
+        Node $functionLike
     ): array {
         $nodesByTypeAndPosition = [];
 

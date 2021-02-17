@@ -156,7 +156,7 @@ CODE_SAMPLE
 
     private function removeOrReplaceImplementedInterface(
         string $implementedInterfaceName,
-        Class_ $class,
+        Node $class,
         int $key
     ): void {
         $parentInterface = $this->getParentInterfaceIfFound($implementedInterfaceName);
@@ -191,7 +191,7 @@ CODE_SAMPLE
         }
     }
 
-    private function replaceName(Class_ $class, string $implementedInterfaceName): void
+    private function replaceName(Node $class, string $implementedInterfaceName): void
     {
         $className = $this->getName($class);
         if ($className === null) {

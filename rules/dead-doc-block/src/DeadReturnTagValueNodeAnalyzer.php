@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\DeadDocBlock;
 
 use PhpParser\Node\FunctionLike;
-use PHPStan\PhpDocParser\Ast\PhpDoc\ReturnTagValueNode;
+use Rector\AttributeAwarePhpDoc\Ast\PhpDoc\AttributeAwareReturnTagValueNode;
 use Rector\NodeTypeResolver\PHPStan\TypeComparator;
 
 final class DeadReturnTagValueNodeAnalyzer
@@ -20,7 +20,7 @@ final class DeadReturnTagValueNodeAnalyzer
         $this->typeComparator = $typeComparator;
     }
 
-    public function isDead(ReturnTagValueNode $returnTagValueNode, FunctionLike $functionLike): bool
+    public function isDead(AttributeAwareReturnTagValueNode $returnTagValueNode, FunctionLike $functionLike): bool
     {
         $returnType = $functionLike->getReturnType();
         if ($returnType === null) {

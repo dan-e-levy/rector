@@ -151,7 +151,7 @@ CODE_SAMPLE
     }
 
     private function shouldSkipArgumentStaticType(
-        ClassMethod $classMethod,
+        Node $classMethod,
         Type $argumentStaticType,
         int $position
     ): bool {

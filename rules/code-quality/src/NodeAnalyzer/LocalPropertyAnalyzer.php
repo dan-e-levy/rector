@@ -11,7 +11,6 @@ use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\NodeTraverser;
 use PHPStan\Type\MixedType;
@@ -96,7 +95,7 @@ final class LocalPropertyAnalyzer
     /**
      * @return array<string, Type>
      */
-    public function resolveFetchedPropertiesToTypesFromClass(Class_ $class): array
+    public function resolveFetchedPropertiesToTypesFromClass(Node $class): array
     {
         $fetchedLocalPropertyNameToTypes = [];
 

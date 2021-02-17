@@ -78,7 +78,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isIfWithConstantReturns(If_ $if): bool
+    private function isIfWithConstantReturns(Node $if): bool
     {
         $possibleContents = [];
         $possibleContents[] = $this->print($if->stmts);

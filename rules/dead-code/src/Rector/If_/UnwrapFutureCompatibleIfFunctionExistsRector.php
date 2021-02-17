@@ -112,7 +112,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkip(If_ $if): bool
+    private function shouldSkip(Node $if): bool
     {
         $classLike = $if->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof ClassLike) {

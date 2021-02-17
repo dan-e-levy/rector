@@ -141,7 +141,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClassMethod(ClassMethod $classMethod): bool
+    private function shouldSkipClassMethod(Node $classMethod): bool
     {
         if (! $this->isName($classMethod, MethodName::CONSTRUCT)) {
             return true;
@@ -156,7 +156,7 @@ CODE_SAMPLE
         return $parentClassName !== self::SERVICE_ENTITY_REPOSITORY_CLASS;
     }
 
-    private function removeParentConstructAndCollectEntityReference(ClassMethod $classMethod): Expr
+    private function removeParentConstructAndCollectEntityReference(Node $classMethod): Expr
     {
         $entityReferenceExpr = null;
 

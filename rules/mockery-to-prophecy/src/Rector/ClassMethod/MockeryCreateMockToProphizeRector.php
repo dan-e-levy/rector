@@ -89,7 +89,7 @@ CODE_SAMPLE
         );
     }
 
-    private function replaceMockCreationsAndCollectVariableNames(ClassMethod $classMethod): void
+    private function replaceMockCreationsAndCollectVariableNames(Node $classMethod): void
     {
         if ($classMethod->stmts === null) {
             return;
@@ -117,7 +117,7 @@ CODE_SAMPLE
         });
     }
 
-    private function revealMockArguments(ClassMethod $classMethod): void
+    private function revealMockArguments(Node $classMethod): void
     {
         if ($classMethod->stmts === null) {
             return;

@@ -166,7 +166,7 @@ CODE_SAMPLE
         return $this->changeListenerToSubscriberWithMethods($node, $listenerClassesToEventsToMethods[$className]);
     }
 
-    private function isAlreadyEventSubscriber(Class_ $class): bool
+    private function isAlreadyEventSubscriber(Node $class): bool
     {
         foreach ($class->implements as $implement) {
             if ($this->isName($implement, 'Symfony\Component\EventDispatcher\EventSubscriberInterface')) {
@@ -180,7 +180,7 @@ CODE_SAMPLE
     /**
      * @param array<string, ServiceDefinition[]> $eventsToMethods
      */
-    private function changeListenerToSubscriberWithMethods(Class_ $class, array $eventsToMethods): Class_
+    private function changeListenerToSubscriberWithMethods(Node $class, array $eventsToMethods): Class_
     {
         $class->implements[] = new FullyQualified(self::EVENT_SUBSCRIBER_INTERFACE);
 

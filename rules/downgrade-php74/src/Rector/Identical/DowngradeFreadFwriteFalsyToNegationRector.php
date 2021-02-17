@@ -68,7 +68,7 @@ CODE_SAMPLE
         return new BooleanNot($this->getFunction($node));
     }
 
-    private function getCompareValue(Identical $identical): ?Expr
+    private function getCompareValue(Node $identical): ?Expr
     {
         if ($identical->left instanceof FuncCall && $this->isNames($identical->left, self::FUNC_FREAD_FWRITE)) {
             return $identical->right;
@@ -81,7 +81,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function getFunction(Identical $identical): FuncCall
+    private function getFunction(Node $identical): FuncCall
     {
         /** @var FuncCall $funcCall */
         $funcCall = $identical->left instanceof FuncCall

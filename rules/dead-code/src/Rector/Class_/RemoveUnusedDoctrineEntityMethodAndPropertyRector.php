@@ -139,7 +139,7 @@ CODE_SAMPLE
      * Remove unused methods immediately, so we can then remove unused properties.
      * @param string[] $unusedMethodNames
      */
-    private function removeClassMethodsByNames(Class_ $class, array $unusedMethodNames): Class_
+    private function removeClassMethodsByNames(Node $class, array $unusedMethodNames): Class_
     {
         foreach ($class->getMethods() as $classMethod) {
             if (! $this->isNames($classMethod, $unusedMethodNames)) {
@@ -155,7 +155,7 @@ CODE_SAMPLE
     /**
      * @return string[]
      */
-    private function resolveUnusedPrivatePropertyNames(Class_ $class): array
+    private function resolveUnusedPrivatePropertyNames(Node $class): array
     {
         $privatePropertyNames = $this->classManipulator->getPrivatePropertyNames($class);
 
@@ -168,7 +168,7 @@ CODE_SAMPLE
     /**
      * @param string[] $unusedPropertyNames
      */
-    private function removeClassPrivatePropertiesByNames(Class_ $class, array $unusedPropertyNames): Class_
+    private function removeClassPrivatePropertiesByNames(Node $class, array $unusedPropertyNames): Class_
     {
         foreach ($class->getProperties() as $property) {
             $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);

@@ -196,7 +196,7 @@ CODE_SAMPLE
     /**
      * @return Assign[]
      */
-    private function resolveAssignRouteNodes(ClassMethod $classMethod): array
+    private function resolveAssignRouteNodes(Node $classMethod): array
     {
         // look for <...>[] = IRoute<Type>
 

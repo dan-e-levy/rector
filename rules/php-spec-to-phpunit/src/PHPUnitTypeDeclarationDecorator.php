@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\PhpSpecToPHPUnit;
 
+use PhpParser\Node;
 use PhpParser\Node\Identifier;
-use PhpParser\Node\Stmt\ClassMethod;
 use Rector\Core\ValueObject\MethodName;
 use Rector\Testing\PHPUnit\StaticPHPUnitEnvironment;
 use ReflectionMethod;
@@ -15,7 +15,7 @@ use ReflectionMethod;
  */
 final class PHPUnitTypeDeclarationDecorator
 {
-    public function decorate(ClassMethod $classMethod): void
+    public function decorate(Node $classMethod): void
     {
         if (! class_exists('PHPUnit\Framework\TestCase')) {
             return;

@@ -78,7 +78,7 @@ CODE_SAMPLE
             ]);
     }
 
-    private function shouldSkip(Class_ $class): bool
+    private function shouldSkip(Node $class): bool
     {
         if (! $class->isAbstract()) {
             return true;
@@ -92,7 +92,7 @@ CODE_SAMPLE
         return $stmts !== [];
     }
 
-    private function processRemove(Class_ $class): ?Class_
+    private function processRemove(Node $class): ?Class_
     {
         $className = $this->getName($class->namespacedName);
         $names = $this->nodeRepository->findNames($className);

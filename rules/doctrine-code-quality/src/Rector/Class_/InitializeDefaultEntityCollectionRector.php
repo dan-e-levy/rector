@@ -112,7 +112,7 @@ CODE_SAMPLE
     /**
      * @return string[]
      */
-    private function resolveToManyPropertyNames(Class_ $class): array
+    private function resolveToManyPropertyNames(Node $class): array
     {
         $collectionPropertyNames = [];
 

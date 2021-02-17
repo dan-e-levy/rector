@@ -9,7 +9,6 @@ use PhpParser\Node;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Namespace_;
 use Rector\Core\Exception\ShouldNotHappenException;
@@ -61,12 +60,12 @@ final class PhpSpecRenaming
         $classMethod->name = new Identifier($classMethodName);
     }
 
-    public function renameExtends(Class_ $class): void
+    public function renameExtends(Node $class): void
     {
         $class->extends = new FullyQualified('PHPUnit\Framework\TestCase');
     }
 
-    public function renameNamespace(Class_ $class): void
+    public function renameNamespace(Node $class): void
     {
         $namespace = $class->getAttribute(AttributeKey::NAMESPACE_NODE);
         if (! $namespace instanceof Namespace_) {
@@ -83,7 +82,7 @@ final class PhpSpecRenaming
         $namespace->name = new Name('Tests\\' . $newNamespaceName);
     }
 
-    public function renameClass(Class_ $class): void
+    public function renameClass(Node $class): void
     {
         $classShortName = $this->nodeNameResolver->getShortName($class);
         // anonymous class?
@@ -98,7 +97,7 @@ final class PhpSpecRenaming
         $class->name = new Identifier($newTestClassName);
     }
 
-    public function resolveObjectPropertyName(Class_ $class): string
+    public function resolveObjectPropertyName(Node $class): string
     {
         // anonymous class?
         if ($class->name === null) {

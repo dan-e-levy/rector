@@ -172,7 +172,7 @@ CODE_SAMPLE
     /**
      * @param string[] $stringsToReplace
      */
-    private function replaceStringsWithClassConstReferences(Class_ $class, array $stringsToReplace): void
+    private function replaceStringsWithClassConstReferences(Node $class, array $stringsToReplace): void
     {
         $this->traverseNodesWithCallable($class, function (Node $node) use ($stringsToReplace): ?ClassConstFetch {
             if (! $node instanceof String_) {
@@ -191,7 +191,7 @@ CODE_SAMPLE
     /**
      * @param string[] $stringsToReplace
      */
-    private function addClassConsts(array $stringsToReplace, Class_ $class): void
+    private function addClassConsts(array $stringsToReplace, Node $class): void
     {
         foreach ($stringsToReplace as $stringToReplace) {
             $constantName = $this->createConstName($stringToReplace);

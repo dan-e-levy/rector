@@ -101,7 +101,7 @@ CODE_SAMPLE
         $this->typeMethodWraps = $typeMethodWraps;
     }
 
-    private function wrap(ClassMethod $classMethod, bool $isArrayWrap): ?ClassMethod
+    private function wrap(Node $classMethod, bool $isArrayWrap): ?ClassMethod
     {
         if (! is_iterable($classMethod->stmts)) {
             return null;

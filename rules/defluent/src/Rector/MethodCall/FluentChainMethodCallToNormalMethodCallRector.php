@@ -98,7 +98,7 @@ CODE_SAMPLE
      * @see DefluentReturnMethodCallRector
      * @see InArgFluentChainMethodCallToStandaloneMethodCallRector
      */
-    private function isHandledByAnotherRule(MethodCall $methodCall): bool
+    private function isHandledByAnotherRule(Node $methodCall): bool
     {
         $parent = $methodCall->getAttribute(AttributeKey::PARENT_NODE);
         return $this->typeChecker->isInstanceOf($parent, [Return_::class, Arg::class]);

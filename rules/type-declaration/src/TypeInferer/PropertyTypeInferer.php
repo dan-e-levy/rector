@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\TypeDeclaration\TypeInferer;
 
-use PhpParser\Node\Stmt\Property;
+use PhpParser\Node;
 use PHPStan\Type\ArrayType;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\NeverType;
@@ -60,7 +60,7 @@ final class PropertyTypeInferer extends AbstractPriorityAwareTypeInferer
         $this->varDocPropertyTypeInferer = $varDocPropertyTypeInferer;
     }
 
-    public function inferProperty(Property $property): Type
+    public function inferProperty(Node $property): Type
     {
         $resolvedTypes = [];
 

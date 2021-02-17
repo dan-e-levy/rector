@@ -7,7 +7,6 @@ namespace Rector\NetteKdyby\NodeManipulator;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Param;
-use PhpParser\Node\Stmt\ClassMethod;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 
@@ -29,7 +28,7 @@ final class ParamAnalyzer
         $this->betterStandardPrinter = $betterStandardPrinter;
     }
 
-    public function isParamUsedInClassMethod(ClassMethod $classMethod, Param $param): bool
+    public function isParamUsedInClassMethod(Node $classMethod, Param $param): bool
     {
         return (bool) $this->betterNodeFinder->findFirst((array) $classMethod->stmts, function (Node $node) use (
             $param

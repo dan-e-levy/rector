@@ -103,7 +103,7 @@ CODE_SAMPLE
         return StaticInstanceOf::isOneOf($expr, [FuncCall::class, StaticCall::class, MethodCall::class]);
     }
 
-    private function shouldSkipForDifferentScope(Assign $assign, Expression $expression): bool
+    private function shouldSkipForDifferentScope(Node $assign, Expression $expression): bool
     {
         if (! $this->areInSameClassMethod($assign, $expression)) {
             return true;
@@ -112,7 +112,7 @@ CODE_SAMPLE
         return ! $this->scopeNestingComparator->areScopeNestingEqual($assign, $expression);
     }
 
-    private function isSelfReferencing(Assign $assign): bool
+    private function isSelfReferencing(Node $assign): bool
     {
         return (bool) $this->betterNodeFinder->findFirst($assign->expr, function (Node $subNode) use ($assign): bool {
             return $this->areNodesEqual($assign->var, $subNode);

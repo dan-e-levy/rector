@@ -78,7 +78,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkipPropertyPromotion(ClassMethod $classMethod): bool
+    private function shouldSkipPropertyPromotion(Node $classMethod): bool
     {
         if (! $this->isName($classMethod, MethodName::CONSTRUCT)) {
             return true;

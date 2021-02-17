@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode\NodeManipulator;
 
-use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Greater;
 use PhpParser\Node\Expr\BinaryOp\GreaterOrEqual;
@@ -33,7 +32,7 @@ final class CountManipulator
         $this->nodeNameResolver = $nodeNameResolver;
     }
 
-    public function isCounterHigherThanOne(Node $node, Expr $expr): bool
+    public function isCounterHigherThanOne(Expr $node, Expr $expr): bool
     {
         // e.g. count($values) > 0
         if ($node instanceof Greater) {
@@ -94,7 +93,7 @@ final class CountManipulator
         return $this->isCountWithExpression($smallerOrEqual->right, $expr);
     }
 
-    private function isNumber(Node $node, int $value): bool
+    private function isNumber(Expr $node, int $value): bool
     {
         if (! $node instanceof LNumber) {
             return false;
@@ -103,7 +102,7 @@ final class CountManipulator
         return $node->value === $value;
     }
 
-    private function isCountWithExpression(Node $node, Expr $expr): bool
+    private function isCountWithExpression(Expr $node, Expr $expr): bool
     {
         if (! $node instanceof FuncCall) {
             return false;

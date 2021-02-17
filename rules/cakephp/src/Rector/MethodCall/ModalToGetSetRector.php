@@ -99,7 +99,7 @@ CODE_SAMPLE
         $this->unprefixedMethodsToGetSet = $unprefixedMethodsToGetSet;
     }
 
-    private function matchTypeAndMethodName(MethodCall $methodCall): ?ModalToGetSet
+    private function matchTypeAndMethodName(Node $methodCall): ?ModalToGetSet
     {
         foreach ($this->unprefixedMethodsToGetSet as $unprefixedMethodToGetSet) {
             if (! $this->isObjectType($methodCall->var, $unprefixedMethodToGetSet->getType())) {
@@ -116,10 +116,8 @@ CODE_SAMPLE
         return null;
     }
 
-    private function resolveNewMethodNameByCondition(
-        MethodCall $methodCall,
-        ModalToGetSet $modalToGetSet
-    ): string {
+    private function resolveNewMethodNameByCondition(Node $methodCall, ModalToGetSet $modalToGetSet): string
+    {
         if (count($methodCall->args) >= $modalToGetSet->getMinimalSetterArgumentCount()) {
             return $modalToGetSet->getSetMethod();
         }

@@ -130,7 +130,7 @@ CODE_SAMPLE
     /**
      * @return Yield_[]
      */
-    private function collectYieldNodesFromClassMethod(ClassMethod $classMethod): array
+    private function collectYieldNodesFromClassMethod(Node $classMethod): array
     {
         $yieldNodes = [];
 

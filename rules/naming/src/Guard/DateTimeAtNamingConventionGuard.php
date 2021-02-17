@@ -45,7 +45,7 @@ final class DateTimeAtNamingConventionGuard implements ConflictingGuardInterface
         return $this->isDateTimeAtNamingConvention($renameValueObject);
     }
 
-    private function isDateTimeAtNamingConvention(PropertyRename $propertyRename): bool
+    private function isDateTimeAtNamingConvention(RenameValueObjectInterface $propertyRename): bool
     {
         $type = $this->nodeTypeResolver->resolve($propertyRename->getProperty());
         $type = $this->typeUnwrapper->unwrapFirstObjectTypeFromUnionType($type);

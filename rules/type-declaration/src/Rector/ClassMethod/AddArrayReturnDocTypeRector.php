@@ -168,7 +168,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(ClassMethod $classMethod, PhpDocInfo $phpDocInfo): bool
+    private function shouldSkip(Node $classMethod, PhpDocInfo $phpDocInfo): bool
     {
         if ($this->shouldSkipClassMethod($classMethod)) {
             return true;
@@ -195,7 +195,7 @@ CODE_SAMPLE
      * @todo merge to
      * @see \Rector\TypeDeclaration\TypeAlreadyAddedChecker\ReturnTypeAlreadyAddedChecker
      */
-    private function shouldSkipType(Type $newType, ClassMethod $classMethod, PhpDocInfo $phpDocInfo): bool
+    private function shouldSkipType(Type $newType, Node $classMethod, PhpDocInfo $phpDocInfo): bool
     {
         if ($newType instanceof ArrayType && $this->shouldSkipArrayType($newType, $classMethod, $phpDocInfo)) {
             return true;

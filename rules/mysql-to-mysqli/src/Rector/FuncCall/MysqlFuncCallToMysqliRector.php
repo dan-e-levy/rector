@@ -86,7 +86,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function processMysqlCreateDb(FuncCall $funcCall): FuncCall
+    private function processMysqlCreateDb(Node $funcCall): FuncCall
     {
         $funcCall->name = new Name(self::MYSQLI_QUERY);
         $funcCall->args[0]->value = $this->joinStringWithNode('CREATE DATABASE', $funcCall->args[0]->value);
@@ -94,7 +94,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function processMysqlDropDb(FuncCall $funcCall): FuncCall
+    private function processMysqlDropDb(Node $funcCall): FuncCall
     {
         $funcCall->name = new Name(self::MYSQLI_QUERY);
         $funcCall->args[0]->value = $this->joinStringWithNode('DROP DATABASE', $funcCall->args[0]->value);

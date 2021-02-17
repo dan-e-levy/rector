@@ -113,7 +113,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function removePropertyAndClassMethods(Class_ $class, string $fieldName): void
+    private function removePropertyAndClassMethods(Node $class, string $fieldName): void
     {
         // remove property
         foreach ($class->getProperties() as $property) {

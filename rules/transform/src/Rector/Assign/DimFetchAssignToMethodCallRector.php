@@ -119,7 +119,7 @@ CODE_SAMPLE
         $this->dimFetchAssignToMethodCalls = $dimFetchAssignToMethodCalls;
     }
 
-    private function findDimFetchAssignToMethodCall(Assign $assign): ?DimFetchAssignToMethodCall
+    private function findDimFetchAssignToMethodCall(Node $assign): ?DimFetchAssignToMethodCall
     {
         /** @var ArrayDimFetch $arrayDimFetch */
         $arrayDimFetch = $assign->var;

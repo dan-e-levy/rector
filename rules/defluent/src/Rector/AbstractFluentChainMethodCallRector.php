@@ -65,7 +65,7 @@ abstract class AbstractFluentChainMethodCallRector extends AbstractRector
     }
 
     protected function createStandaloneNodesToAddFromChainMethodCalls(
-        MethodCall $methodCall,
+        Node $methodCall,
         string $kind
     ): ?AssignAndRootExprAndNodesToAdd {
         $chainMethodCalls = $this->fluentChainMethodCallNodeAnalyzer->collectAllMethodCallsInChain($methodCall);
@@ -124,7 +124,7 @@ abstract class AbstractFluentChainMethodCallRector extends AbstractRector
         return $this->fluentMethodCallSkipper->shouldSkipRootMethodCall($methodCall);
     }
 
-    protected function matchReturnMethodCall(Return_ $return): ?MethodCall
+    protected function matchReturnMethodCall(Node $return): ?MethodCall
     {
         if ($return->expr === null) {
             return null;
@@ -137,7 +137,7 @@ abstract class AbstractFluentChainMethodCallRector extends AbstractRector
         return $return->expr;
     }
 
-    protected function shouldSkipMethodCallIncludingNew(MethodCall $methodCall): bool
+    protected function shouldSkipMethodCallIncludingNew(Node $methodCall): bool
     {
         if ($this->shouldSkipMethodCall($methodCall)) {
             return true;

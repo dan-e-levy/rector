@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\CodingStyle\ClassNameImport;
 
-use PhpParser\Node;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Namespace_;
@@ -44,7 +43,7 @@ final class UsedImportsResolver
     /**
      * @return FullyQualifiedObjectType[]
      */
-    public function resolveForNode(Node $node): array
+    public function resolveForNode(Namespace_ $node): array
     {
         $namespace = $node->getAttribute(AttributeKey::NAMESPACE_NODE);
         if ($namespace instanceof Namespace_) {

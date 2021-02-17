@@ -12,6 +12,7 @@ use PhpParser\Node\Expr\BinaryOp\Coalesce;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\Isset_;
 use PhpParser\Node\Name;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Else_;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\If_;
@@ -122,7 +123,7 @@ CODE_SAMPLE
         return new Assign($valueNode, $funcCall);
     }
 
-    private function shouldSkip(If_ $if): bool
+    private function shouldSkip(Node $if): bool
     {
         if ($if->else === null) {
             return true;
@@ -172,7 +173,7 @@ CODE_SAMPLE
     /**
      * @param If_|Else_ $node
      */
-    private function hasOnlyStatementAssign(Node $node): bool
+    private function hasOnlyStatementAssign(Stmt $node): bool
     {
         if (count($node->stmts) !== 1) {
             return false;

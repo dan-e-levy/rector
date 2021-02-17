@@ -142,7 +142,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         if (! $this->doctrineEntityManipulator->isMethodCallOnDoctrineEntity($methodCall, 'setId')) {
             return true;
@@ -156,7 +156,7 @@ CODE_SAMPLE
         return $this->isUuidType($methodCall->args[0]->value);
     }
 
-    private function getSetUuidMethodCallOnSameVariable(MethodCall $methodCall): ?MethodCall
+    private function getSetUuidMethodCallOnSameVariable(Node $methodCall): ?MethodCall
     {
         $parentNode = $methodCall->getAttribute(AttributeKey::PARENT_NODE);
         if ($parentNode instanceof Expression) {

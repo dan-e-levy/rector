@@ -194,7 +194,7 @@ CODE_SAMPLE
     /**
      * @return PhpDocInfo[]
      */
-    private function collectAndRemoveTranslatableProperties(Class_ $class): array
+    private function collectAndRemoveTranslatableProperties(Node $class): array
     {
         $removedPropertyNameToPhpDocInfo = [];
 
@@ -226,7 +226,7 @@ CODE_SAMPLE
     /**
      * @param string[] $removedPropertyNames
      */
-    private function removeSetAndGetMethods(Class_ $class, array $removedPropertyNames): void
+    private function removeSetAndGetMethods(Node $class, array $removedPropertyNames): void
     {
         foreach ($removedPropertyNames as $removedPropertyName) {
             foreach ($class->getMethods() as $classMethod) {
@@ -248,7 +248,7 @@ CODE_SAMPLE
     /**
      * @param PhpDocInfo[] $translatedPropertyToPhpDocInfos
      */
-    private function dumpEntityTranslation(Class_ $class, array $translatedPropertyToPhpDocInfos): void
+    private function dumpEntityTranslation(Node $class, array $translatedPropertyToPhpDocInfos): void
     {
         $fileInfo = $class->getAttribute(AttributeKey::FILE_INFO);
         if (! $fileInfo instanceof SmartFileInfo) {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\Naming;
 
 use PhpParser\Node;
-use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\Variable;
@@ -38,11 +37,8 @@ final class ArrayDimFetchRenamer
     /**
      * @see \Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector::renameVariableInClassMethod
      */
-    public function renameToVariable(
-        ClassMethod $classMethod,
-        ArrayDimFetch $arrayDimFetch,
-        string $variableName
-    ): void {
+    public function renameToVariable(ClassMethod $classMethod, Node $arrayDimFetch, string $variableName): void
+    {
         $this->simpleCallableNodeTraverser->traverseNodesWithCallable((array) $classMethod->stmts, function (
             Node $node
         ) use ($arrayDimFetch, $variableName) {

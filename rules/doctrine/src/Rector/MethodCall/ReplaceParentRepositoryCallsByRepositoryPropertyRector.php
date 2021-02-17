@@ -97,7 +97,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         $classLike = $methodCall->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof Class_) {

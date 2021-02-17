@@ -150,7 +150,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function processClassMethod(Class_ $class, ClassMethod $classMethod): void
+    private function processClassMethod(Node $class, ClassMethod $classMethod): void
     {
         foreach (self::LISTENER_METHOD_TO_HOOK_INTERFACES as $methodName => $hookClassAndMethod) {
             /** @var string $methodName */

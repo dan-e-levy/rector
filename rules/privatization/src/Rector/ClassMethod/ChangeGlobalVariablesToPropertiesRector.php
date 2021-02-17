@@ -102,7 +102,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function collectGlobalVariableNamesAndRefactorToPropertyFetch(ClassMethod $classMethod): void
+    private function collectGlobalVariableNamesAndRefactorToPropertyFetch(Node $classMethod): void
     {
         $this->globalVariableNames = [];
 

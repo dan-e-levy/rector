@@ -89,7 +89,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function processMayDeadInstanceOf(If_ $if, Instanceof_ $instanceof): ?If_
+    private function processMayDeadInstanceOf(Node $if, Instanceof_ $instanceof): ?If_
     {
         $previousVar = $this->betterNodeFinder->findFirstPrevious($if, function (Node $node) use ($instanceof): bool {
             if ($node === $instanceof->expr) {

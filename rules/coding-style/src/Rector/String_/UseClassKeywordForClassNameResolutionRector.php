@@ -72,7 +72,7 @@ CODE_SAMPLE
     /**
      * @return string[]
      */
-    public function getExistingClasses(String_ $string): array
+    public function getExistingClasses(Node $string): array
     {
         /** @var mixed[] $matches */
         $matches = Strings::matchAll($string->value, self::CLASS_BEFORE_STATIC_ACCESS_REGEX, PREG_PATTERN_ORDER);
@@ -97,7 +97,7 @@ CODE_SAMPLE
      * @param string[] $classNames
      * @return mixed[]
      */
-    public function getParts(String_ $string, array $classNames): array
+    public function getParts(Node $string, array $classNames): array
     {
         $classNames = array_map(function (string $className): string {
             return preg_quote($className);

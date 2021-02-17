@@ -123,7 +123,7 @@ CODE_SAMPLE
         return $node->expr;
     }
 
-    private function shouldSkipAssign(Assign $assign): bool
+    private function shouldSkipAssign(Node $assign): bool
     {
         if (! $assign->var instanceof Variable) {
             return true;
@@ -143,7 +143,7 @@ CODE_SAMPLE
         return $nextUsedVariable !== null;
     }
 
-    private function isVariableTypeInScope(Assign $assign): bool
+    private function isVariableTypeInScope(Node $assign): bool
     {
         $scope = $assign->getAttribute(AttributeKey::SCOPE);
         if (! $scope instanceof Scope) {
@@ -157,7 +157,7 @@ CODE_SAMPLE
             ->no();
     }
 
-    private function isPreviousVariablePartOfOverridingAssign(Assign $assign): bool
+    private function isPreviousVariablePartOfOverridingAssign(Node $assign): bool
     {
         // is previous variable node as part of assign?
         $previousVariableAssign = $this->previousVariableAssignNodeFinder->find($assign);

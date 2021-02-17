@@ -111,7 +111,7 @@ CODE_SAMPLE
     /**
      * @param If_[] $nestedIfsWithOnlyReturn
      */
-    private function processNestedIfsWithOnlyReturn(If_ $if, array $nestedIfsWithOnlyReturn, Return_ $nextReturn): void
+    private function processNestedIfsWithOnlyReturn(Node $if, array $nestedIfsWithOnlyReturn, Return_ $nextReturn): void
     {
         // add nested if openly after this
         $nestedIfsWithOnlyReturnCount = count($nestedIfsWithOnlyReturn);

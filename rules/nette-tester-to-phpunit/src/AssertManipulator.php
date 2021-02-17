@@ -137,7 +137,7 @@ final class AssertManipulator
     /**
      * @return StaticCall|MethodCall
      */
-    public function processStaticCall(StaticCall $staticCall): Node
+    public function processStaticCall(Node $staticCall): Node
     {
         if ($this->nodeNameResolver->isNames($staticCall->name, ['truthy', 'falsey'])) {
             return $this->processTruthyOrFalseyCall($staticCall);

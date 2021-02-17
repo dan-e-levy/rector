@@ -53,7 +53,7 @@ abstract class AbstractToMethodCallRector extends AbstractRector implements Conf
      * @param ClassMethod|Function_ $functionLike
      * @return MethodCall|PropertyFetch|Variable
      */
-    protected function matchTypeProvidingExpr(Class_ $class, FunctionLike $functionLike, string $type): Expr
+    protected function matchTypeProvidingExpr(Class_ $class, ClassMethod $functionLike, string $type): Expr
     {
         $expr = $this->typeProvidingExprFromClassResolver->resolveTypeProvidingExprFromClass(
             $class,

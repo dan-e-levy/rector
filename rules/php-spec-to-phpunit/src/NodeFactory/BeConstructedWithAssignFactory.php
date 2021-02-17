@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\PhpSpecToPHPUnit\NodeFactory;
 
+use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\ArrayItem;
@@ -43,7 +44,7 @@ final class BeConstructedWithAssignFactory
         $this->nodeFactory = $nodeFactory;
     }
 
-    public function create(MethodCall $methodCall, string $testedClass, PropertyFetch $propertyFetch): ?Assign
+    public function create(Node $methodCall, string $testedClass, PropertyFetch $propertyFetch): ?Assign
     {
         if ($this->nodeNameResolver->isName($methodCall->name, 'beConstructedWith')) {
             $new = new New_(new FullyQualified($testedClass));

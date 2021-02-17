@@ -53,7 +53,7 @@ abstract class AbstractDowngradeTypedPropertyRector extends AbstractRector imple
         return $node;
     }
 
-    private function decoratePropertyWithDocBlock(Property $property, Node $typeNode): void
+    private function decoratePropertyWithDocBlock(Node $property, Node $typeNode): void
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         if ($phpDocInfo->getVarTagValueNode() !== null) {

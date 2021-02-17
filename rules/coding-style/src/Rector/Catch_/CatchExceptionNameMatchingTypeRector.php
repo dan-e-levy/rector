@@ -125,7 +125,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function renameVariableInStmts(Catch_ $catch, string $oldVariableName, string $newVariableName): void
+    private function renameVariableInStmts(Node $catch, string $oldVariableName, string $newVariableName): void
     {
         $this->traverseNodesWithCallable($catch->stmts, function (Node $node) use (
             $oldVariableName,

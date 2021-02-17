@@ -134,7 +134,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorImplements(Class_ $class): void
+    private function refactorImplements(Node $class): void
     {
         $class->implements[] = new FullyQualified('Symfony\Component\EventDispatcher\EventSubscriberInterface');
 

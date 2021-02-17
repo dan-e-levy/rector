@@ -128,7 +128,7 @@ CODE_SAMPLE
         return $this->processConvertToExclusiveType($types, $variable, $phpDocInfo);
     }
 
-    private function getVariableAssign(Identical $identical, Expr $expr): ?Node
+    private function getVariableAssign(Node $identical, Expr $expr): ?Node
     {
         return $this->betterNodeFinder->findFirstPrevious($identical, function (Node $node) use ($expr): bool {
             if (! $node instanceof Assign) {

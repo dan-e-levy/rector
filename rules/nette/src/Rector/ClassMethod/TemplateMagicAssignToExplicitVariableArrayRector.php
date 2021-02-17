@@ -149,7 +149,7 @@ CODE_SAMPLE
         return $this->refactorForSingleRenderMethodCall($node, $renderMethodCalls[0]);
     }
 
-    private function shouldSkip(ClassMethod $classMethod): bool
+    private function shouldSkip(Node $classMethod): bool
     {
         if (! $this->isNames($classMethod, ['render', 'render*'])) {
             return true;
@@ -173,7 +173,7 @@ CODE_SAMPLE
     }
 
     private function refactorForSingleRenderMethodCall(
-        ClassMethod $classMethod,
+        Node $classMethod,
         MethodCall $renderMethodCall
     ): ?ClassMethod {
         $templateParametersAssigns = $this->templatePropertyAssignCollector->collect($classMethod);
@@ -199,7 +199,7 @@ CODE_SAMPLE
      * @param MethodCall[] $renderMethodCalls
      */
     private function refactorForMultipleRenderMethodCalls(
-        ClassMethod $classMethod,
+        Node $classMethod,
         array $renderMethodCalls
     ): ?ClassMethod {
         $magicTemplateParametersAssigns = $this->templatePropertyAssignCollector->collect($classMethod);

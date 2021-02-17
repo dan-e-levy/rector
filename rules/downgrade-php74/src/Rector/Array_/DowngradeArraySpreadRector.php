@@ -102,7 +102,7 @@ CODE_SAMPLE
         return $this->refactorNode($node);
     }
 
-    private function shouldRefactor(Array_ $array): bool
+    private function shouldRefactor(Node $array): bool
     {
         // Check that any item in the array is the spread
         return array_filter($array->items, function (?ArrayItem $item): bool {
@@ -113,7 +113,7 @@ CODE_SAMPLE
         }) !== [];
     }
 
-    private function refactorNode(Array_ $array): Node
+    private function refactorNode(Node $array): Node
     {
         $newItems = $this->createArrayItems($array);
         // Replace this array node with an `array_merge`

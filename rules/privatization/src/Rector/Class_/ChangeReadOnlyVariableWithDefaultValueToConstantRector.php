@@ -132,7 +132,7 @@ CODE_SAMPLE
     /**
      * @return Assign[]
      */
-    private function collectReadOnlyVariableAssigns(Class_ $class): array
+    private function collectReadOnlyVariableAssigns(Node $class): array
     {
         $readOnlyVariables = [];
 
@@ -179,7 +179,7 @@ CODE_SAMPLE
     /**
      * @param Assign[] $readOnlyVariableAssigns
      */
-    private function refactorClassMethod(ClassMethod $classMethod, Class_ $class, array $readOnlyVariableAssigns): void
+    private function refactorClassMethod(ClassMethod $classMethod, Node $class, array $readOnlyVariableAssigns): void
     {
         foreach ($readOnlyVariableAssigns as $readOnlyVariableAssign) {
             $this->removeNode($readOnlyVariableAssign);

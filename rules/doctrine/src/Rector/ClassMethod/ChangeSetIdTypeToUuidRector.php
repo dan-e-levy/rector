@@ -111,7 +111,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function renameUuidVariableToId(ClassMethod $classMethod): void
+    private function renameUuidVariableToId(Node $classMethod): void
     {
         $this->traverseNodesWithCallable($classMethod, function (Node $node): ?Identifier {
             if (! $node instanceof Identifier) {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\CodingStyle\Node;
 
-use PhpParser\Node\Stmt\Use_;
+use PhpParser\Node;
 use Rector\CodingStyle\ClassNameImport\ShortNameResolver;
 use Rector\CodingStyle\Naming\ClassNaming;
 
@@ -29,7 +29,7 @@ final class UseNameAliasToNameResolver
     /**
      * @return array<string, string[]>
      */
-    public function resolve(Use_ $use): array
+    public function resolve(Node $use): array
     {
         $useNamesAliasToName = [];
 

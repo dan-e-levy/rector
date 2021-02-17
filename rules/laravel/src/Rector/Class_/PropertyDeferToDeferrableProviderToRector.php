@@ -79,7 +79,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function matchDeferWithFalseProperty(Class_ $class): ?Property
+    private function matchDeferWithFalseProperty(Node $class): ?Property
     {
         foreach ($class->getProperties() as $property) {
             if (! $this->isName($property, 'defer')) {

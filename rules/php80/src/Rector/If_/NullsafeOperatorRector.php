@@ -108,7 +108,7 @@ CODE_SAMPLE
         return $this->processNullSafeOperatorNotIdentical($node);
     }
 
-    private function processNullSafeOperatorIdentical(If_ $if, bool $isStartIf = true): ?Node
+    private function processNullSafeOperatorIdentical(\PhpParser\Node $if, bool $isStartIf = true): ?Node
     {
         $comparedNode = $this->ifManipulator->matchIfValueReturnValue($if);
         if (! $comparedNode instanceof \PhpParser\Node\Expr) {
@@ -142,7 +142,7 @@ CODE_SAMPLE
         return $this->processAssign($prevExpr, $prevNode, $nextNode, $isStartIf);
     }
 
-    private function processNullSafeOperatorNotIdentical(If_ $if, ?Expr $expr = null): ?Node
+    private function processNullSafeOperatorNotIdentical(\PhpParser\Node $if, \PhpParser\Node\Expr $expr = null): ?Node
     {
         $assign = $this->ifManipulator->matchIfNotNullNextAssignment($if);
         if (! $assign instanceof Assign) {
@@ -309,7 +309,7 @@ CODE_SAMPLE
         return $this->nullsafeManipulator->processNullSafeExprResult($expr, $nextNode->expr->name);
     }
 
-    private function getPreviousIf(Node $node): ?Node
+    private function getPreviousIf(\PhpParser\Node $node): ?Node
     {
         /** @var If_ $if */
         $if = $node->getAttribute(AttributeKey::NEXT_NODE);
@@ -323,7 +323,7 @@ CODE_SAMPLE
         return $nextExpression->getAttribute(AttributeKey::NEXT_NODE);
     }
 
-    private function getNullSafeAfterStartUntilBeforeEnd(?Node $node, ?Expr $expr): ?Expr
+    private function getNullSafeAfterStartUntilBeforeEnd(?Node $node, \PhpParser\Node\Expr $expr): ?Expr
     {
         while ($node) {
             $expr = $this->nullsafeManipulator->processNullSafeExprResult($expr, $node->expr->expr->name);

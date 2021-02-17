@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\PhpSpecToPHPUnit\NodeFactory;
 
+use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\MethodCall;
@@ -31,7 +32,7 @@ final class DuringMethodCallFactory
         $this->nodesToAddCollector = $nodesToAddCollector;
     }
 
-    public function create(MethodCall $methodCall, PropertyFetch $propertyFetch): MethodCall
+    public function create(Node $methodCall, PropertyFetch $propertyFetch): MethodCall
     {
         if (! isset($methodCall->args[0])) {
             throw new ShouldNotHappenException();

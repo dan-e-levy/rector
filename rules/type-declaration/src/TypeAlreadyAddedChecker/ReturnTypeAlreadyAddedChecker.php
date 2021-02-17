@@ -6,7 +6,6 @@ namespace Rector\TypeDeclaration\TypeAlreadyAddedChecker;
 
 use Iterator;
 use PhpParser\Node;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\NullableType;
@@ -61,7 +60,7 @@ final class ReturnTypeAlreadyAddedChecker
     /**
      * @param ClassMethod|Function_ $functionLike
      */
-    public function isSameOrBetterReturnTypeAlreadyAdded(FunctionLike $functionLike, Type $returnType): bool
+    public function isSameOrBetterReturnTypeAlreadyAdded(Node $functionLike, Type $returnType): bool
     {
         $nodeReturnType = $functionLike->returnType;
 

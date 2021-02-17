@@ -97,7 +97,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorIsMatch(If_ $if): void
+    private function refactorIsMatch(Node $if): void
     {
         if ((bool) $if->elseifs) {
             return;
@@ -108,7 +108,7 @@ CODE_SAMPLE
         $this->removeNode($if);
     }
 
-    private function refactorIsNotMatch(If_ $if): void
+    private function refactorIsNotMatch(Node $if): void
     {
         // no else → just remove the node
         if ($if->else === null) {

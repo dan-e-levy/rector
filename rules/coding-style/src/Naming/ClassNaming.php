@@ -24,7 +24,7 @@ final class ClassNaming
     /**
      * @param string|Name|Identifier $name
      */
-    public function getVariableName($name): string
+    public function getVariableName(string $name): string
     {
         $shortName = $this->getShortName($name);
         return lcfirst($shortName);

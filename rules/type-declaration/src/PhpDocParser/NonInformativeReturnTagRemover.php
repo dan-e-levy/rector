@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\TypeDeclaration\PhpDocParser;
 
 use Nette\Utils\Strings;
-use PhpParser\Node\FunctionLike;
+use PhpParser\Node;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ReturnTagValueNode;
@@ -68,7 +68,7 @@ final class NonInformativeReturnTagRemover
     /**
      * @param ClassMethod|Function_ $functionLike
      */
-    public function removeReturnTagIfNotUseful(FunctionLike $functionLike): void
+    public function removeReturnTagIfNotUseful(Node $functionLike): void
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($functionLike);
 

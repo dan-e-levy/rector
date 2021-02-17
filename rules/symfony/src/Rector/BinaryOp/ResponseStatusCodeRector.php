@@ -176,7 +176,7 @@ CODE_SAMPLE
         return $methodCall;
     }
 
-    private function processBinaryOp(BinaryOp $binaryOp): ?BinaryOp
+    private function processBinaryOp(Node $binaryOp): ?BinaryOp
     {
         if (! $this->isGetStatusMethod($binaryOp->left) && ! $this->isGetStatusMethod($binaryOp->right)) {
             return null;
@@ -197,7 +197,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isGetStatusMethod(Node $node): bool
+    private function isGetStatusMethod(Expr $node): bool
     {
         if (! $node instanceof MethodCall) {
             return false;

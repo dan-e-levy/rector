@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode\NodeManipulator;
 
-use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -32,7 +32,7 @@ final class ClassMethodAndCallMatcher
         $this->nodeTypeResolver = $nodeTypeResolver;
     }
 
-    public function isMethodLikeCallMatchingClassMethod(Node $node, ClassMethod $classMethod): bool
+    public function isMethodLikeCallMatchingClassMethod(Expr $node, ClassMethod $classMethod): bool
     {
         if ($node instanceof MethodCall) {
             return $this->isMethodCallMatchingClassMethod($node, $classMethod);

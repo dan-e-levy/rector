@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\CodeQuality;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\ArrayItem;
-use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Scalar\String_;
 use Rector\Core\Exception\ShouldNotHappenException;
@@ -24,7 +24,7 @@ final class CompactConverter
         $this->valueResolver = $valueResolver;
     }
 
-    public function hasAllArgumentsNamed(FuncCall $funcCall): bool
+    public function hasAllArgumentsNamed(Node $funcCall): bool
     {
         foreach ($funcCall->args as $arg) {
             /** @var string|null $variableName */
@@ -37,7 +37,7 @@ final class CompactConverter
         return true;
     }
 
-    public function convertToArray(FuncCall $funcCall): Array_
+    public function convertToArray(Node $funcCall): Array_
     {
         $array = new Array_();
 

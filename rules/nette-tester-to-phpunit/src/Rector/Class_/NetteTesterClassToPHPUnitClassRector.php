@@ -114,12 +114,12 @@ CODE_SAMPLE
         }
     }
 
-    private function processExtends(Class_ $class): void
+    private function processExtends(Node $class): void
     {
         $class->extends = new FullyQualified('PHPUnit\Framework\TestCase');
     }
 
-    private function processMethods(Class_ $class): void
+    private function processMethods(Node $class): void
     {
         foreach ($class->getMethods() as $classMethod) {
             if ($this->isNames($classMethod, [MethodName::SET_UP, MethodName::TEAR_DOWN])) {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\NetteToSymfony\NodeFactory;
 
+use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
@@ -32,7 +33,7 @@ final class SymfonyControllerFactory
         $this->actionWithFormProcessClassMethodFactory = $actionWithFormProcessClassMethodFactory;
     }
 
-    public function createNamespace(Class_ $node, Class_ $formTypeClass): ?Namespace_
+    public function createNamespace(Node $node, Class_ $formTypeClass): ?Namespace_
     {
         $fileInfo = $node->getAttribute(AttributeKey::FILE_INFO);
         if (! $fileInfo instanceof SmartFileInfo) {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\DoctrineCodeQuality\NodeFactory;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\Assign;
-use PhpParser\Node\Stmt\Class_;
 use PHPStan\Type\TypeWithClassName;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\PhpParser\Node\NodeFactory;
@@ -34,7 +34,7 @@ final class RepositoryAssignFactory
      * Creates:
      * "$this->repository = $entityManager->getRepository(SomeEntityClass::class)"
      */
-    public function create(Class_ $repositoryClass): Assign
+    public function create(Node $repositoryClass): Assign
     {
         $entityObjectType = $this->entityObjectTypeResolver->resolveFromRepositoryClass($repositoryClass);
         $repositoryClassName = (string) $repositoryClass->getAttribute(AttributeKey::CLASS_NAME);

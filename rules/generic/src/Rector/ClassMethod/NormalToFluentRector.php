@@ -121,7 +121,7 @@ CODE_SAMPLE
         $this->callsToFluent = $callsToFluent;
     }
 
-    private function shouldSkipPreviousStmt(ClassMethod $classMethod, int $i, Expression $expression): bool
+    private function shouldSkipPreviousStmt(Node $classMethod, int $i, Expression $expression): bool
     {
         // we look only for 2+ stmts
         if (! isset($classMethod->stmts[$i - 1])) {
@@ -157,7 +157,7 @@ CODE_SAMPLE
         return $firstMethodCallMatch === $secondMethodCallMatch;
     }
 
-    private function fluentizeCollectedMethodCalls(ClassMethod $classMethod): void
+    private function fluentizeCollectedMethodCalls(Node $classMethod): void
     {
         $i = 0;
         $fluentMethodCallIndex = null;

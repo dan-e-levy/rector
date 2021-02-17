@@ -102,7 +102,7 @@ CODE_SAMPLE
         return $node->stmts[0];
     }
 
-    private function isUselessBeforeForeachCheck(If_ $if): bool
+    private function isUselessBeforeForeachCheck(Node $if): bool
     {
         if (! $this->ifManipulator->isIfWithOnly($if, Foreach_::class)) {
             return false;

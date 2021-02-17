@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Generics\Reflection;
 
-use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\PhpDoc\ResolvedPhpDocBlock;
 use PHPStan\Reflection\ClassReflection;
@@ -13,7 +13,7 @@ use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class GenericClassReflectionAnalyzer
 {
-    public function resolveChildParent(Class_ $class): ?ChildParentClassReflections
+    public function resolveChildParent(Node $class): ?ChildParentClassReflections
     {
         if ($class->extends === null) {
             return null;

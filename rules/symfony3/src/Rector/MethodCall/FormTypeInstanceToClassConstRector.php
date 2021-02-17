@@ -120,7 +120,7 @@ CODE_SAMPLE
         return $this->processNewInstance($node, 1, 2);
     }
 
-    private function processNewInstance(MethodCall $methodCall, int $position, int $optionsPosition): ?Node
+    private function processNewInstance(Node $methodCall, int $position, int $optionsPosition): ?Node
     {
         if (! isset($methodCall->args[$position])) {
             return null;
@@ -157,7 +157,7 @@ CODE_SAMPLE
         return $methodCall;
     }
 
-    private function refactorCollectionOptions(MethodCall $methodCall): void
+    private function refactorCollectionOptions(Node $methodCall): void
     {
         $optionsArray = $this->matchOptionsArray($methodCall);
         if (! $optionsArray instanceof Array_) {

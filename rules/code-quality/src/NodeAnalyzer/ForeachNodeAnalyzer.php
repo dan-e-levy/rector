@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\CodeQuality\NodeAnalyzer;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Stmt\Expression;
-use PhpParser\Node\Stmt\Foreach_;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 
 final class ForeachNodeAnalyzer
@@ -29,7 +29,7 @@ final class ForeachNodeAnalyzer
      *      <$assigns[]> = $value;
      * }
      */
-    public function matchAssignItemsOnlyForeachArrayVariable(Foreach_ $foreach): ?Expr
+    public function matchAssignItemsOnlyForeachArrayVariable(Node $foreach): ?Expr
     {
         if (count($foreach->stmts) !== 1) {
             return null;

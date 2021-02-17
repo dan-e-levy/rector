@@ -148,7 +148,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(ClassMethod $classMethod): bool
+    private function shouldSkip(Node $classMethod): bool
     {
         if ($classMethod->params === []) {
             return true;
@@ -202,7 +202,7 @@ CODE_SAMPLE
     /**
      * @param Param[] $unusedParameters
      */
-    private function clearPhpDocInfo(ClassMethod $classMethod, array $unusedParameters): void
+    private function clearPhpDocInfo(Node $classMethod, array $unusedParameters): void
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
 

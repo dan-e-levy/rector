@@ -67,7 +67,7 @@ CODE_SAMPLE
     /**
      * @return ArrayItem[][]
      */
-    private function getArrayItemsWithDuplicatedKey(Array_ $array): array
+    private function getArrayItemsWithDuplicatedKey(Node $array): array
     {
         $arrayItemsByKeys = [];
 

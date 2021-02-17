@@ -113,7 +113,7 @@ CODE_SAMPLE
         return new Assign($assignVariable, $node->expr);
     }
 
-    private function shouldSkipAsPartOfNestedForeach(Foreach_ $foreach): bool
+    private function shouldSkipAsPartOfNestedForeach(Node $foreach): bool
     {
         $foreachParent = $this->betterNodeFinder->findParentType($foreach, Foreach_::class);
         return $foreachParent !== null;

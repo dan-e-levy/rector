@@ -113,7 +113,7 @@ CODE_SAMPLE
     }
 
     private function addImportToNamespaceIfMissing(
-        Namespace_ $namespace,
+        Node $namespace,
         CompleteImportForPartialAnnotation $completeImportForPartialAnnotation
     ): Namespace_ {
         foreach ($namespace->stmts as $stmt) {

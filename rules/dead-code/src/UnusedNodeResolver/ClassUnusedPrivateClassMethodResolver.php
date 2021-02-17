@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\DeadCode\UnusedNodeResolver;
 
 use Nette\Utils\Strings;
+use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
 use Rector\Core\NodeManipulator\ClassManipulator;
 use Rector\NodeCollector\NodeCollector\NodeRepository;
@@ -41,7 +42,7 @@ final class ClassUnusedPrivateClassMethodResolver
     /**
      * @return string[]
      */
-    public function getClassUnusedMethodNames(Class_ $class): array
+    public function getClassUnusedMethodNames(Node $class): array
     {
         /** @var string $className */
         $className = $this->nodeNameResolver->getName($class);

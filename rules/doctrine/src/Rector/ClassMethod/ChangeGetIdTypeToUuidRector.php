@@ -100,7 +100,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function hasUuidReturnType(ClassMethod $classMethod): bool
+    private function hasUuidReturnType(Node $classMethod): bool
     {
         if ($classMethod->returnType === null) {
             return false;

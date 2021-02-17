@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\PHPUnit\TestClassResolver;
 
 use Nette\Utils\Strings;
-use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node;
 use Rector\NodeNameResolver\NodeNameResolver;
 
 /**
@@ -80,7 +80,7 @@ final class TestClassResolver
         return null;
     }
 
-    public function resolveFromClass(Class_ $class): ?string
+    public function resolveFromClass(Node $class): ?string
     {
         $className = $this->nodeNameResolver->getName($class);
         if ($className === null) {

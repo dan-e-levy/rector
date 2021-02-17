@@ -123,7 +123,7 @@ CODE_SAMPLE
         $this->parameterTypehints = $parameterTypehints;
     }
 
-    private function shouldSkip(ClassMethod $classMethod): bool
+    private function shouldSkip(Node $classMethod): bool
     {
         // skip class methods without args
         if ($classMethod->params === []) {
@@ -159,7 +159,7 @@ CODE_SAMPLE
     }
 
     private function refactorClassMethodWithTypehintByParameterPosition(
-        ClassMethod $classMethod,
+        Node $classMethod,
         AddParamTypeDeclaration $addParamTypeDeclaration
     ): void {
         $parameter = $classMethod->params[$addParamTypeDeclaration->getPosition()] ?? null;

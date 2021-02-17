@@ -87,7 +87,7 @@ CODE_SAMPLE
     /**
      * @return Name[]
      */
-    private function findNames(FileWithoutNamespace $fileWithoutNamespace): array
+    private function findNames(Node $fileWithoutNamespace): array
     {
         return $this->betterNodeFinder->find($fileWithoutNamespace->stmts, function (Node $node): bool {
             if (! $node instanceof Name) {

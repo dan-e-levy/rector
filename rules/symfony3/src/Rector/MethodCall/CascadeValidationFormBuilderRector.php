@@ -109,7 +109,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         if (! $this->isName($methodCall->name, 'createFormBuilder')) {
             return true;
@@ -122,7 +122,7 @@ CODE_SAMPLE
         return ! $methodCall->args[1]->value instanceof Array_;
     }
 
-    private function isSuccessfulRemovalCascadeValidationOption(MethodCall $methodCall, Array_ $optionsArrayNode): bool
+    private function isSuccessfulRemovalCascadeValidationOption(Node $methodCall, Array_ $optionsArrayNode): bool
     {
         foreach ($optionsArrayNode->items as $key => $arrayItem) {
             if ($arrayItem === null) {
@@ -150,7 +150,7 @@ CODE_SAMPLE
         return false;
     }
 
-    private function addConstraintsOptionToFollowingAddMethodCalls(MethodCall $methodCall): void
+    private function addConstraintsOptionToFollowingAddMethodCalls(Node $methodCall): void
     {
         $new = new New_(new FullyQualified('Symfony\Component\Validator\Constraints\Valid'));
         $constraintsArrayItem = new ArrayItem($new, new String_('constraints'));

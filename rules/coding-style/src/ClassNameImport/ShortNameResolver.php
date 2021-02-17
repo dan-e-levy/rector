@@ -10,7 +10,6 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\ClassLike;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
-use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocChildNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PropertyTagValueNode;
@@ -204,7 +203,7 @@ final class ShortNameResolver
         return $shortNames;
     }
 
-    private function resolveShortTagNameFromPhpDocChildNode(PhpDocChildNode $phpDocChildNode): ?string
+    private function resolveShortTagNameFromPhpDocChildNode(\PHPStan\PhpDocParser\Ast\Node $phpDocChildNode): ?string
     {
         if (! $phpDocChildNode instanceof PhpDocTagNode) {
             return null;

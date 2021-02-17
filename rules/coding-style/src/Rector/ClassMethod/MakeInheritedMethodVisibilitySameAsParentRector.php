@@ -115,7 +115,7 @@ CODE_SAMPLE
     }
 
     private function isClassMethodCompatibleWithParentReflectionMethod(
-        ClassMethod $classMethod,
+        Node $classMethod,
         ReflectionMethod $reflectionMethod
     ): bool {
         if ($reflectionMethod->isPublic() && $classMethod->isPublic()) {
@@ -135,7 +135,7 @@ CODE_SAMPLE
      * Parent constructor visibility override is allowed only since PHP 7.2+
      * @see https://3v4l.org/RFYmn
      */
-    private function isConstructorWithStaticFactory(ClassMethod $classMethod, string $methodName): bool
+    private function isConstructorWithStaticFactory(Node $classMethod, string $methodName): bool
     {
         if (! $this->isAtLeastPhpVersion(PhpVersionFeature::PARENT_VISIBILITY_OVERRIDE)) {
             return false;
@@ -172,7 +172,7 @@ CODE_SAMPLE
     }
 
     private function changeClassMethodVisibilityBasedOnReflectionMethod(
-        ClassMethod $classMethod,
+        Node $classMethod,
         ReflectionMethod $reflectionMethod
     ): void {
         if ($reflectionMethod->isPublic()) {

@@ -112,7 +112,7 @@ final class ForNodeAnalyzer
         return false;
     }
 
-    public function isCountValueVariableUsedInsideForStatements(For_ $for, ?Expr $expr): bool
+    public function isCountValueVariableUsedInsideForStatements(\PhpParser\Node $for, ?Expr $expr): bool
     {
         return (bool) $this->betterNodeFinder->findFirst(
             $for->stmts,
@@ -122,7 +122,7 @@ final class ForNodeAnalyzer
         );
     }
 
-    public function isArrayWithKeyValueNameUnsetted(For_ $for): bool
+    public function isArrayWithKeyValueNameUnsetted(\PhpParser\Node $for): bool
     {
         return (bool) $this->betterNodeFinder->findFirst(
             $for->stmts,
@@ -137,8 +137,10 @@ final class ForNodeAnalyzer
         );
     }
 
-    public function isAssignmentWithArrayDimFetchAsVariableInsideForStatements(For_ $for, ?string $keyValueName): bool
-    {
+    public function isAssignmentWithArrayDimFetchAsVariableInsideForStatements(
+        \PhpParser\Node $for,
+        string $keyValueName
+    ): bool {
         return (bool) $this->betterNodeFinder->findFirst(
             $for->stmts,
             function (Node $node) use ($keyValueName): bool {
@@ -168,7 +170,7 @@ final class ForNodeAnalyzer
         );
     }
 
-    public function isValueVarUsedNext(Node $node, string $iteratedVariableSingle): bool
+    public function isValueVarUsedNext(For_ $node, string $iteratedVariableSingle): bool
     {
         return (bool) $this->betterNodeFinder->findFirstNext($node, function (Node $node) use (
             $iteratedVariableSingle

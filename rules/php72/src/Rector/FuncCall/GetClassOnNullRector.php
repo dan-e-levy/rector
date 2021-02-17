@@ -101,7 +101,7 @@ CODE_SAMPLE
         return new Ternary($notIdentical, $funcCall, $selfClassConstFetch);
     }
 
-    private function shouldSkip(FuncCall $funcCall): bool
+    private function shouldSkip(Node $funcCall): bool
     {
         $isJustAdded = (bool) $funcCall->getAttribute(AttributeKey::JUST_ADDED);
         if ($isJustAdded) {
@@ -125,7 +125,7 @@ CODE_SAMPLE
         return false;
     }
 
-    private function createGetClassFuncCall(FuncCall $oldFuncCall): FuncCall
+    private function createGetClassFuncCall(Node $oldFuncCall): FuncCall
     {
         $funcCall = new FuncCall($oldFuncCall->name, $oldFuncCall->args);
         $funcCall->setAttribute(AttributeKey::JUST_ADDED, true);

@@ -100,7 +100,7 @@ CODE_SAMPLE
         return $arrowFunction;
     }
 
-    private function shouldSkipForUsedReferencedValue(Closure $closure, Return_ $return): bool
+    private function shouldSkipForUsedReferencedValue(Node $closure, Return_ $return): bool
     {
         if ($return->expr === null) {
             return false;

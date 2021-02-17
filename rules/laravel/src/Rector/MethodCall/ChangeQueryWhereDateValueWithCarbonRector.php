@@ -112,7 +112,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function matchWhereDateThirdArgValue(MethodCall $methodCall): ?Expr
+    private function matchWhereDateThirdArgValue(Node $methodCall): ?Expr
     {
         if (! $this->isOnClassMethodCall($methodCall, 'Illuminate\Database\Query\Builder', 'whereDate')) {
             return null;
@@ -156,7 +156,7 @@ CODE_SAMPLE
         }
     }
 
-    private function createWhereTimeMethodCall(MethodCall $methodCall, Variable $dateTimeVariable): MethodCall
+    private function createWhereTimeMethodCall(Node $methodCall, Variable $dateTimeVariable): MethodCall
     {
         $whereTimeArgs = [$methodCall->args[0], $methodCall->args[1], new Arg($dateTimeVariable)];
 

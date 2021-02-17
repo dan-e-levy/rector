@@ -116,7 +116,7 @@ CODE_SAMPLE
         return new FullyQualified($realClassName);
     }
 
-    private function resolveFullyQualifiedName(Name $name): string
+    private function resolveFullyQualifiedName(Node $name): string
     {
         $parent = $name->getAttribute(AttributeKey::PARENT_NODE);
         // for some reason, Param gets already corrected name

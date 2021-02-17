@@ -6,6 +6,7 @@ namespace Rector\Php80\MatchAndRefactor\StrStartsWithMatchAndRefactor;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BooleanNot;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
@@ -44,7 +45,7 @@ abstract class AbstractMatchAndRefactor
         $this->betterStandardPrinter = $betterStandardPrinter;
     }
 
-    protected function isFuncCallName(Node $node, string $name): bool
+    protected function isFuncCallName(Expr $node, string $name): bool
     {
         if (! $node instanceof FuncCall) {
             return false;
@@ -69,7 +70,7 @@ abstract class AbstractMatchAndRefactor
     }
 
     protected function createStrStartsWithValueObjectFromFuncCall(
-        FuncCall $funcCall,
+        Expr $funcCall,
         bool $isPositive
     ): StrStartsWith {
         $haystack = $funcCall->args[0]->value;

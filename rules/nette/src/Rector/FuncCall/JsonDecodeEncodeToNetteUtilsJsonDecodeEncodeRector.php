@@ -93,7 +93,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function refactorJsonEncode(FuncCall $funcCall): StaticCall
+    private function refactorJsonEncode(Node $funcCall): StaticCall
     {
         $args = $funcCall->args;
         if (isset($args[1])) {
@@ -108,7 +108,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createStaticCall('Nette\Utils\Json', 'encode', $args);
     }
 
-    private function refactorJsonDecode(FuncCall $funcCall): StaticCall
+    private function refactorJsonDecode(Node $funcCall): StaticCall
     {
         $args = $funcCall->args;
 

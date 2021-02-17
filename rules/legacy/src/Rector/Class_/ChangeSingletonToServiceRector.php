@@ -96,7 +96,7 @@ CODE_SAMPLE
         return $this->refactorClassStmts($node, $propertyAndClassMethodName);
     }
 
-    private function matchStaticPropertyFetchAndGetSingletonMethodName(Class_ $class): ?PropertyAndClassMethodName
+    private function matchStaticPropertyFetchAndGetSingletonMethodName(Node $class): ?PropertyAndClassMethodName
     {
         foreach ($class->getMethods() as $classMethod) {
             if (! $classMethod->isStatic()) {
@@ -121,7 +121,7 @@ CODE_SAMPLE
     }
 
     private function refactorClassStmts(
-        Class_ $class,
+        Node $class,
         PropertyAndClassMethodName $propertyAndClassMethodName
     ): Class_ {
         foreach ($class->getMethods() as $classMethod) {

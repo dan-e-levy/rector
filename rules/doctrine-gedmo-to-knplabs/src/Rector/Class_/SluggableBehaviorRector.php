@@ -152,7 +152,7 @@ CODE_SAMPLE
     /**
      * @param string[] $slugFields
      */
-    private function addGetSluggableFieldsClassMethod(Class_ $class, array $slugFields): void
+    private function addGetSluggableFieldsClassMethod(Node $class, array $slugFields): void
     {
         $classMethod = $this->nodeFactory->createPublicMethod('getSluggableFields');
         $classMethod->returnType = new Identifier('array');

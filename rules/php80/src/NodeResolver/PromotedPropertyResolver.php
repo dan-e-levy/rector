@@ -8,7 +8,6 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Param;
-use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\Property;
@@ -48,7 +47,7 @@ final class PromotedPropertyResolver
     /**
      * @return PropertyPromotionCandidate[]
      */
-    public function resolveFromClass(Class_ $class): array
+    public function resolveFromClass(Node $class): array
     {
         $constructClassMethod = $class->getMethod(MethodName::CONSTRUCT);
         if (! $constructClassMethod instanceof ClassMethod) {

@@ -70,7 +70,7 @@ CODE_SAMPLE
         return $this->shortenElseIf($node);
     }
 
-    private function shortenElseIf(If_ $node): ?If_
+    private function shortenElseIf(Node $node): ?If_
     {
         if (! $node->else instanceof Else_) {
             return null;

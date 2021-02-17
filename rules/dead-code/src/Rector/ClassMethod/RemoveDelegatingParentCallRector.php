@@ -118,7 +118,7 @@ CODE_SAMPLE
         return $classLike->extends === null;
     }
 
-    private function isMethodReturnType(ClassMethod $classMethod, string $type): bool
+    private function isMethodReturnType(Node $classMethod, string $type): bool
     {
         if ($classMethod->returnType === null) {
             return false;
@@ -145,7 +145,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function hasRequiredAnnotation(ClassMethod $classMethod): bool
+    private function hasRequiredAnnotation(Node $classMethod): bool
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
         return $phpDocInfo->hasByType(SymfonyRequiredTagNode::class);

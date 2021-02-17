@@ -127,7 +127,7 @@ CODE_SAMPLE
         return $param;
     }
 
-    private function refactorClassMethod(ClassMethod $classMethod): ?ClassMethod
+    private function refactorClassMethod(Node $classMethod): ?ClassMethod
     {
         $this->refactorReturnTagValueNode($classMethod);
 

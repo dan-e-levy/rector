@@ -97,7 +97,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClass(Class_ $class, string $testCaseClassName): bool
+    private function shouldSkipClass(Node $class, string $testCaseClassName): bool
     {
         // we are in the test case
         if ($this->isName($class, '*Test')) {

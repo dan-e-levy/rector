@@ -8,7 +8,6 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
@@ -57,7 +56,7 @@ final class VariableRenamer
      * @param ClassMethod|Function_|Closure $functionLike
      */
     public function renameVariableInFunctionLike(
-        FunctionLike $functionLike,
+        Node $functionLike,
         ?Assign $assign = null,
         string $oldName,
         string $expectedName

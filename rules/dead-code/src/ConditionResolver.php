@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode;
 
-use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Equal;
 use PhpParser\Node\Expr\BinaryOp\Identical;
@@ -89,7 +88,7 @@ final class ConditionResolver
         return null;
     }
 
-    private function isVersionCompareFuncCall(Node $node): bool
+    private function isVersionCompareFuncCall(Expr $node): bool
     {
         if (! $node instanceof FuncCall) {
             return false;

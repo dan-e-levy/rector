@@ -132,7 +132,7 @@ CODE_SAMPLE
         return $this->processAssertResponseRedirects($node);
     }
 
-    private function isInWebTestCase(MethodCall $methodCall): bool
+    private function isInWebTestCase(Node $methodCall): bool
     {
         $classLike = $methodCall->getAttribute(AttributeKey::CLASS_NODE);
         if (! $classLike instanceof ClassLike) {
@@ -142,7 +142,7 @@ CODE_SAMPLE
         return $this->isObjectType($classLike, 'Symfony\Bundle\FrameworkBundle\Test\WebTestCase');
     }
 
-    private function processAssertResponseStatusCodeSame(MethodCall $methodCall): ?MethodCall
+    private function processAssertResponseStatusCodeSame(Node $methodCall): ?MethodCall
     {
         if (! $this->isName($methodCall->name, self::ASSERT_SAME)) {
             return null;
@@ -165,7 +165,7 @@ CODE_SAMPLE
     /**
      * @return Arg[]|null
      */
-    private function matchAssertContainsCrawlerArg(MethodCall $methodCall): ?array
+    private function matchAssertContainsCrawlerArg(Node $methodCall): ?array
     {
         if (! $this->isName($methodCall->name, 'assertContains')) {
             return null;
@@ -195,7 +195,7 @@ CODE_SAMPLE
         return $args;
     }
 
-    private function processAssertResponseRedirects(MethodCall $methodCall): ?Node
+    private function processAssertResponseRedirects(Node $methodCall): ?Node
     {
         /** @var Expression|null $previousStatement */
         $previousStatement = $methodCall->getAttribute(AttributeKey::PREVIOUS_STATEMENT);

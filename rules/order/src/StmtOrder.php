@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Order;
 
+use PhpParser\Node;
 use PhpParser\Node\Stmt\ClassLike;
 use Rector\NodeNameResolver\NodeNameResolver;
 
@@ -50,7 +51,7 @@ final class StmtOrder
     /**
      * @param array<int, int> $oldToNewKeys
      */
-    public function reorderClassStmtsByOldToNewKeys(ClassLike $classLike, array $oldToNewKeys): ClassLike
+    public function reorderClassStmtsByOldToNewKeys(Node $classLike, array $oldToNewKeys): ClassLike
     {
         $reorderedStmts = [];
 
@@ -82,7 +83,7 @@ final class StmtOrder
     /**
      * @return array<int, string>
      */
-    public function getStmtsOfTypeOrder(ClassLike $classLike, string $type): array
+    public function getStmtsOfTypeOrder(Node $classLike, string $type): array
     {
         $stmtsByPosition = [];
         foreach ($classLike->stmts as $position => $classStmt) {

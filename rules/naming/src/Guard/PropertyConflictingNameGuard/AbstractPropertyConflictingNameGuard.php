@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Naming\Guard\PropertyConflictingNameGuard;
 
-use PhpParser\Node;
-use PhpParser\Node\Stmt\ClassLike;
 use Rector\Naming\Contract\ExpectedNameResolver\ExpectedNameResolverInterface;
 use Rector\Naming\Contract\Guard\ConflictingGuardInterface;
 use Rector\Naming\Contract\RenameValueObjectInterface;
@@ -46,10 +44,9 @@ abstract class AbstractPropertyConflictingNameGuard implements ConflictingGuardI
     }
 
     /**
-     * @param ClassLike $node
      * @return string[]
      */
-    protected function resolve(Node $node): array
+    protected function resolve(\PhpParser\Node\Stmt\ClassLike $node): array
     {
         $expectedNames = [];
         foreach ($node->getProperties() as $property) {

@@ -106,7 +106,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         if (! $this->isObjectType($methodCall->var, 'Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor')) {
             return true;
@@ -126,7 +126,7 @@ CODE_SAMPLE
         return $contextOptions->items === [];
     }
 
-    private function getContextOptionValue(MethodCall $methodCall): ?bool
+    private function getContextOptionValue(Node $methodCall): ?bool
     {
         /** @var Array_ $contextOptions */
         $contextOptions = $methodCall->args[2]->value;

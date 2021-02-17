@@ -73,7 +73,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function removeNodeAndKeepComments(Expression $expression): ?Node
+    private function removeNodeAndKeepComments(Node $expression): ?Node
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($expression);
 

@@ -9,7 +9,6 @@ use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\PropertyFetch;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\NullableType;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -108,7 +107,7 @@ CODE_SAMPLE
     /**
      * @param ClassMethod|Function_|Closure|ArrowFunction $functionLike
      */
-    public function decorateParamWithType(FunctionLike $functionLike, Param $param): void
+    public function decorateParamWithType(Node $functionLike, Param $param): void
     {
         if ($param->type !== null) {
             return;

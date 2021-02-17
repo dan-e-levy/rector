@@ -89,7 +89,7 @@ CODE_SAMPLE
         return $joinedNode;
     }
 
-    private function isTopMostConcatNode(Concat $concat): bool
+    private function isTopMostConcatNode(Node $concat): bool
     {
         $parent = $concat->getAttribute(AttributeKey::PARENT_NODE);
         return ! $parent instanceof Concat;
@@ -98,7 +98,7 @@ CODE_SAMPLE
     /**
      * @return Concat|String_
      */
-    private function joinConcatIfStrings(Concat $node): Node
+    private function joinConcatIfStrings(Node $node): Node
     {
         $concat = clone $node;
 

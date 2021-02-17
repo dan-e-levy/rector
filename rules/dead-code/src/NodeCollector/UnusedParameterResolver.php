@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode\NodeCollector;
 
+use PhpParser\Node;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -43,7 +44,7 @@ final class UnusedParameterResolver
      * @param Class_[] $childrenOfClass
      * @return Param[]
      */
-    public function resolve(ClassMethod $classMethod, string $methodName, array $childrenOfClass): array
+    public function resolve(Node $classMethod, string $methodName, array $childrenOfClass): array
     {
         $unusedParameters = $this->resolveUnusedParameters($classMethod);
         if ($unusedParameters === []) {

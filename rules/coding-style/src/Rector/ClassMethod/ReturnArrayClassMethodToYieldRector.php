@@ -147,7 +147,7 @@ CODE_SAMPLE
         $this->methodsToYields = $methodsToYields;
     }
 
-    private function collectReturnArrayNodesFromClassMethod(ClassMethod $classMethod): ?Array_
+    private function collectReturnArrayNodesFromClassMethod(Node $classMethod): ?Array_
     {
         if ($classMethod->stmts === null) {
             return null;
@@ -166,7 +166,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function transformArrayToYieldsOnMethodNode(ClassMethod $classMethod, Array_ $array): void
+    private function transformArrayToYieldsOnMethodNode(Node $classMethod, Array_ $array): void
     {
         $yieldNodes = $this->nodeTransformer->transformArrayToYields($array);
 

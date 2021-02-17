@@ -223,7 +223,7 @@ final class PhpSpecPromisesToPHPUnitAssertRector extends AbstractPhpSpecToPHPUni
         return $node;
     }
 
-    private function processDuringInstantiation(MethodCall $methodCall): MethodCall
+    private function processDuringInstantiation(Node $methodCall): MethodCall
     {
         /** @var MethodCall $parentMethodCall */
         $parentMethodCall = $methodCall->var;
@@ -232,7 +232,7 @@ final class PhpSpecPromisesToPHPUnitAssertRector extends AbstractPhpSpecToPHPUni
         return $parentMethodCall;
     }
 
-    private function prepareMethodCall(MethodCall $methodCall): void
+    private function prepareMethodCall(Node $methodCall): void
     {
         if ($this->isPrepared) {
             return;
@@ -251,7 +251,7 @@ final class PhpSpecPromisesToPHPUnitAssertRector extends AbstractPhpSpecToPHPUni
     /**
      * @see https://johannespichler.com/writing-custom-phpspec-matchers/
      */
-    private function processMatchersKeys(MethodCall $methodCall): void
+    private function processMatchersKeys(Node $methodCall): void
     {
         foreach ($this->matchersKeys as $matcherKey) {
             if (! $this->isName($methodCall->name, 'should' . ucfirst($matcherKey))) {
@@ -285,7 +285,7 @@ final class PhpSpecPromisesToPHPUnitAssertRector extends AbstractPhpSpecToPHPUni
         }
     }
 
-    private function shouldSkip(MethodCall $methodCall): bool
+    private function shouldSkip(Node $methodCall): bool
     {
         if (! $this->isVariableName($methodCall->var, self::THIS)) {
             return true;

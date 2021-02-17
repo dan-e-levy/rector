@@ -125,7 +125,7 @@ CODE_SAMPLE
         return new Assign($firstArrayItem->value, $keyFuncCall);
     }
 
-    private function shouldSkip(Assign $assign): bool
+    private function shouldSkip(Node $assign): bool
     {
         if (! $this->assignManipulator->isListToEachAssign($assign)) {
             return true;

@@ -158,7 +158,7 @@ CODE_SAMPLE
         $this->secondValue = null;
     }
 
-    private function matchOnEqualFirstValueAndSecondValue(If_ $if): void
+    private function matchOnEqualFirstValueAndSecondValue(Node $if): void
     {
         $this->matchOnEqual($if);
 

@@ -71,7 +71,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldRefactor(FuncCall $funcCall): bool
+    private function shouldRefactor(Node $funcCall): bool
     {
         if (! $this->isNames($funcCall, ['array_merge', 'array_merge_recursive'])) {
             return false;

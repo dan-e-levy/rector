@@ -145,7 +145,7 @@ CODE_SAMPLE
         $this->to = $configuration[self::TO];
     }
 
-    private function isKernelOrExtensionClass(Class_ $class): bool
+    private function isKernelOrExtensionClass(Node $class): bool
     {
         if ($this->isObjectType($class, 'Symfony\Component\HttpKernel\DependencyInjection\Extension')) {
             return true;

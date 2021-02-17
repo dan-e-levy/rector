@@ -163,7 +163,7 @@ CODE_SAMPLE
         $this->arrayFunctionsToMethodCalls = $arrayFunctionsToMethodCalls;
     }
 
-    private function shouldSkipFuncCall(FuncCall $funcCall): bool
+    private function shouldSkipFuncCall(Node $funcCall): bool
     {
         // we can inject only in injectable class method  context
         // we can inject only in injectable class method  context
@@ -182,7 +182,7 @@ CODE_SAMPLE
     private function refactorFuncCallToMethodCall(
         ArgumentFuncCallToMethodCall $argumentFuncCallToMethodCall,
         Class_ $class,
-        FuncCall $funcCall
+        Node $funcCall
     ): ?Node {
         $fullyQualifiedObjectType = new FullyQualifiedObjectType($argumentFuncCallToMethodCall->getClass());
         $expectedName = $this->propertyNaming->getExpectedNameFromType($fullyQualifiedObjectType);
@@ -216,7 +216,7 @@ CODE_SAMPLE
      */
     private function refactorArrayFunctionToMethodCall(
         ArrayFuncCallToMethodCall $arrayFuncCallToMethodCall,
-        FuncCall $funcCall,
+        Node $funcCall,
         Class_ $class
     ): ?Node {
         $propertyName = $this->propertyNaming->fqnToVariableName($arrayFuncCallToMethodCall->getClass());

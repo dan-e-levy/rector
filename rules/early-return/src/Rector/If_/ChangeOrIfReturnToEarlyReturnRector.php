@@ -109,7 +109,7 @@ CODE_SAMPLE
      * @param If_[] $ifs
      * @return If_[]
      */
-    private function createMultipleIfs(Expr $expr, Return_ $return, array $ifs): array
+    private function createMultipleIfs(BooleanOr $expr, Return_ $return, array $ifs): array
     {
         while ($expr instanceof BooleanOr) {
             $ifs = array_merge($ifs, $this->collectLeftBooleanOrToIfs($expr, $return, $ifs));

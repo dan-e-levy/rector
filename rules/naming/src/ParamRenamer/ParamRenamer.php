@@ -8,8 +8,6 @@ use PhpParser\Node;
 use PhpParser\Node\Param;
 use Rector\BetterPhpDocParser\PhpDocManipulator\PropertyDocBlockManipulator;
 use Rector\Naming\Contract\RenamerInterface;
-use Rector\Naming\Contract\RenameValueObjectInterface;
-use Rector\Naming\ValueObject\ParamRename;
 use Rector\Naming\VariableRenamer;
 
 final class ParamRenamer implements RenamerInterface
@@ -33,10 +31,9 @@ final class ParamRenamer implements RenamerInterface
     }
 
     /**
-     * @param ParamRename $renameValueObject
      * @return Param
      */
-    public function rename(RenameValueObjectInterface $renameValueObject): ?Node
+    public function rename(\Rector\Naming\ValueObject\ParamRename $renameValueObject): ?Node
     {
         // 1. rename param
         $renameValueObject->getVariable()

@@ -87,7 +87,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(If_ $if): bool
+    private function shouldSkip(Node $if): bool
     {
         if ($if->else !== null) {
             return true;

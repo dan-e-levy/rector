@@ -124,7 +124,7 @@ CODE_SAMPLE
         $this->classToInstantiateByType = $configuration[self::CLASS_TO_INSTANTIATE_BY_TYPE] ?? [];
     }
 
-    private function shouldSkipNew(New_ $new): bool
+    private function shouldSkipNew(Node $new): bool
     {
         $constructorMethodReflection = $this->getNewNodeClassConstructorMethodReflection($new);
         if (! $constructorMethodReflection instanceof ReflectionMethod) {
@@ -134,7 +134,7 @@ CODE_SAMPLE
         return $constructorMethodReflection->getNumberOfRequiredParameters() <= count($new->args);
     }
 
-    private function getNewNodeClassConstructorMethodReflection(New_ $new): ?ReflectionMethod
+    private function getNewNodeClassConstructorMethodReflection(Node $new): ?ReflectionMethod
     {
         $className = $this->getName($new->class);
         if ($className === null) {

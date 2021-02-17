@@ -77,7 +77,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function isBoolDocType(Property $property): bool
+    private function isBoolDocType(Node $property): bool
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         return $phpDocInfo->getVarType() instanceof BooleanType;

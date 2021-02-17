@@ -107,7 +107,7 @@ CODE_SAMPLE
         return $this->createAssignNode($node, $name, $onlyNodeInIf->var);
     }
 
-    private function shouldSkip(Foreach_ $foreach): bool
+    private function shouldSkip(Node $foreach): bool
     {
         if (count($foreach->stmts) !== 1) {
             return true;
@@ -131,7 +131,7 @@ CODE_SAMPLE
         return ! $ifNode->cond instanceof FuncCall;
     }
 
-    private function createAssignNode(Foreach_ $foreach, string $name, ArrayDimFetch $arrayDimFetch): Assign
+    private function createAssignNode(Node $foreach, string $name, ArrayDimFetch $arrayDimFetch): Assign
     {
         $string = new String_($name);
 

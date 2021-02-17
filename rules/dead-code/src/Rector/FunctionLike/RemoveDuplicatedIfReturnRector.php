@@ -117,7 +117,7 @@ CODE_SAMPLE
     /**
      * @return If_[][]
      */
-    private function collectDuplicatedIfWithOnlyReturnByHash(FunctionLike $functionLike): array
+    private function collectDuplicatedIfWithOnlyReturnByHash(Node $functionLike): array
     {
         $ifWithOnlyReturnsByHash = [];
         $modifiedVariableNames = [];

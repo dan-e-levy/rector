@@ -156,7 +156,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipUse(Use_ $use): bool
+    private function shouldSkipUse(Node $use): bool
     {
         // skip cases without namespace, problematic to analyse
         $namespace = $use->getAttribute(AttributeKey::NAMESPACE_NODE);
@@ -167,7 +167,7 @@ CODE_SAMPLE
         return ! $this->hasUseAlias($use);
     }
 
-    private function resolveSearchNode(Use_ $use): ?Node
+    private function resolveSearchNode(Node $use): ?Node
     {
         $searchNode = $use->getAttribute(AttributeKey::PARENT_NODE);
         if ($searchNode !== null) {

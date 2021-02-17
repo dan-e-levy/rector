@@ -6,7 +6,6 @@ namespace Rector\Php80\Rector\Identical;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr;
-use PhpParser\Node\Expr\BinaryOp;
 use PhpParser\Node\Expr\BinaryOp\Identical;
 use PhpParser\Node\Expr\BinaryOp\NotIdentical;
 use PhpParser\Node\Expr\FuncCall;
@@ -69,7 +68,7 @@ CODE_SAMPLE
      * Covers:
      * $isMatch = substr($haystack, -strlen($needle)) === $needle;
      */
-    private function refactorSubstr(BinaryOp $binaryOp): ?FuncCall
+    private function refactorSubstr(Node $binaryOp): ?FuncCall
     {
         if ($this->isFuncCallName($binaryOp->left, 'substr')) {
             $substrFuncCall = $binaryOp->left;
@@ -91,7 +90,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createFuncCall('str_ends_with', [$haystack, $needle]);
     }
 
-    private function refactorSubstrCompare(BinaryOp $binaryOp): ?FuncCall
+    private function refactorSubstrCompare(Node $binaryOp): ?FuncCall
     {
         if ($this->isFuncCallName($binaryOp->left, 'substr_compare')) {
             $substrCompareFuncCall = $binaryOp->left;

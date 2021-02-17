@@ -128,7 +128,7 @@ CODE_SAMPLE
         return is_numeric($string[0]);
     }
 
-    private function isFoundInParentNode(Variable $variable): bool
+    private function isFoundInParentNode(Node $variable): bool
     {
         /** @var ClassMethod|Function_|null $classMethodOrFunction */
         $classMethodOrFunction = $this->betterNodeFinder->findParentTypes(
@@ -152,7 +152,7 @@ CODE_SAMPLE
         return false;
     }
 
-    private function isFoundInPreviousNode(Variable $variable): bool
+    private function isFoundInPreviousNode(Node $variable): bool
     {
         $previousNode = $variable->getAttribute(AttributeKey::PREVIOUS_NODE);
         if (! $previousNode instanceof Expr) {

@@ -105,7 +105,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function shouldSkip(ClassConst $classConst): bool
+    private function shouldSkip(Node $classConst): bool
     {
         if ($this->isOpenSourceProjectType()) {
             return true;

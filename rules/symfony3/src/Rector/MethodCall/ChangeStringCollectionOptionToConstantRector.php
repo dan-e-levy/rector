@@ -99,7 +99,7 @@ CODE_SAMPLE
         return $this->processChangeToConstant($optionsArray, $node);
     }
 
-    private function processChangeToConstant(Array_ $optionsArray, MethodCall $methodCall): ?Node
+    private function processChangeToConstant(Array_ $optionsArray, Node $methodCall): ?Node
     {
         foreach ($optionsArray->items as $optionsArrayItem) {
             if ($optionsArrayItem === null) {

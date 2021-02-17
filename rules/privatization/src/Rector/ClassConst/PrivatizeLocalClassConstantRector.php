@@ -88,10 +88,8 @@ CODE_SAMPLE
         return [ClassConst::class];
     }
 
-    /**
-     * @param ClassConst $node
-     */
-    public function refactor(Node $node): ?Node
+
+    public function refactor(\PhpParser\Node\Stmt\ClassConst $node): ?Node
     {
         if ($this->shouldSkip($node)) {
             return null;
@@ -135,7 +133,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(ClassConst $classConst): bool
+    private function shouldSkip(Node $classConst): bool
     {
         $hasNewAccessLevel = $classConst->getAttribute(self::HAS_NEW_ACCESS_LEVEL);
         if ($hasNewAccessLevel) {
@@ -193,7 +191,7 @@ CODE_SAMPLE
      * @param string[] $indirectUseClasses
      */
     private function changeConstantVisibility(
-        ClassConst $classConst,
+        Node $classConst,
         array $directUseClasses,
         array $indirectUseClasses,
         ?ConstantVisibility $constantVisibility,

@@ -106,7 +106,7 @@ CODE_SAMPLE
         $this->removeFuncCalls = $removeFuncCalls;
     }
 
-    private function refactorFuncCallsWithPositions(FuncCall $funcCall, RemoveFuncCall $removeFuncCall): void
+    private function refactorFuncCallsWithPositions(Node $funcCall, RemoveFuncCall $removeFuncCall): void
     {
         foreach ($removeFuncCall->getArgumentPositionAndValues() as $argumentPosition => $values) {
             if (! $this->isArgumentPositionValueMatch($funcCall, $argumentPosition, $values)) {

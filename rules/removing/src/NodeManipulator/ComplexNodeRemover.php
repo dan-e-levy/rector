@@ -94,7 +94,7 @@ final class ComplexNodeRemover
     /**
      * @param string[] $classMethodNamesToSkip
      */
-    public function removePropertyAndUsages(Property $property, array $classMethodNamesToSkip = []): void
+    public function removePropertyAndUsages(Node $property, array $classMethodNamesToSkip = []): void
     {
         $shouldKeepProperty = false;
 

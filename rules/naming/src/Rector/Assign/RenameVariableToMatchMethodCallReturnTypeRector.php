@@ -179,7 +179,7 @@ CODE_SAMPLE
     /**
      * @param FuncCall|StaticCall|MethodCall $callNode
      */
-    private function isMultipleCall(Node $callNode): bool
+    private function isMultipleCall(Expr $callNode): bool
     {
         $parentNode = $callNode->getAttribute(AttributeKey::PARENT_NODE);
         while ($parentNode) {

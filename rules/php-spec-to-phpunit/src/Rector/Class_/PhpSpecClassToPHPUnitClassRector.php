@@ -128,7 +128,7 @@ final class PhpSpecClassToPHPUnitClassRector extends AbstractPhpSpecToPHPUnitRec
     /**
      * This is already checked on construction of object
      */
-    private function removeSelfTypeMethod(Class_ $class): Class_
+    private function removeSelfTypeMethod(Node $class): Class_
     {
         foreach ($class->getMethods() as $classMethod) {
             $classMethodStmts = (array) $classMethod->stmts;

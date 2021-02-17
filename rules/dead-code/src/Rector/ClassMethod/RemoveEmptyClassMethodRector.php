@@ -105,7 +105,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipNonFinalNonPrivateClassMethod(Class_ $class, ClassMethod $classMethod): bool
+    private function shouldSkipNonFinalNonPrivateClassMethod(Class_ $class, Node $classMethod): bool
     {
         if ($class->isFinal()) {
             return false;
@@ -122,7 +122,7 @@ CODE_SAMPLE
         return $classMethod->isPublic();
     }
 
-    private function shouldSkipClassMethod(ClassMethod $classMethod): bool
+    private function shouldSkipClassMethod(Node $classMethod): bool
     {
         if ($this->classMethodManipulator->isNamedConstructor($classMethod)) {
             return true;

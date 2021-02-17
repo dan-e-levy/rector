@@ -142,7 +142,7 @@ CODE_SAMPLE
         return $privatesCaller->callPrivateMethod(new StringInput(''), 'tokenize', [$process]);
     }
 
-    private function processPreviousAssign(Node $node, Expr $firstArgumentExpr): void
+    private function processPreviousAssign(Expr $node, Expr $firstArgumentExpr): void
     {
         $previousNodeAssign = $this->findPreviousNodeAssign($node, $firstArgumentExpr);
         if (! $previousNodeAssign instanceof Assign) {

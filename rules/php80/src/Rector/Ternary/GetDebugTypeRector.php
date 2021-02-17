@@ -76,7 +76,7 @@ CODE_SAMPLE
         return $this->nodeFactory->createFuncCall('get_debug_type', [$firstExpr]);
     }
 
-    private function shouldSkip(Ternary $ternary): bool
+    private function shouldSkip(Node $ternary): bool
     {
         if (! $this->isFuncCallName($ternary->cond, 'is_object')) {
             return true;
@@ -93,7 +93,7 @@ CODE_SAMPLE
         return ! $this->isFuncCallName($ternary->else, 'gettype');
     }
 
-    private function areValuesIdentical(Ternary $ternary): bool
+    private function areValuesIdentical(Node $ternary): bool
     {
         /** @var FuncCall $isObjectFuncCall */
         $isObjectFuncCall = $ternary->cond;

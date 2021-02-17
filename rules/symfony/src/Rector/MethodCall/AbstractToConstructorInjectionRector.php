@@ -42,7 +42,7 @@ abstract class AbstractToConstructorInjectionRector extends AbstractRector
         $this->applicationServiceMapProvider = $applicationServiceMapProvider;
     }
 
-    protected function processMethodCallNode(MethodCall $methodCall): ?Node
+    protected function processMethodCallNode(Node $methodCall): ?Node
     {
         $serviceType = $this->getServiceTypeFromMethodCallArgument($methodCall);
         if (! $serviceType instanceof ObjectType) {

@@ -84,7 +84,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function processSingleQuoted(String_ $string, int $doubleQuoteCount, int $singleQuoteCount): void
+    private function processSingleQuoted(Node $string, int $doubleQuoteCount, int $singleQuoteCount): void
     {
         if ($doubleQuoteCount === 0 && $singleQuoteCount > 0) {
             // contains chars that will be newly escaped
@@ -98,7 +98,7 @@ CODE_SAMPLE
         }
     }
 
-    private function processDoubleQuoted(String_ $string, int $singleQuoteCount, int $doubleQuoteCount): void
+    private function processDoubleQuoted(Node $string, int $singleQuoteCount, int $doubleQuoteCount): void
     {
         if ($singleQuoteCount === 0 && $doubleQuoteCount > 0) {
             // contains chars that will be newly escaped

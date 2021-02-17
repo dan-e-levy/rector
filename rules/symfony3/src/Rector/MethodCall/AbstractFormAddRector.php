@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Symfony3\Rector\MethodCall;
 
+use PhpParser\Node;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\ClassConstFetch;
-use PhpParser\Node\Expr\MethodCall;
 use Rector\Core\Rector\AbstractRector;
 use Rector\Symfony3\FormHelper\FormTypeStringToTypeProvider;
 
@@ -30,7 +30,7 @@ abstract class AbstractFormAddRector extends AbstractRector
         $this->formTypeStringToTypeProvider = $formTypeStringToTypeProvider;
     }
 
-    protected function isFormAddMethodCall(MethodCall $methodCall): bool
+    protected function isFormAddMethodCall(Node $methodCall): bool
     {
         if (! $this->isObjectTypes($methodCall->var, self::FORM_TYPES)) {
             return false;
@@ -48,7 +48,7 @@ abstract class AbstractFormAddRector extends AbstractRector
         return $methodCall->args[1]->value !== null;
     }
 
-    protected function matchOptionsArray(MethodCall $methodCall): ?Array_
+    protected function matchOptionsArray(Node $methodCall): ?Array_
     {
         if (! isset($methodCall->args[2])) {
             return null;
@@ -62,7 +62,7 @@ abstract class AbstractFormAddRector extends AbstractRector
         return $optionsArray;
     }
 
-    protected function isCollectionType(MethodCall $methodCall): bool
+    protected function isCollectionType(Node $methodCall): bool
     {
         $typeValue = $methodCall->args[1]->value;
 

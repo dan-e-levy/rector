@@ -6,6 +6,7 @@ namespace Rector\PHPUnit\Rector\Foreach_;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name;
@@ -98,7 +99,7 @@ CODE_SAMPLE
     /**
      * @param MethodCall|StaticCall $node
      */
-    private function resolveVar(Node $node): Node
+    private function resolveVar(Expr $node): Node
     {
         if ($node instanceof MethodCall) {
             return $node->var;

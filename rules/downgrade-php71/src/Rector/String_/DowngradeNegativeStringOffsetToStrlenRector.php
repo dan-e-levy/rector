@@ -87,7 +87,7 @@ CODE_SAMPLE
         return $string;
     }
 
-    private function processForFuncCall(FuncCall $funcCall): ?FuncCall
+    private function processForFuncCall(Node $funcCall): ?FuncCall
     {
         $name = $this->getName($funcCall);
         if ($name !== 'strpos') {

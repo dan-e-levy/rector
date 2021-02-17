@@ -69,7 +69,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(New_ $new): bool
+    private function shouldSkip(Node $new): bool
     {
         if (! $new->class instanceof Name) {
             return true;

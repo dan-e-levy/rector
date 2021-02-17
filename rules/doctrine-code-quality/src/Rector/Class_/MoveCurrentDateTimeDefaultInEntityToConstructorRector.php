@@ -128,7 +128,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorProperty(Property $property, Class_ $class): ?Property
+    private function refactorProperty(Property $property, Node $class): ?Property
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
 

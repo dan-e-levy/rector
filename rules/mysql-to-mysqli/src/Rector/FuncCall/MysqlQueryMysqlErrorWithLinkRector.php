@@ -177,7 +177,7 @@ CODE_SAMPLE
         return $this->isMysqliConnect($expr);
     }
 
-    private function findConnectionVariable(FuncCall $funcCall): ?Expr
+    private function findConnectionVariable(Node $funcCall): ?Expr
     {
         $connectionAssign = $this->betterNodeFinder->findFirstPrevious($funcCall, function (Node $node): ?bool {
             if (! $node instanceof Assign) {
@@ -194,7 +194,7 @@ CODE_SAMPLE
         return $connectionAssign->var;
     }
 
-    private function removeExistingConnectionParameter(FuncCall $funcCall): void
+    private function removeExistingConnectionParameter(Node $funcCall): void
     {
         /** @var string $functionName */
         $functionName = $this->getName($funcCall);

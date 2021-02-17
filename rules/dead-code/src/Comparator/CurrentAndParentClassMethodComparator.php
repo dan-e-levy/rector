@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DeadCode\Comparator;
 
+use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Param;
@@ -67,7 +68,7 @@ final class CurrentAndParentClassMethodComparator
         $this->parameterTypeComparator = $parameterTypeComparator;
     }
 
-    public function isParentCallMatching(ClassMethod $classMethod, StaticCall $staticCall): bool
+    public function isParentCallMatching(Node $classMethod, StaticCall $staticCall): bool
     {
         if (! $this->isSameMethodParentCall($classMethod, $staticCall)) {
             return false;

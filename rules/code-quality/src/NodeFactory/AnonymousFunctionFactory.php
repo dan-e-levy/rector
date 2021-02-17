@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\CodeQuality\NodeFactory;
 
-use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\ClosureUse;
 use PhpParser\Node\Expr\MethodCall;
@@ -49,7 +49,7 @@ final class AnonymousFunctionFactory
     /**
      * @param Variable|PropertyFetch $node
      */
-    public function create(ClassMethod $classMethod, Node $node): Closure
+    public function create(ClassMethod $classMethod, Expr $node): Closure
     {
         /** @var Return_[] $classMethodReturns */
         $classMethodReturns = $this->betterNodeFinder->findInstanceOf((array) $classMethod->stmts, Return_::class);

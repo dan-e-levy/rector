@@ -70,7 +70,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processJsonEncode(FuncCall $funcCall): ?FuncCall
+    private function processJsonEncode(Node $funcCall): ?FuncCall
     {
         if (isset($funcCall->args[1])) {
             return null;
@@ -81,7 +81,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function processJsonDecode(FuncCall $funcCall): ?FuncCall
+    private function processJsonDecode(Node $funcCall): ?FuncCall
     {
         if (isset($funcCall->args[3])) {
             return null;

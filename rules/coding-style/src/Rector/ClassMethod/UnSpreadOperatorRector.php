@@ -99,7 +99,7 @@ CODE_SAMPLE
         return $classMethod;
     }
 
-    private function processUnspreadOperatorMethodCallArgs(MethodCall $methodCall): ?MethodCall
+    private function processUnspreadOperatorMethodCallArgs(Node $methodCall): ?MethodCall
     {
         $classMethod = $this->nodeRepository->findClassMethodByMethodCall($methodCall);
         if (! $classMethod instanceof ClassMethod) {

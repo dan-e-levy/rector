@@ -127,7 +127,7 @@ CODE_SAMPLE
         $this->factoryMethods = $factoryMethods;
     }
 
-    private function matchTypeAndMethodName(MethodCall $methodCall): ?FactoryMethod
+    private function matchTypeAndMethodName(Node $methodCall): ?FactoryMethod
     {
         foreach ($this->factoryMethods as $factoryMethod) {
             if (! $this->isObjectType($methodCall->var, $factoryMethod->getType())) {
@@ -145,7 +145,7 @@ CODE_SAMPLE
     }
 
     private function replaceArrayToFluentMethodCalls(
-        MethodCall $methodCall,
+        Node $methodCall,
         int $argumentPosition,
         ArrayToFluentCall $arrayToFluentCall
     ): ?MethodCall {

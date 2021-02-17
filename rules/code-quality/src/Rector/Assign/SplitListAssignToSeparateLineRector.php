@@ -83,7 +83,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(Assign $assign): bool
+    private function shouldSkip(Node $assign): bool
     {
         if (! $assign->var instanceof Array_ && ! $assign->var instanceof List_) {
             return true;
@@ -105,7 +105,7 @@ CODE_SAMPLE
      * @param Array_|List_ $node
      * @return Assign[]
      */
-    private function createStandaloneAssigns(Node $node, Array_ $rightArray): array
+    private function createStandaloneAssigns(Expr $node, Array_ $rightArray): array
     {
         $standaloneAssigns = [];
         foreach ($node->items as $key => $leftArrayItem) {
@@ -139,7 +139,7 @@ CODE_SAMPLE
     /**
      * @param Array_|List_ $node
      */
-    private function getArrayItemsHash(Node $node): string
+    private function getArrayItemsHash(Expr $node): string
     {
         $arrayItemsHashes = [];
         foreach ($node->items as $arrayItem) {

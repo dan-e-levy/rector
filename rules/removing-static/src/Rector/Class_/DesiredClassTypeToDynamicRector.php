@@ -147,7 +147,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function completeDependencyToConstructorOnly(Class_ $class, string $classType): void
+    private function completeDependencyToConstructorOnly(Node $class, string $classType): void
     {
         $constructClassMethod = $class->getMethod(MethodName::CONSTRUCT);
         if (! $constructClassMethod instanceof ClassMethod) {

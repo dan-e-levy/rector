@@ -69,7 +69,7 @@ final class ListeningClassMethodArgumentManipulator
     /**
      * @param EventClassAndClassMethod[] $classMethodsByEventClass
      */
-    public function change(array $classMethodsByEventClass, ?EventAndListenerTree $eventAndListenerTree = null): void
+    public function change(array $classMethodsByEventClass, EventAndListenerTree $eventAndListenerTree = null): void
     {
         foreach ($classMethodsByEventClass as $eventClassAndClassMethod) {
             // are attributes already replaced

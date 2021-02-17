@@ -138,7 +138,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processPropertyFetch(PropertyFetch $propertyFetch): ?MethodCall
+    private function processPropertyFetch(Node $propertyFetch): ?MethodCall
     {
         foreach ($this->typeToMethodCalls as $type => $transformation) {
             $objectType = new ObjectType($type);

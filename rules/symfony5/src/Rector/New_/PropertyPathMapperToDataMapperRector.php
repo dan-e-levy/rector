@@ -69,7 +69,7 @@ CODE_SAMPLE
         return $this->generateNewInstances($node);
     }
 
-    private function shouldSkip(New_ $new): bool
+    private function shouldSkip(Node $new): bool
     {
         if (! $new->class instanceof Name) {
             return true;
@@ -78,7 +78,7 @@ CODE_SAMPLE
         return ! $this->isName($new->class, 'Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper');
     }
 
-    private function generateNewInstances(New_ $new): New_
+    private function generateNewInstances(Node $new): New_
     {
         $arguments = [];
         if (isset($new->args[0])) {

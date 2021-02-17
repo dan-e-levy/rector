@@ -101,7 +101,7 @@ CODE_SAMPLE
         return $this->processFieldToFieldDirect($node, $funcCallNode);
     }
 
-    private function processMysqlTableName(Assign $assign, FuncCall $funcCall): FuncCall
+    private function processMysqlTableName(Node $assign, FuncCall $funcCall): FuncCall
     {
         $funcCall->name = new Name(self::MYSQLI_DATA_SEEK);
 
@@ -113,7 +113,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function processMysqlDbName(Assign $assign, FuncCall $funcCall): FuncCall
+    private function processMysqlDbName(Node $assign, FuncCall $funcCall): FuncCall
     {
         $funcCall->name = new Name(self::MYSQLI_DATA_SEEK);
 
@@ -128,7 +128,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function processMysqliSelectDb(Assign $assign, FuncCall $funcCall): FuncCall
+    private function processMysqliSelectDb(Node $assign, FuncCall $funcCall): FuncCall
     {
         $funcCall->name = new Name('mysqli_select_db');
 
@@ -140,7 +140,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function processMysqlFetchField(Assign $assign, FuncCall $funcCall): Assign
+    private function processMysqlFetchField(Node $assign, FuncCall $funcCall): Assign
     {
         if (isset($funcCall->args[1])) {
             $funcCall->name = new Name('mysqli_fetch_field_direct');
@@ -151,7 +151,7 @@ CODE_SAMPLE
         return $assign;
     }
 
-    private function processMysqlResult(Assign $assign, FuncCall $funcCall): FuncCall
+    private function processMysqlResult(Node $assign, FuncCall $funcCall): FuncCall
     {
         $fetchField = null;
         if (isset($funcCall->args[2])) {
@@ -172,7 +172,7 @@ CODE_SAMPLE
         return $funcCall;
     }
 
-    private function processFieldToFieldDirect(Assign $assign, FuncCall $funcCall): ?Assign
+    private function processFieldToFieldDirect(Node $assign, FuncCall $funcCall): ?Assign
     {
         foreach (self::FIELD_TO_FIELD_DIRECT as $funcName => $property) {
             if ($this->isName($funcCall, $funcName)) {

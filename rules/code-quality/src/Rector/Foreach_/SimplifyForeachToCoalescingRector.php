@@ -112,7 +112,7 @@ CODE_SAMPLE
     /**
      * @return Assign|Return_|null
      */
-    private function matchReturnOrAssignNode(Foreach_ $foreach): ?Node
+    private function matchReturnOrAssignNode(Node $foreach): ?Node
     {
         return $this->foreachManipulator->matchOnlyStmt($foreach, function (Node $node): ?Node {
             if (! $node instanceof If_) {
@@ -136,7 +136,7 @@ CODE_SAMPLE
         });
     }
 
-    private function processForeachNodeWithReturnInside(Foreach_ $foreach, Return_ $return): ?Node
+    private function processForeachNodeWithReturnInside(Node $foreach, Return_ $return): ?Node
     {
         if (! $this->areNodesEqual($foreach->valueVar, $return->expr)) {
             return null;
@@ -175,7 +175,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processForeachNodeWithAssignInside(Foreach_ $foreach, Assign $assign): ?Node
+    private function processForeachNodeWithAssignInside(Node $foreach, Assign $assign): ?Node
     {
         /** @var If_ $ifNode */
         $ifNode = $foreach->stmts[0];

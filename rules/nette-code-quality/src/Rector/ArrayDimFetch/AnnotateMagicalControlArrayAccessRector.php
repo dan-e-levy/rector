@@ -135,7 +135,7 @@ CODE_SAMPLE
         return new Variable($variableName);
     }
 
-    private function shouldSkip(ArrayDimFetch $arrayDimFetch): bool
+    private function shouldSkip(Node $arrayDimFetch): bool
     {
         if ($this->isBeingAssignedOrInitialized($arrayDimFetch)) {
             return true;
@@ -149,7 +149,7 @@ CODE_SAMPLE
         return false;
     }
 
-    private function resolveControlType(ArrayDimFetch $arrayDimFetch, string $controlName): ObjectType
+    private function resolveControlType(Node $arrayDimFetch, string $controlName): ObjectType
     {
         $controlTypes = $this->methodNamesByInputNamesResolver->resolveExpr($arrayDimFetch);
         if ($controlTypes === []) {

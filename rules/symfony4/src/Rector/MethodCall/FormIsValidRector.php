@@ -81,7 +81,7 @@ CODE_SAMPLE
         );
     }
 
-    private function shouldSkipMethodCall(MethodCall $methodCall): bool
+    private function shouldSkipMethodCall(Node $methodCall): bool
     {
         $originalNode = $methodCall->getAttribute(AttributeKey::ORIGINAL_NODE);
         // skip just added calls

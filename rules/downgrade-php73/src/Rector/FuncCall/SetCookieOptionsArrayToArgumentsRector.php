@@ -90,7 +90,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkip(FuncCall $funcCall): bool
+    private function shouldSkip(Node $funcCall): bool
     {
         if (! $this->isNames($funcCall, ['setcookie', 'setrawcookie'])) {
             return true;
@@ -106,7 +106,7 @@ CODE_SAMPLE
     /**
      * @return Arg[]
      */
-    private function composeNewArgs(FuncCall $funcCall): array
+    private function composeNewArgs(Node $funcCall): array
     {
         $this->highestIndex = 1;
 

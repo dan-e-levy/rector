@@ -6,7 +6,6 @@ namespace Rector\Naming\Rector\Class_;
 
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
-use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\Node\Stmt\Property;
@@ -134,7 +133,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function refactorClassProperties(ClassLike $classLike): void
+    private function refactorClassProperties(Node $classLike): void
     {
         foreach ($classLike->getProperties() as $property) {
             $propertyRename = $this->propertyRenameFactory->create(
@@ -154,7 +153,7 @@ CODE_SAMPLE
         }
     }
 
-    private function renamePropertyPromotion(ClassLike $classLike): void
+    private function renamePropertyPromotion(Node $classLike): void
     {
         if (! $this->isAtLeastPhpVersion(PhpVersionFeature::PROPERTY_PROMOTION)) {
             return;

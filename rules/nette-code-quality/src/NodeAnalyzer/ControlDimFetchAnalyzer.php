@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\NetteCodeQuality\NodeAnalyzer;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Variable;
@@ -33,12 +34,8 @@ final class ControlDimFetchAnalyzer
         return $this->matchNameOnVariableTypes($node, ['Nette\Application\UI\Control']);
     }
 
-    public function matchName(Node $node): ?string
+    public function matchName(ArrayDimFetch $node): ?string
     {
-        if (! $node instanceof ArrayDimFetch) {
-            return null;
-        }
-
         if (! $this->isVariableTypes($node->var, ['Nette\ComponentModel\IContainer'])) {
             return null;
         }
@@ -71,7 +68,7 @@ final class ControlDimFetchAnalyzer
     /**
      * @param string[] $types
      */
-    private function isVariableTypes(Node $node, array $types): bool
+    private function isVariableTypes(Expr $node, array $types): bool
     {
         if (! $node instanceof Variable) {
             return false;

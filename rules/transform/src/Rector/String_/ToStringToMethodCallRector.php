@@ -92,7 +92,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function processMethodCall(MethodCall $methodCall): ?Node
+    private function processMethodCall(Node $methodCall): ?Node
     {
         foreach ($this->methodNamesByType as $type => $methodName) {
             if (! $this->isObjectType($methodCall, $type)) {

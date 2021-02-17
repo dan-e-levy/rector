@@ -130,7 +130,7 @@ CODE_SAMPLE
         $param->type = $fullyQualified;
     }
 
-    private function refactorParamDocBlock(Param $param, ClassMethod $classMethod): void
+    private function refactorParamDocBlock(Param $param, \PhpParser\Node $classMethod): void
     {
         $types = [new ObjectType(DateTime::class), new ObjectType(DateTimeImmutable::class)];
         if ($param->type instanceof NullableType) {
@@ -146,7 +146,7 @@ CODE_SAMPLE
         $this->phpDocTypeChanger->changeParamType($phpDocInfo, new UnionType($types), $param, $paramName);
     }
 
-    private function refactorMethodCalls(Param $param, ClassMethod $classMethod): void
+    private function refactorMethodCalls(Param $param, \PhpParser\Node $classMethod): void
     {
         if ($classMethod->stmts === null) {
             return;

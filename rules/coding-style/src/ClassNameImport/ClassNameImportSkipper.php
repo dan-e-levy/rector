@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\CodingStyle\ClassNameImport;
 
 use Nette\Utils\Strings;
-use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\Use_;
 use Rector\CodingStyle\Contract\ClassNameImport\ClassNameImportSkipVoterInterface;
@@ -28,7 +27,7 @@ final class ClassNameImportSkipper
     }
 
     public function shouldSkipNameForFullyQualifiedObjectType(
-        Node $node,
+        Name $node,
         FullyQualifiedObjectType $fullyQualifiedObjectType
     ): bool {
         foreach ($this->classNameImportSkipVoters as $classNameImportSkipVoter) {

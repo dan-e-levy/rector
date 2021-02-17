@@ -95,7 +95,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldSkipClassMethod(ClassMethod $classMethod): bool
+    private function shouldSkipClassMethod(Node $classMethod): bool
     {
         if ($this->isName($classMethod, 'createComponent*')) {
             return true;

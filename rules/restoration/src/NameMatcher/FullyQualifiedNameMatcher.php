@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Restoration\NameMatcher;
 
+use PhpParser\Node;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
@@ -34,7 +35,7 @@ final class FullyQualifiedNameMatcher
      * @param string|Name|Identifier|FullyQualified|UnionType|NullableType|null $name
      * @return NullableType|FullyQualified|null
      */
-    public function matchFullyQualifiedName($name)
+    public function matchFullyQualifiedName(Node $name)
     {
         if ($name instanceof NullableType) {
             $fullyQulifiedNullableType = $this->matchFullyQualifiedName($name->type);

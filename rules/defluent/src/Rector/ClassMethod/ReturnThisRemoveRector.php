@@ -112,7 +112,7 @@ CODE_SAMPLE
     /**
      * Matches only 1st level "return $this;"
      */
-    private function matchSingleReturnThis(ClassMethod $classMethod): ?Return_
+    private function matchSingleReturnThis(Node $classMethod): ?Return_
     {
         /** @var Return_[] $returns */
         $returns = $this->betterNodeFinder->findInstanceOf($classMethod, Return_::class);
@@ -139,7 +139,7 @@ CODE_SAMPLE
         return $return;
     }
 
-    private function shouldSkip(Return_ $return, ClassMethod $classMethod): bool
+    private function shouldSkip(Return_ $return, Node $classMethod): bool
     {
         if (! $this->parentClassMethodTypeOverrideGuard->isReturnTypeChangeAllowed($classMethod)) {
             return true;

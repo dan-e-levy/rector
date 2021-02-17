@@ -130,7 +130,7 @@ CODE_SAMPLE
         return new MethodCall(new Variable('this'), $arrayCallable->getMethod());
     }
 
-    private function isAssignedToNetteMagicOnProperty(Array_ $array): bool
+    private function isAssignedToNetteMagicOnProperty(Node $array): bool
     {
         $parent = $array->getAttribute(AttributeKey::PARENT_NODE);
         if (! $parent instanceof Assign) {
@@ -150,7 +150,7 @@ CODE_SAMPLE
         return $this->isName($propertyFetch->name, 'on*');
     }
 
-    private function isInsideProperty(Array_ $array): bool
+    private function isInsideProperty(Node $array): bool
     {
         $parentProperty = $this->betterNodeFinder->findParentType($array, Property::class);
 

@@ -112,7 +112,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function replaceMockWithMockerMockAndCollectMockVariableName(ClassMethod $classMethod): void
+    private function replaceMockWithMockerMockAndCollectMockVariableName(Node $classMethod): void
     {
         $this->traverseNodesWithCallable((array) $classMethod->stmts, function (Node $node): ?StaticCall {
             if (! $this->isFuncCallName($node, 'mock')) {
@@ -135,7 +135,7 @@ CODE_SAMPLE
      * ↓
      * $mock->getMethod()->once()
      */
-    private function replaceMethodCallOncePropertyFetch(ClassMethod $classMethod): void
+    private function replaceMethodCallOncePropertyFetch(Node $classMethod): void
     {
         $this->traverseNodesWithCallable(
             (array) $classMethod->stmts,
@@ -153,7 +153,7 @@ CODE_SAMPLE
         );
     }
 
-    private function removeUnusedMethodCalls(ClassMethod $classMethod): void
+    private function removeUnusedMethodCalls(Node $classMethod): void
     {
         $this->traverseNodesWithCallable((array) $classMethod->stmts, function (Node $node) {
             if (! $this->isMethodCallOrPropertyFetchOnMockVariable($node)) {
@@ -174,7 +174,7 @@ CODE_SAMPLE
      * ↓
      * $mock->expects()->getMethod()->once()
      */
-    private function replaceMethodCallWithExpects(ClassMethod $classMethod): void
+    private function replaceMethodCallWithExpects(Node $classMethod): void
     {
         $this->traverseNodesWithCallable((array) $classMethod->stmts, function (Node $node): ?MethodCall {
             if (! $this->isMethodCallOrPropertyFetchOnMockVariable($node)) {
@@ -213,7 +213,7 @@ CODE_SAMPLE
     /**
      * Order correction for @see replaceMethodCallWithExpects()
      */
-    private function switchWithAnyArgsAndOnceTwice(ClassMethod $classMethod): void
+    private function switchWithAnyArgsAndOnceTwice(Node $classMethod): void
     {
         $this->traverseNodesWithCallable((array) $classMethod->stmts, function (Node $node) {
             if (! $node instanceof MethodCall) {

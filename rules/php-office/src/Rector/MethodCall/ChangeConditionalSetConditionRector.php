@@ -75,7 +75,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function castArgumentToArrayIfNotArrayType(MethodCall $methodCall): void
+    private function castArgumentToArrayIfNotArrayType(Node $methodCall): void
     {
         $firstArgumentValue = $methodCall->args[0]->value;
         $firstArgumentStaticType = $this->getStaticType($firstArgumentValue);

@@ -73,7 +73,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function determineDelimiter(FuncCall $funcCall): ?string
+    private function determineDelimiter(Node $funcCall): ?string
     {
         $concat = $this->getUppermostConcat($funcCall);
         if (! $concat instanceof Concat) {

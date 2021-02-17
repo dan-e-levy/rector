@@ -136,7 +136,7 @@ CODE_SAMPLE
         return $node;
     }
 
-    private function shouldRefactor(FuncCall $funcCall): bool
+    private function shouldRefactor(Node $funcCall): bool
     {
         if (! $this->isName($funcCall, 'strip_tags')) {
             return false;
@@ -162,7 +162,7 @@ CODE_SAMPLE
     /**
      * @param Array_|Variable|PropertyFetch|ConstFetch|ClassConstFetch $expr
      */
-    private function createArrayFromString(Expr $expr): Concat
+    private function createArrayFromString(Array_ $expr): Concat
     {
         $args = [new Arg(new String_('><')), new Arg($expr)];
         $implodeFuncCall = new FuncCall(new Name('implode'), $args);
