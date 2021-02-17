@@ -56,7 +56,7 @@ final class AttributeAwareMethodTagValueNodeFactory implements AttributeNodeAwar
     }
 
     private function attributizeReturnType(
-        MethodTagValueNode $methodTagValueNode,
+        Node $methodTagValueNode,
         string $docContent
     ): ?AttributeAwareNodeInterface {
         if ($methodTagValueNode->returnType !== null) {

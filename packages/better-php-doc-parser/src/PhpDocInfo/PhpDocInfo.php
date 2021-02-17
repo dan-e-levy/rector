@@ -8,7 +8,6 @@ use PhpParser\Node;
 use PHPStan\PhpDocParser\Ast\Node as PhpDocNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\MethodTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
-use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocChildNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PropertyTagValueNode;
@@ -137,7 +136,7 @@ final class PhpDocInfo
         return $this->originalContent;
     }
 
-    public function addPhpDocTagNode(PhpDocChildNode $phpDocChildNode): void
+    public function addPhpDocTagNode(AttributeAwareNodeInterface $phpDocChildNode): void
     {
         $this->phpDocNode->children[] = $phpDocChildNode;
         $this->markAsChanged();

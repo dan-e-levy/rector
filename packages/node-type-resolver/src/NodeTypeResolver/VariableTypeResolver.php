@@ -99,7 +99,7 @@ final class VariableTypeResolver implements NodeTypeResolverInterface
         $this->nodeTypeResolver = $nodeTypeResolver;
     }
 
-    private function resolveTypesFromScope(Variable $variable, string $variableName): Type
+    private function resolveTypesFromScope(Node $variable, string $variableName): Type
     {
         $nodeScope = $this->resolveNodeScope($variable);
 

@@ -61,10 +61,8 @@ final class ArrayTypeMapper implements TypeMapperInterface
         return ArrayType::class;
     }
 
-    /**
-     * @param ArrayType $type
-     */
-    public function mapToPHPStanPhpDocTypeNode(Type $type): TypeNode
+
+    public function mapToPHPStanPhpDocTypeNode(\PHPStan\Type\ArrayType $type): TypeNode
     {
         $itemType = $type->getItemType();
 
@@ -128,7 +126,7 @@ final class ArrayTypeMapper implements TypeMapperInterface
         return new AttributeAwareArrayTypeNode($arrayType);
     }
 
-    private function isGenericArrayCandidate(ArrayType $arrayType): bool
+    private function isGenericArrayCandidate(\PHPStan\Type\ArrayType $arrayType): bool
     {
         if ($arrayType->getKeyType() instanceof MixedType) {
             return false;
@@ -162,7 +160,7 @@ final class ArrayTypeMapper implements TypeMapperInterface
         return false;
     }
 
-    private function createGenericArrayType(ArrayType $arrayType, bool $withKey = false): AttributeAwareGenericTypeNode
+    private function createGenericArrayType(Type $arrayType, bool $withKey = false): AttributeAwareGenericTypeNode
     {
         $itemTypeNode = $this->phpStanStaticTypeMapper->mapToPHPStanPhpDocTypeNode($arrayType->getItemType());
 
@@ -186,7 +184,7 @@ final class ArrayTypeMapper implements TypeMapperInterface
         return new AttributeAwareGenericTypeNode($attributeAwareIdentifierTypeNode, $genericTypes);
     }
 
-    private function mapArrayUnionTypeToDocString(ArrayType $arrayType, UnionType $unionType): string
+    private function mapArrayUnionTypeToDocString(Type $arrayType, UnionType $unionType): string
     {
         $unionedTypesAsString = [];
 

@@ -364,7 +364,7 @@ final class NodeNameResolver
     /**
      * @param MethodCall|StaticCall $node
      */
-    private function reportInvalidNodeForName(Node $node): void
+    private function reportInvalidNodeForName(Expr $node): void
     {
         $message = sprintf('Pick more specific node than "%s", e.g. "$node->name"', get_class($node));
 

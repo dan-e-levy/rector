@@ -173,7 +173,7 @@ final class UnionTypeMapper implements TypeMapperInterface
         return implode('|', $docStrings);
     }
 
-    private function shouldSkipIterable(UnionType $unionType): bool
+    private function shouldSkipIterable(Type $unionType): bool
     {
         $unionTypeAnalysis = $this->unionTypeAnalyzer->analyseForNullableAndIterable($unionType);
         if (! $unionTypeAnalysis instanceof UnionTypeAnalysis) {
@@ -188,7 +188,7 @@ final class UnionTypeMapper implements TypeMapperInterface
     /**
      * @return Name|NullableType|null
      */
-    private function matchArrayTypes(UnionType $unionType): ?Node
+    private function matchArrayTypes(Type $unionType): ?Node
     {
         $unionTypeAnalysis = $this->unionTypeAnalyzer->analyseForNullableAndIterable($unionType);
         if (! $unionTypeAnalysis instanceof UnionTypeAnalysis) {
@@ -203,7 +203,7 @@ final class UnionTypeMapper implements TypeMapperInterface
         return new Name($type);
     }
 
-    private function matchTypeForNullableUnionType(UnionType $unionType): ?Type
+    private function matchTypeForNullableUnionType(Type $unionType): ?Type
     {
         if (count($unionType->getTypes()) !== 2) {
             return null;
@@ -226,7 +226,7 @@ final class UnionTypeMapper implements TypeMapperInterface
     /**
      * @return Name|FullyQualified|PhpParserUnionType|null
      */
-    private function matchTypeForUnionedObjectTypes(UnionType $unionType): ?Node
+    private function matchTypeForUnionedObjectTypes(Type $unionType): ?Node
     {
         $phpParserUnionType = $this->matchPhpParserUnionType($unionType);
         if ($phpParserUnionType !== null) {

@@ -6,6 +6,7 @@ namespace Rector\NodeTypeResolver\PHPStan\Scope;
 
 use Nette\Utils\Strings;
 use PhpParser\Node;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Interface_;
@@ -178,7 +179,7 @@ final class PHPStanNodeScopeResolver
     /**
      * @param Class_|Interface_ $classLike
      */
-    private function resolveClassOrInterfaceScope(ClassLike $classLike, Scope $scope): MutatingScope
+    private function resolveClassOrInterfaceScope(Stmt $classLike, Scope $scope): MutatingScope
     {
         $className = $this->resolveClassName($classLike);
 

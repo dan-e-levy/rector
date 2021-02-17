@@ -6,6 +6,7 @@ namespace Rector\PHPStanStaticTypeMapper\TypeAnalyzer;
 
 use PHPStan\Type\BooleanType;
 use PHPStan\Type\NullType;
+use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
 
 final class BoolUnionTypeAnalyzer
@@ -21,7 +22,7 @@ final class BoolUnionTypeAnalyzer
         return true;
     }
 
-    public function isNullableBoolUnionType(UnionType $unionType): bool
+    public function isNullableBoolUnionType(Type $unionType): bool
     {
         $hasNullable = false;
         foreach ($unionType->getTypes() as $unionedType) {

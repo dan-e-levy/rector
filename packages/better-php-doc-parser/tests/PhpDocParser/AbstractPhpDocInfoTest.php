@@ -7,6 +7,7 @@ namespace Rector\BetterPhpDocParser\Tests\PhpDocParser;
 use Iterator;
 use PhpParser\Comment\Doc;
 use PhpParser\Node;
+use PhpParser\Node\Stmt;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\Printer\PhpDocInfoPrinter;
 use Rector\BetterPhpDocParser\Tests\PhpDocParser\Helper\TagValueToPhpParserNodeMap;
@@ -110,7 +111,7 @@ abstract class AbstractPhpDocInfoTest extends AbstractKernelTestCase
         return $foundNode;
     }
 
-    private function printNodePhpDocInfoToString(Node $node): string
+    private function printNodePhpDocInfoToString(Stmt $node): string
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
         return $this->phpDocInfoPrinter->printFormatPreserving($phpDocInfo);
@@ -124,7 +125,7 @@ abstract class AbstractPhpDocInfoTest extends AbstractKernelTestCase
     /**
      * @param class-string<\PHPStan\PhpDocParser\Ast\Node> $tagValueNodeType
      */
-    private function doTestContainsTagValueNodeType(Node $node, string $tagValueNodeType, SmartFileInfo $fileInfo): void
+    private function doTestContainsTagValueNodeType(Stmt $node, string $tagValueNodeType, SmartFileInfo $fileInfo): void
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 

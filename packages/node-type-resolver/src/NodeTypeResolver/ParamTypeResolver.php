@@ -100,7 +100,7 @@ final class ParamTypeResolver implements NodeTypeResolverInterface
         return $this->resolveFromFunctionDocBlock($node);
     }
 
-    private function resolveFromParamType(Param $param): Type
+    private function resolveFromParamType(Node $param): Type
     {
         if ($param->type === null) {
             return new MixedType();
@@ -113,7 +113,7 @@ final class ParamTypeResolver implements NodeTypeResolverInterface
         return $this->staticTypeMapper->mapPhpParserNodePHPStanType($param->type);
     }
 
-    private function resolveFromFirstVariableUse(Param $param): Type
+    private function resolveFromFirstVariableUse(Node $param): Type
     {
         $classMethod = $param->getAttribute(AttributeKey::METHOD_NODE);
         if (! $classMethod instanceof ClassMethod) {
@@ -144,7 +144,7 @@ final class ParamTypeResolver implements NodeTypeResolverInterface
         return $paramStaticType;
     }
 
-    private function resolveFromFunctionDocBlock(Param $param): Type
+    private function resolveFromFunctionDocBlock(Node $param): Type
     {
         $phpDocInfo = $this->getFunctionLikePhpDocInfo($param);
         $paramName = $this->nodeNameResolver->getName($param);

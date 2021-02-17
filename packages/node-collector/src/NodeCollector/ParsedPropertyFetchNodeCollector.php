@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\NodeCollector\NodeCollector;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticCall;
@@ -86,7 +87,7 @@ final class ParsedPropertyFetchNodeCollector
     /**
      * @param PropertyFetch|StaticPropertyFetch $node
      */
-    private function resolvePropertyCallerType(Node $node): Type
+    private function resolvePropertyCallerType(Expr $node): Type
     {
         if ($node instanceof PropertyFetch) {
             return $this->nodeTypeResolver->resolve($node->var);

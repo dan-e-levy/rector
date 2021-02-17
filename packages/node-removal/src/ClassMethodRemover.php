@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\NodeRemoval;
 
-use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -57,7 +57,7 @@ final class ClassMethodRemover
     /**
      * @param MethodCall|StaticCall $node
      */
-    private function removeMethodCall(Node $node): void
+    private function removeMethodCall(Expr $node): void
     {
         $currentStatement = $node->getAttribute(AttributeKey::CURRENT_STATEMENT);
         foreach ($node->args as $arg) {

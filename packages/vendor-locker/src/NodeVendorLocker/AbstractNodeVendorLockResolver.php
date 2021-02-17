@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\VendorLocker\NodeVendorLocker;
 
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Interface_;
@@ -71,7 +72,7 @@ abstract class AbstractNodeVendorLockResolver
     /**
      * @param Class_|Interface_ $classLike
      */
-    protected function isMethodVendorLockedByInterface(ClassLike $classLike, string $methodName): bool
+    protected function isMethodVendorLockedByInterface(Stmt $classLike, string $methodName): bool
     {
         $interfaceNames = $this->classManipulator->getClassLikeNodeParentInterfaceNames($classLike);
 

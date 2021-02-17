@@ -12,9 +12,9 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Param;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
-use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\Node\Stmt\Trait_;
@@ -288,7 +288,7 @@ final class ParsedNodeCollector
     /**
      * @param Interface_|Trait_ $classLike
      */
-    private function collectInterfaceOrTrait(ClassLike $classLike): void
+    private function collectInterfaceOrTrait(Stmt $classLike): void
     {
         $name = $this->nodeNameResolver->getName($classLike);
         if ($name === null) {

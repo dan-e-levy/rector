@@ -8,6 +8,7 @@ use Nette\Utils\Arrays;
 use Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Attribute;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\FuncCall;
@@ -667,7 +668,7 @@ final class NodeRepository
     /**
      * @param MethodCall|StaticCall $node
      */
-    private function addCall(Node $node): void
+    private function addCall(Expr $node): void
     {
         // one node can be of multiple-class types
         if ($node instanceof MethodCall) {
@@ -765,7 +766,7 @@ final class NodeRepository
     /**
      * @param MethodCall|StaticCall $node
      */
-    private function addCallByType(Node $node, Type $classType, string $methodName): void
+    private function addCallByType(Expr $node, Type $classType, string $methodName): void
     {
         if ($classType instanceof TypeWithClassName) {
             $this->callsByTypeAndMethod[$classType->getClassName()][$methodName][] = $node;

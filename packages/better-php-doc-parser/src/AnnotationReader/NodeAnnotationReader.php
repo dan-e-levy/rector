@@ -7,6 +7,7 @@ namespace Rector\BetterPhpDocParser\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationException;
 use Doctrine\Common\Annotations\Reader;
 use PhpParser\Node;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Property;
@@ -154,7 +155,7 @@ final class NodeAnnotationReader
     /**
      * @param object[] $annotations
      */
-    private function matchNextAnnotation(array $annotations, string $annotationClassName, Node $node): ?object
+    private function matchNextAnnotation(array $annotations, string $annotationClassName, Stmt $node): ?object
     {
         foreach ($annotations as $annotatoin) {
             if (! is_a($annotatoin, $annotationClassName, true)) {

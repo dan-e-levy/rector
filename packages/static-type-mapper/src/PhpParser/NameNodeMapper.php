@@ -68,7 +68,7 @@ final class NameNodeMapper implements PhpParserNodeMapperInterface
         return in_array($name, $oldToNewClasses, true);
     }
 
-    private function createClassReferenceType(Name $name, string $reference): Type
+    private function createClassReferenceType(Node $name, string $reference): Type
     {
         $className = $name->getAttribute(AttributeKey::CLASS_NAME);
         if ($className === null) {

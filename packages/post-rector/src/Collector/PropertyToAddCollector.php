@@ -61,7 +61,7 @@ final class PropertyToAddCollector implements NodeCollectorInterface
     public function addPropertyToClass(
         Class_ $class,
         string $propertyName,
-        ?Type $propertyType,
+        Type $propertyType,
         int $propertyFlags
     ): void {
         $uniqueHash = spl_object_hash($class);

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\VendorLocker\NodeVendorLocker;
 
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
-use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\Node\Stmt\Property;
 use Rector\NodeTypeResolver\Node\AttributeKey;
@@ -38,7 +38,7 @@ final class PropertyTypeVendorLockResolver extends AbstractNodeVendorLockResolve
     /**
      * @param Class_|Interface_ $classLike
      */
-    private function isParentClassLocked(ClassLike $classLike, string $propertyName): bool
+    private function isParentClassLocked(Stmt $classLike, string $propertyName): bool
     {
         if (! $classLike instanceof Class_) {
             return false;
@@ -67,7 +67,7 @@ final class PropertyTypeVendorLockResolver extends AbstractNodeVendorLockResolve
     /**
      * @param Class_|Interface_ $classLike
      */
-    private function isChildClassLocked(Property $property, ClassLike $classLike, string $propertyName): bool
+    private function isChildClassLocked(Property $property, Stmt $classLike, string $propertyName): bool
     {
         if (! $classLike instanceof Class_) {
             return false;

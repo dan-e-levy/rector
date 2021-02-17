@@ -178,7 +178,7 @@ final class MultiPhpDocNodeFactory extends AbstractPhpDocNodeFactory implements 
     /**
      * @param ManyToOne|OneToMany|ManyToMany|OneToOne|Embedded $annotation
      */
-    private function resolveEntityClass(object $annotation, Node $node): string
+    private function resolveEntityClass(Annotation $annotation, Node $node): string
     {
         if ($annotation instanceof Embedded) {
             return $this->resolveFqnTargetEntity($annotation->class, $node);

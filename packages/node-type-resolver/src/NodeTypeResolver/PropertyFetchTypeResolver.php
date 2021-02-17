@@ -150,7 +150,7 @@ final class PropertyFetchTypeResolver implements NodeTypeResolverInterface
         return $scope->getType($node);
     }
 
-    private function getVendorPropertyFetchType(PropertyFetch $propertyFetch): Type
+    private function getVendorPropertyFetchType(Node $propertyFetch): Type
     {
         $varObjectType = $this->nodeTypeResolver->resolve($propertyFetch->var);
         if (! $varObjectType instanceof TypeWithClassName) {

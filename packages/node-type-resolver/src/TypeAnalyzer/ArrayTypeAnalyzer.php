@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\NodeTypeResolver\TypeAnalyzer;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticPropertyFetch;
@@ -51,7 +52,7 @@ final class ArrayTypeAnalyzer
         $this->nodeNameResolver = $nodeNameResolver;
     }
 
-    public function isArrayType(Node $node): bool
+    public function isArrayType(Expr $node): bool
     {
         $nodeStaticType = $this->nodeTypeResolver->resolve($node);
 

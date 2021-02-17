@@ -60,7 +60,7 @@ final class NodeUsageFinder
      * @param Node[] $nodes
      * @return Variable[]
      */
-    public function findVariableUsages(array $nodes, Variable $variable): array
+    public function findVariableUsages(array $nodes, Node $variable): array
     {
         $variableName = $this->nodeNameResolver->getName($variable);
 
@@ -80,7 +80,7 @@ final class NodeUsageFinder
     /**
      * @return PropertyFetch[]
      */
-    public function findPropertyFetchUsages(PropertyFetch $desiredPropertyFetch): array
+    public function findPropertyFetchUsages(Node $desiredPropertyFetch): array
     {
         $propertyFetches = $this->nodeRepository->findPropertyFetchesByPropertyFetch($desiredPropertyFetch);
 

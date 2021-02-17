@@ -43,7 +43,7 @@ final class NameTypeResolver implements NodeTypeResolverInterface
     /**
      * @return ObjectType|UnionType|MixedType
      */
-    private function resolveParent(Name $name): Type
+    private function resolveParent(Node $name): Type
     {
         /** @var string|null $parentClassName */
         $parentClassName = $name->getAttribute(AttributeKey::PARENT_CLASS_NAME);
@@ -63,7 +63,7 @@ final class NameTypeResolver implements NodeTypeResolverInterface
         return $type;
     }
 
-    private function resolveFullyQualifiedName(Name $name): string
+    private function resolveFullyQualifiedName(Node $name): string
     {
         $nameValue = $name->toString();
         if (in_array($nameValue, ['self', 'static', 'this'], true)) {
