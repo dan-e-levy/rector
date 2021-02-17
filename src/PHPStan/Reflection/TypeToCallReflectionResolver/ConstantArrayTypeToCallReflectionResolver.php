@@ -68,7 +68,7 @@ final class ConstantArrayTypeToCallReflectionResolver implements TypeToCallRefle
     /**
      * @see https://github.com/phpstan/phpstan-src/blob/b1fd47bda2a7a7d25091197b125c0adf82af6757/src/Type/Constant/ConstantArrayType.php#L209
      */
-    private function findTypeAndMethodName(ConstantArrayType $constantArrayType): ?ConstantArrayTypeAndMethod
+    private function findTypeAndMethodName(Type $constantArrayType): ?ConstantArrayTypeAndMethod
     {
         if (! $this->areKeyTypesValid($constantArrayType)) {
             return null;

@@ -6,14 +6,13 @@ namespace Rector\Core\Reflection;
 
 use PHPStan\Type\IntersectionType;
 use PHPStan\Type\ObjectType;
-use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
 use Rector\StaticTypeMapper\ValueObject\Type\ShortenedObjectType;
 use ReflectionMethod;
 
 final class ClassMethodReflectionFactory
 {
-    public function createFromPHPStanTypeAndMethodName(Type $type, string $methodName): ?ReflectionMethod
+    public function createFromPHPStanTypeAndMethodName(ObjectType $type, string $methodName): ?ReflectionMethod
     {
         if ($type instanceof ShortenedObjectType) {
             return $this->createReflectionMethodIfExists($type->getFullyQualifiedName(), $methodName);

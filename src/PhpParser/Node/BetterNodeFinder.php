@@ -358,7 +358,7 @@ final class BetterNodeFinder
      * @param class-string<T>[] $types
      * @return T|null
      */
-    public function findFirstPreviousOfTypes(Node $mainNode, array $types): ?Node
+    public function findFirstPreviousOfTypes(Assign $mainNode, array $types): ?Node
     {
         return $this->findFirstPrevious($mainNode, function (Node $node) use ($types): bool {
             return $this->typeChecker->isInstanceOf($node, $types);

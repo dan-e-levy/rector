@@ -374,7 +374,7 @@ abstract class AbstractTemporaryRector extends NodeVisitorAbstract implements Ph
     /**
      * @param ObjectType|string $type
      */
-    protected function isObjectType(Node $node, $type): bool
+    protected function isObjectType(Expr $node, string $type): bool
     {
         return $this->nodeTypeResolver->isObjectType($node, $type);
     }
@@ -429,7 +429,7 @@ abstract class AbstractTemporaryRector extends NodeVisitorAbstract implements Ph
      * @param Node|Node[]|null $firstNode
      * @param Node|Node[]|null $secondNode
      */
-    protected function areNodesEqual($firstNode, $secondNode): bool
+    protected function areNodesEqual($firstNode, Node $secondNode): bool
     {
         return $this->betterStandardPrinter->areNodesEqual($firstNode, $secondNode);
     }

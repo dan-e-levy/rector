@@ -134,7 +134,7 @@ final class PropertyManipulator
     /**
      * @param PropertyFetch|StaticPropertyFetch $node
      */
-    private function isChangeableContext(Node $node): bool
+    private function isChangeableContext(Expr $node): bool
     {
         $parent = $node->getAttribute(AttributeKey::PARENT_NODE);
         if (! $parent instanceof Node) {

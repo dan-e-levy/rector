@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Core\NodeManipulator;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
@@ -131,7 +132,7 @@ final class PropertyFetchManipulator
         return $this->nodeNameResolver->isNames($node->name, $propertyNames);
     }
 
-    public function isLocalPropertyFetch(Node $node): bool
+    public function isLocalPropertyFetch(Expr $node): bool
     {
         if (! $node instanceof PropertyFetch) {
             return false;

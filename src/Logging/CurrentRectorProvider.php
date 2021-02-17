@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Core\Logging;
 
 use Rector\Core\Contract\Rector\RectorInterface;
+use Rector\Core\Rector\AbstractTemporaryRector;
 
 final class CurrentRectorProvider
 {
@@ -13,7 +14,7 @@ final class CurrentRectorProvider
      */
     private $currentRector;
 
-    public function changeCurrentRector(RectorInterface $rector): void
+    public function changeCurrentRector(AbstractTemporaryRector $rector): void
     {
         $this->currentRector = $rector;
     }

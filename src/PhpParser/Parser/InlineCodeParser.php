@@ -6,6 +6,7 @@ namespace Rector\Core\PhpParser\Parser;
 
 use Nette\Utils\Strings;
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticPropertyFetch;
@@ -75,7 +76,7 @@ final class InlineCodeParser
     /**
      * @param string|Node $content
      */
-    public function stringify($content): string
+    public function stringify(Expr $content): string
     {
         if (is_string($content)) {
             return $content;

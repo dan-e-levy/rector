@@ -152,7 +152,7 @@ final class ValueResolver
         return $this->constFetchAnalyzer->isTrue($node);
     }
 
-    public function isNull(Node $node): bool
+    public function isNull(Expr $node): bool
     {
         return $this->constFetchAnalyzer->isNull($node);
     }

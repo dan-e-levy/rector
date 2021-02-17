@@ -47,7 +47,7 @@ final class ClassManipulator
      * @param Class_|Trait_ $classLike
      * @return Name[]
      */
-    public function getUsedTraits(ClassLike $classLike): array
+    public function getUsedTraits(Class_ $classLike): array
     {
         $usedTraits = [];
         foreach ($classLike->getTraitUses() as $traitUse) {

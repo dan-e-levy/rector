@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Core\PHPStan\Reflection;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\New_;
@@ -83,7 +84,7 @@ final class CallReflectionResolver
      * @param FuncCall|MethodCall|StaticCall $node
      * @return MethodReflection|FunctionReflection|null
      */
-    public function resolveCall(Node $node)
+    public function resolveCall(MethodCall $node)
     {
         if ($node instanceof FuncCall) {
             return $this->resolveFunctionCall($node);
@@ -96,7 +97,7 @@ final class CallReflectionResolver
      * @param FunctionReflection|MethodReflection|null $reflection
      * @param FuncCall|MethodCall|StaticCall|New_ $node
      */
-    public function resolveParametersAcceptor($reflection, Node $node): ?ParametersAcceptor
+    public function resolveParametersAcceptor($reflection, Expr $node): ?ParametersAcceptor
     {
         if ($reflection === null) {
             return null;
